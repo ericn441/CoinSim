@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BBB789412006D35F00EA6F54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789402006D35F00EA6F54 /* AppDelegate.swift */; };
+		BBB789432006D35F00EA6F54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789422006D35F00EA6F54 /* ViewController.swift */; };
+		BBB789462006D35F00EA6F54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB789442006D35F00EA6F54 /* Main.storyboard */; };
+		BBB789482006D35F00EA6F54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBB789472006D35F00EA6F54 /* Assets.xcassets */; };
+		BBB7894B2006D35F00EA6F54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB789492006D35F00EA6F54 /* LaunchScreen.storyboard */; };
+		BBB789562006D35F00EA6F54 /* CoinSimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789552006D35F00EA6F54 /* CoinSimTests.swift */; };
+		BBB789612006D35F00EA6F54 /* CoinSimUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789602006D35F00EA6F54 /* CoinSimUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BBB789522006D35F00EA6F54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BBB789352006D35F00EA6F54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BBB7893C2006D35F00EA6F54;
+			remoteInfo = CoinSim;
+		};
+		BBB7895D2006D35F00EA6F54 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BBB789352006D35F00EA6F54 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BBB7893C2006D35F00EA6F54;
+			remoteInfo = CoinSim;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BBB7893D2006D35F00EA6F54 /* CoinSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBB789402006D35F00EA6F54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BBB789422006D35F00EA6F54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BBB789452006D35F00EA6F54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BBB789472006D35F00EA6F54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BBB7894A2006D35F00EA6F54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BBB7894C2006D35F00EA6F54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBB789512006D35F00EA6F54 /* CoinSimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoinSimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBB789552006D35F00EA6F54 /* CoinSimTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinSimTests.swift; sourceTree = "<group>"; };
+		BBB789572006D35F00EA6F54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBB7895C2006D35F00EA6F54 /* CoinSimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoinSimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBB789602006D35F00EA6F54 /* CoinSimUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinSimUITests.swift; sourceTree = "<group>"; };
+		BBB789622006D35F00EA6F54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BBB7893A2006D35F00EA6F54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBB7894E2006D35F00EA6F54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBB789592006D35F00EA6F54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BBB789342006D35F00EA6F54 = {
+			isa = PBXGroup;
+			children = (
+				BBB7893F2006D35F00EA6F54 /* CoinSim */,
+				BBB789542006D35F00EA6F54 /* CoinSimTests */,
+				BBB7895F2006D35F00EA6F54 /* CoinSimUITests */,
+				BBB7893E2006D35F00EA6F54 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BBB7893E2006D35F00EA6F54 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BBB7893D2006D35F00EA6F54 /* CoinSim.app */,
+				BBB789512006D35F00EA6F54 /* CoinSimTests.xctest */,
+				BBB7895C2006D35F00EA6F54 /* CoinSimUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BBB7893F2006D35F00EA6F54 /* CoinSim */ = {
+			isa = PBXGroup;
+			children = (
+				BBB789402006D35F00EA6F54 /* AppDelegate.swift */,
+				BBB789422006D35F00EA6F54 /* ViewController.swift */,
+				BBB789442006D35F00EA6F54 /* Main.storyboard */,
+				BBB789472006D35F00EA6F54 /* Assets.xcassets */,
+				BBB789492006D35F00EA6F54 /* LaunchScreen.storyboard */,
+				BBB7894C2006D35F00EA6F54 /* Info.plist */,
+			);
+			path = CoinSim;
+			sourceTree = "<group>";
+		};
+		BBB789542006D35F00EA6F54 /* CoinSimTests */ = {
+			isa = PBXGroup;
+			children = (
+				BBB789552006D35F00EA6F54 /* CoinSimTests.swift */,
+				BBB789572006D35F00EA6F54 /* Info.plist */,
+			);
+			path = CoinSimTests;
+			sourceTree = "<group>";
+		};
+		BBB7895F2006D35F00EA6F54 /* CoinSimUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BBB789602006D35F00EA6F54 /* CoinSimUITests.swift */,
+				BBB789622006D35F00EA6F54 /* Info.plist */,
+			);
+			path = CoinSimUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BBB7893C2006D35F00EA6F54 /* CoinSim */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBB789652006D35F00EA6F54 /* Build configuration list for PBXNativeTarget "CoinSim" */;
+			buildPhases = (
+				BBB789392006D35F00EA6F54 /* Sources */,
+				BBB7893A2006D35F00EA6F54 /* Frameworks */,
+				BBB7893B2006D35F00EA6F54 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoinSim;
+			productName = CoinSim;
+			productReference = BBB7893D2006D35F00EA6F54 /* CoinSim.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BBB789502006D35F00EA6F54 /* CoinSimTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBB789682006D35F00EA6F54 /* Build configuration list for PBXNativeTarget "CoinSimTests" */;
+			buildPhases = (
+				BBB7894D2006D35F00EA6F54 /* Sources */,
+				BBB7894E2006D35F00EA6F54 /* Frameworks */,
+				BBB7894F2006D35F00EA6F54 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBB789532006D35F00EA6F54 /* PBXTargetDependency */,
+			);
+			name = CoinSimTests;
+			productName = CoinSimTests;
+			productReference = BBB789512006D35F00EA6F54 /* CoinSimTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BBB7895B2006D35F00EA6F54 /* CoinSimUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBB7896B2006D35F00EA6F54 /* Build configuration list for PBXNativeTarget "CoinSimUITests" */;
+			buildPhases = (
+				BBB789582006D35F00EA6F54 /* Sources */,
+				BBB789592006D35F00EA6F54 /* Frameworks */,
+				BBB7895A2006D35F00EA6F54 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBB7895E2006D35F00EA6F54 /* PBXTargetDependency */,
+			);
+			name = CoinSimUITests;
+			productName = CoinSimUITests;
+			productReference = BBB7895C2006D35F00EA6F54 /* CoinSimUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BBB789352006D35F00EA6F54 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Eric Ngo - 1";
+				TargetAttributes = {
+					BBB7893C2006D35F00EA6F54 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					BBB789502006D35F00EA6F54 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BBB7893C2006D35F00EA6F54;
+					};
+					BBB7895B2006D35F00EA6F54 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BBB7893C2006D35F00EA6F54;
+					};
+				};
+			};
+			buildConfigurationList = BBB789382006D35F00EA6F54 /* Build configuration list for PBXProject "CoinSim" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BBB789342006D35F00EA6F54;
+			productRefGroup = BBB7893E2006D35F00EA6F54 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BBB7893C2006D35F00EA6F54 /* CoinSim */,
+				BBB789502006D35F00EA6F54 /* CoinSimTests */,
+				BBB7895B2006D35F00EA6F54 /* CoinSimUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BBB7893B2006D35F00EA6F54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBB7894B2006D35F00EA6F54 /* LaunchScreen.storyboard in Resources */,
+				BBB789482006D35F00EA6F54 /* Assets.xcassets in Resources */,
+				BBB789462006D35F00EA6F54 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBB7894F2006D35F00EA6F54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBB7895A2006D35F00EA6F54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BBB789392006D35F00EA6F54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBB789432006D35F00EA6F54 /* ViewController.swift in Sources */,
+				BBB789412006D35F00EA6F54 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBB7894D2006D35F00EA6F54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBB789562006D35F00EA6F54 /* CoinSimTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBB789582006D35F00EA6F54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBB789612006D35F00EA6F54 /* CoinSimUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BBB789532006D35F00EA6F54 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BBB7893C2006D35F00EA6F54 /* CoinSim */;
+			targetProxy = BBB789522006D35F00EA6F54 /* PBXContainerItemProxy */;
+		};
+		BBB7895E2006D35F00EA6F54 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BBB7893C2006D35F00EA6F54 /* CoinSim */;
+			targetProxy = BBB7895D2006D35F00EA6F54 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BBB789442006D35F00EA6F54 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BBB789452006D35F00EA6F54 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BBB789492006D35F00EA6F54 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BBB7894A2006D35F00EA6F54 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BBB789632006D35F00EA6F54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BBB789642006D35F00EA6F54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BBB789662006D35F00EA6F54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3NWL2F32K6;
+				INFOPLIST_FILE = CoinSim/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coinsim.CoinSim;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BBB789672006D35F00EA6F54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3NWL2F32K6;
+				INFOPLIST_FILE = CoinSim/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coinsim.CoinSim;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BBB789692006D35F00EA6F54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3NWL2F32K6;
+				INFOPLIST_FILE = CoinSimTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coinsim.CoinSimTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoinSim.app/CoinSim";
+			};
+			name = Debug;
+		};
+		BBB7896A2006D35F00EA6F54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3NWL2F32K6;
+				INFOPLIST_FILE = CoinSimTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coinsim.CoinSimTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoinSim.app/CoinSim";
+			};
+			name = Release;
+		};
+		BBB7896C2006D35F00EA6F54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3NWL2F32K6;
+				INFOPLIST_FILE = CoinSimUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coinsim.CoinSimUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CoinSim;
+			};
+			name = Debug;
+		};
+		BBB7896D2006D35F00EA6F54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3NWL2F32K6;
+				INFOPLIST_FILE = CoinSimUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coinsim.CoinSimUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CoinSim;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BBB789382006D35F00EA6F54 /* Build configuration list for PBXProject "CoinSim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBB789632006D35F00EA6F54 /* Debug */,
+				BBB789642006D35F00EA6F54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBB789652006D35F00EA6F54 /* Build configuration list for PBXNativeTarget "CoinSim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBB789662006D35F00EA6F54 /* Debug */,
+				BBB789672006D35F00EA6F54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBB789682006D35F00EA6F54 /* Build configuration list for PBXNativeTarget "CoinSimTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBB789692006D35F00EA6F54 /* Debug */,
+				BBB7896A2006D35F00EA6F54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBB7896B2006D35F00EA6F54 /* Build configuration list for PBXNativeTarget "CoinSimUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBB7896C2006D35F00EA6F54 /* Debug */,
+				BBB7896D2006D35F00EA6F54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BBB789352006D35F00EA6F54 /* Project object */;
+}
