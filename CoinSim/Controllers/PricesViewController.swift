@@ -137,7 +137,31 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //Execute only if all coins have loaded
         if totalLoadedCoins == 10 {
             for (_, value) in coins {
-                renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "wallets-tab-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                
+                switch value.id {
+                    case "bitcoin":
+                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "bitcoin-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                    case "ethereum":
+                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "ethereum-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                    case "ripple":
+                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "ripple-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                    case "bitcoinCash":
+                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "bitcoinCash-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                    case "litecoin":
+                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "litecoin-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                    case "raiblocks":
+                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "raiblocks-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                    case "monero":
+                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "monero-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                    case "stellar":
+                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "stellar-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                    case "iota":
+                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "iota-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                    case "neo":
+                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "neo-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                    default:
+                        break
+                }
             }
             
             //Determine Price Change in USD
@@ -194,6 +218,10 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //Coin Price
         cell.coinPrice.text = formatCurrency(value: Double(renderableCoinsArray[indexPath.row].coinPrice)!)
         
+        //Coin Icon
+        cell.coinIcon.contentMode = .scaleAspectFit
+        cell.coinIcon.image = renderableCoinsArray[indexPath.row].coinIcon
+        
         //Coin Ticker
         cell.coinTicker.text = renderableCoinsArray[indexPath.row].coinTicker
         
@@ -210,6 +238,8 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //Market Cap
         cell.marketCap.text = "Total Market Cap - \(formatMarketCap(value: Double(renderableCoinsArray[indexPath.row].marketCap)!))"
+        
+        
         
         
         
