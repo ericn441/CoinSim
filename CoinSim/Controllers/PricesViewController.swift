@@ -14,6 +14,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK: - UI Componets
     @IBOutlet var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    var refreshCtrl: UIRefreshControl!
     
     //MARK: - Coin Data
     var coins: [String:CoinObject] = [:]
@@ -34,6 +35,12 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Pull To Refresh
+        self.refreshCtrl = UIRefreshControl()
+        self.refreshCtrl.addTarget(self, action: #selector(fetchAllCoinPrices), for: .valueChanged)
+        self.tableView.addSubview(refreshCtrl)
+        
+
         // Parallax Header
         tableView.parallaxHeader.view = headerView // You can set the parallax header view from the floating view
         tableView.parallaxHeader.height = 150
@@ -49,7 +56,16 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.parallaxHeader.minimumHeight = topLayoutGuide.length
     }
     //MARK: - Helper functions
-    func fetchAllCoinPrices() {
+    @objc func fetchAllCoinPrices() {
+        
+        //UIRefresh Delay
+        let triggerTime = (Int64(NSEC_PER_SEC) * 1)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(triggerTime) / Double(NSEC_PER_SEC), execute: { () -> Void in
+            self.refreshCtrl?.endRefreshing()
+        })
+        
+        //Clear Renderable Coins
+        renderableCoinsArray.removeAll()
         
         //Flip load flags
         for (key, _) in coinsLoaded {
@@ -123,9 +139,37 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             for (_, value) in coins {
                 renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "wallets-tab-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
             }
+            
+            //Determine Price Change in USD
+            var totalPriceChange = 0.0
+            for i in 0..<renderableCoinsArray.count {
+                if let priceChangePercentage = Double(renderableCoinsArray[i].priceChange) {
+                    if let totalPrice = Double(renderableCoinsArray[i].coinPrice) {
+                        totalPriceChange = (priceChangePercentage * 0.01) * totalPrice
+                        renderableCoinsArray[i].priceChange = "$\(String(totalPriceChange).setMinTailingDigits()) (\(priceChangePercentage)%)"
+                    }
+                }
+            }
+            
             self.tableView.reloadData()
         }
         
+    }
+    func formatCurrency(value: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.maximumFractionDigits = 2
+        formatter.locale = Locale(identifier: Locale.current.identifier)
+        let result = formatter.string(from: value as NSNumber)
+        return result!
+    }
+    func formatMarketCap(value: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.maximumFractionDigits = 0
+        formatter.locale = Locale(identifier: Locale.current.identifier)
+        let result = formatter.string(from: value as NSNumber)
+        return result!
     }
     
     //MARK: - UITableView Protocols
@@ -148,7 +192,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.coinName.text = renderableCoinsArray[indexPath.row].coinName
         
         //Coin Price
-        cell.coinPrice.text = "$" + renderableCoinsArray[indexPath.row].coinPrice
+        cell.coinPrice.text = formatCurrency(value: Double(renderableCoinsArray[indexPath.row].coinPrice)!)
         
         //Coin Ticker
         cell.coinTicker.text = renderableCoinsArray[indexPath.row].coinTicker
@@ -159,13 +203,15 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         } else {
             cell.priceChange.textColor = .green
         }
-        cell.priceChange.text = "(\(renderableCoinsArray[indexPath.row].priceChange!)%)"
+        cell.priceChange.text = renderableCoinsArray[indexPath.row].priceChange
         
         //Trade Volume
-        cell.tradeVolume.text = "24hr Trade Volume - $\(renderableCoinsArray[indexPath.row].tradeVolume!)"
+        cell.tradeVolume.text = "24hr Trade Volume - \(formatMarketCap(value: Double(renderableCoinsArray[indexPath.row].tradeVolume)!))"
         
         //Market Cap
-        cell.marketCap.text = "Total Market Cap - $\(renderableCoinsArray[indexPath.row].marketCap!)"
+        cell.marketCap.text = "Total Market Cap - \(formatMarketCap(value: Double(renderableCoinsArray[indexPath.row].marketCap)!))"
+        
+        
         
         return cell
     }
@@ -186,5 +232,13 @@ class PricesTableViewCell: UITableViewCell {
     @IBOutlet weak var tradeVolume: UILabel!
     @IBOutlet weak var marketCap: UILabel!
     @IBOutlet weak var cardView: UIView!
-    
+}
+
+//MARK: - App Extensions
+extension String {
+    func setMinTailingDigits() -> String {
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 2
+        return formatter.string(from: Double(self)! as NSNumber)!
+    }
 }
