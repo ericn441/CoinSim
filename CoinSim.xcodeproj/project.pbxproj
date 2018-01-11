@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6BF0414F6B9C94AEB1D938EE /* Pods_CoinSim.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25D5B21B214031D33C3679A /* Pods_CoinSim.framework */; };
+		BB24976A2006E38E00D17B94 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB24976B2006E38E00D17B94 /* SwiftyJSON.framework */; };
+		BB513D482006E0CB00F7A1D6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB513D472006E0CB00F7A1D6 /* DataManager.swift */; };
+		BB513D492006E12400F7A1D6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB513D4A2006E12400F7A1D6 /* Alamofire.framework */; };
 		BBB789412006D35F00EA6F54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789402006D35F00EA6F54 /* AppDelegate.swift */; };
-		BBB789432006D35F00EA6F54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789422006D35F00EA6F54 /* ViewController.swift */; };
 		BBB789462006D35F00EA6F54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB789442006D35F00EA6F54 /* Main.storyboard */; };
 		BBB789482006D35F00EA6F54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBB789472006D35F00EA6F54 /* Assets.xcassets */; };
 		BBB7894B2006D35F00EA6F54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB789492006D35F00EA6F54 /* LaunchScreen.storyboard */; };
 		BBB789562006D35F00EA6F54 /* CoinSimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789552006D35F00EA6F54 /* CoinSimTests.swift */; };
 		BBB789612006D35F00EA6F54 /* CoinSimUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789602006D35F00EA6F54 /* CoinSimUITests.swift */; };
+		BBB789702006DCB300EA6F54 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB7896F2006DCB300EA6F54 /* Default-568h@2x.png */; };
+		BBB789742006DE4300EA6F54 /* PricesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789732006DE4300EA6F54 /* PricesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1147115C75E208CF2C8C8CB8 /* Pods-CoinSim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinSim.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoinSim/Pods-CoinSim.debug.xcconfig"; sourceTree = "<group>"; };
+		A9B04D1119000A0CAB91D7B6 /* Pods-CoinSim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinSim.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoinSim/Pods-CoinSim.release.xcconfig"; sourceTree = "<group>"; };
+		B25D5B21B214031D33C3679A /* Pods_CoinSim.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinSim.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB24976B2006E38E00D17B94 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB513D472006E0CB00F7A1D6 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		BB513D4A2006E12400F7A1D6 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB7893D2006D35F00EA6F54 /* CoinSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB789402006D35F00EA6F54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BBB789422006D35F00EA6F54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BBB789452006D35F00EA6F54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BBB789472006D35F00EA6F54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBB7894A2006D35F00EA6F54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +57,8 @@
 		BBB7895C2006D35F00EA6F54 /* CoinSimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoinSimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB789602006D35F00EA6F54 /* CoinSimUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinSimUITests.swift; sourceTree = "<group>"; };
 		BBB789622006D35F00EA6F54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBB7896F2006DCB300EA6F54 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BBB789732006DE4300EA6F54 /* PricesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB24976A2006E38E00D17B94 /* SwiftyJSON.framework in Frameworks */,
+				BB513D492006E12400F7A1D6 /* Alamofire.framework in Frameworks */,
+				6BF0414F6B9C94AEB1D938EE /* Pods_CoinSim.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,13 +89,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7077DEA71147ADAFE6EEA0C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BB24976B2006E38E00D17B94 /* SwiftyJSON.framework */,
+				BB513D4A2006E12400F7A1D6 /* Alamofire.framework */,
+				B25D5B21B214031D33C3679A /* Pods_CoinSim.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BB513D452006E09000F7A1D6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BB513D462006E09900F7A1D6 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				BB513D472006E0CB00F7A1D6 /* DataManager.swift */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
 		BBB789342006D35F00EA6F54 = {
 			isa = PBXGroup;
 			children = (
+				BBB7896F2006DCB300EA6F54 /* Default-568h@2x.png */,
 				BBB7893F2006D35F00EA6F54 /* CoinSim */,
 				BBB789542006D35F00EA6F54 /* CoinSimTests */,
 				BBB7895F2006D35F00EA6F54 /* CoinSimUITests */,
 				BBB7893E2006D35F00EA6F54 /* Products */,
+				C66D473ED9EAF705FCAD1638 /* Pods */,
+				7077DEA71147ADAFE6EEA0C9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +140,11 @@
 		BBB7893F2006D35F00EA6F54 /* CoinSim */ = {
 			isa = PBXGroup;
 			children = (
-				BBB789402006D35F00EA6F54 /* AppDelegate.swift */,
-				BBB789422006D35F00EA6F54 /* ViewController.swift */,
-				BBB789442006D35F00EA6F54 /* Main.storyboard */,
-				BBB789472006D35F00EA6F54 /* Assets.xcassets */,
-				BBB789492006D35F00EA6F54 /* LaunchScreen.storyboard */,
-				BBB7894C2006D35F00EA6F54 /* Info.plist */,
+				BBB789712006DE0600EA6F54 /* Storyboards */,
+				BB513D462006E09900F7A1D6 /* Server */,
+				BB513D452006E09000F7A1D6 /* Model */,
+				BBB789722006DE2800EA6F54 /* Controllers */,
+				BBB7896E2006D36D00EA6F54 /* Support */,
 			);
 			path = CoinSim;
 			sourceTree = "<group>";
@@ -125,6 +167,42 @@
 			path = CoinSimUITests;
 			sourceTree = "<group>";
 		};
+		BBB7896E2006D36D00EA6F54 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				BBB789402006D35F00EA6F54 /* AppDelegate.swift */,
+				BBB789472006D35F00EA6F54 /* Assets.xcassets */,
+				BBB789492006D35F00EA6F54 /* LaunchScreen.storyboard */,
+				BBB7894C2006D35F00EA6F54 /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		BBB789712006DE0600EA6F54 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				BBB789442006D35F00EA6F54 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		BBB789722006DE2800EA6F54 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BBB789732006DE4300EA6F54 /* PricesViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C66D473ED9EAF705FCAD1638 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1147115C75E208CF2C8C8CB8 /* Pods-CoinSim.debug.xcconfig */,
+				A9B04D1119000A0CAB91D7B6 /* Pods-CoinSim.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +210,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BBB789652006D35F00EA6F54 /* Build configuration list for PBXNativeTarget "CoinSim" */;
 			buildPhases = (
+				153CD91C4692FFB1E449D6F8 /* [CP] Check Pods Manifest.lock */,
 				BBB789392006D35F00EA6F54 /* Sources */,
 				BBB7893A2006D35F00EA6F54 /* Frameworks */,
 				BBB7893B2006D35F00EA6F54 /* Resources */,
+				B8DF0FE76ADC31D7D676B07A /* [CP] Embed Pods Frameworks */,
+				93B43A9B809FF54FE4CAB6B8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBB7894B2006D35F00EA6F54 /* LaunchScreen.storyboard in Resources */,
+				BBB789702006DCB300EA6F54 /* Default-568h@2x.png in Resources */,
 				BBB789482006D35F00EA6F54 /* Assets.xcassets in Resources */,
 				BBB789462006D35F00EA6F54 /* Main.storyboard in Resources */,
 			);
@@ -254,12 +336,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		153CD91C4692FFB1E449D6F8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoinSim-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		93B43A9B809FF54FE4CAB6B8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoinSim/Pods-CoinSim-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8DF0FE76ADC31D7D676B07A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CoinSim/Pods-CoinSim-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoinSim/Pods-CoinSim-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BBB789392006D35F00EA6F54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBB789432006D35F00EA6F54 /* ViewController.swift in Sources */,
+				BBB789742006DE4300EA6F54 /* PricesViewController.swift in Sources */,
+				BB513D482006E0CB00F7A1D6 /* DataManager.swift in Sources */,
 				BBB789412006D35F00EA6F54 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,31 +563,35 @@
 		};
 		BBB789662006D35F00EA6F54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1147115C75E208CF2C8C8CB8 /* Pods-CoinSim.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3NWL2F32K6;
-				INFOPLIST_FILE = CoinSim/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CoinSim/Support/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.coinsim.CoinSim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		BBB789672006D35F00EA6F54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9B04D1119000A0CAB91D7B6 /* Pods-CoinSim.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3NWL2F32K6;
-				INFOPLIST_FILE = CoinSim/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CoinSim/Support/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.coinsim.CoinSim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
