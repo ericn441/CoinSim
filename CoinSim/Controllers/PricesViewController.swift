@@ -13,13 +13,18 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //MARK: - UI Componets
     @IBOutlet var headerView: UIView!
+    @IBOutlet var walletValue: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var refreshCtrl: UIRefreshControl!
     
     //MARK: - Coin Data
     var coins: [String:CoinObject] = [:]
     var coinsLoaded: [String:Bool] = ["bitcoin":false, "ethereum":false, "ripple":false, "bitcoinCash":false, "litecoin":false, "raiblocks": false, "monero":false, "stellar":false, "iota":false, "neo":false]
- 
+
+    //MARK: - Historical Data
+    var selectedCoinData: CoinObject = CoinObject(id: "", name: "", symbol: "", priceUSD: "", volume: "", marketCap: "", priceChange: "")
+    var selectedCoinPriceHistory: [CoinHistory] = []
+    
     //MARK: - TableView Coin Representation
     struct RenderableCoin {
         var coinName: String!
@@ -32,6 +37,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     var renderableCoinsArray: [RenderableCoin] = []
     
+    //MARK: - ViewController Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,6 +61,19 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         tableView.parallaxHeader.minimumHeight = topLayoutGuide.length
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Hide the navigation bar on the this view controller
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Show the navigation bar on other view controllers
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     //MARK: - Helper functions
     @objc func fetchAllCoinPrices() {
         
@@ -145,7 +164,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "ethereum-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
                     case "ripple":
                         renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "ripple-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
-                    case "bitcoinCash":
+                    case "bitcoin-cash":
                         renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "bitcoinCash-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
                     case "litecoin":
                         renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "litecoin-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
@@ -164,20 +183,21 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             }
             
-            //Determine Price Change in USD
-            var totalPriceChange = 0.0
-            for i in 0..<renderableCoinsArray.count {
-                if let priceChangePercentage = Double(renderableCoinsArray[i].priceChange) {
-                    if let totalPrice = Double(renderableCoinsArray[i].coinPrice) {
-                        totalPriceChange = (priceChangePercentage * 0.01) * totalPrice
-                        renderableCoinsArray[i].priceChange = "$\(String(totalPriceChange).setMinTailingDigits()) (\(priceChangePercentage)%)"
-                    }
-                }
-            }
-            
+            self.determinePriceChange()
             self.tableView.reloadData()
         }
         
+    }
+    func determinePriceChange() {
+        var totalPriceChange = 0.0
+        for i in 0..<renderableCoinsArray.count {
+            if let priceChangePercentage = Double(renderableCoinsArray[i].priceChange) {
+                if let totalPrice = Double(renderableCoinsArray[i].coinPrice) {
+                    totalPriceChange = (priceChangePercentage * 0.01) * totalPrice
+                    renderableCoinsArray[i].priceChange = "$\(String(totalPriceChange).setMinTailingDigits()) (\(priceChangePercentage)%)"
+                }
+            }
+        }
     }
     func formatCurrency(value: Double) -> String {
         let formatter = NumberFormatter()
@@ -229,7 +249,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if renderableCoinsArray[indexPath.row].priceChange.contains("-") {
             cell.priceChange.textColor = .red
         } else {
-            cell.priceChange.textColor = .green
+            cell.priceChange.textColor = UIColor(red: 0/255, green: 143/255, blue: 0/255, alpha: 1.0)
         }
         cell.priceChange.text = renderableCoinsArray[indexPath.row].priceChange
         
@@ -239,17 +259,40 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //Market Cap
         cell.marketCap.text = "Total Market Cap - \(formatMarketCap(value: Double(renderableCoinsArray[indexPath.row].marketCap)!))"
         
-        
-        
-        
-        
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        
+        DataManager.getHistoricalPrice(renderableCoinsArray[indexPath.row].coinTicker) { (JSON) in
+            
+            //Append Selected Coin Data
+            self.selectedCoinData.id = self.renderableCoinsArray[indexPath.row].coinName.lowercased()
+            self.selectedCoinData.name = self.renderableCoinsArray[indexPath.row].coinName
+            self.selectedCoinData.symbol = self.renderableCoinsArray[indexPath.row].coinTicker
+            self.selectedCoinData.priceUSD = self.renderableCoinsArray[indexPath.row].coinPrice
+            self.selectedCoinData.volume = self.renderableCoinsArray[indexPath.row].tradeVolume
+            self.selectedCoinData.marketCap = self.renderableCoinsArray[indexPath.row].marketCap
+            self.selectedCoinData.priceChange = self.renderableCoinsArray[indexPath.row].priceChange
+            
+            //Append Selected Coin History
+            self.selectedCoinPriceHistory = PriceModel().parseHistoricalData(json: JSON, ticker: self.renderableCoinsArray[indexPath.row].coinTicker.uppercased(), name: self.renderableCoinsArray[indexPath.row].coinName)
+            
+            //Perform Segue
+            self.performSegue(withIdentifier: "priceToTrade", sender: nil)
+        }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 160
+    }
+    
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "priceToTrade" {
+            let destinationVC = segue.destination as! TradeViewController
+            destinationVC.coinHistory = selectedCoinPriceHistory
+            destinationVC.coinData = selectedCoinData
+        }
     }
 }
 

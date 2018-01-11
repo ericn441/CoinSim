@@ -30,6 +30,22 @@ class CoinObject {
     }
 }
 
+class CoinHistory {
+    var ticker: String
+    var name: String
+    var time: Int
+    var readableTime: String
+    var closePrice: Int
+    
+    init(ticker: String, name: String, time: Int, readableTime: String, closePrice: Int) {
+        self.ticker = ticker
+        self.name = name
+        self.time = time
+        self.readableTime = readableTime
+        self.closePrice = closePrice
+    }
+}
+
 class PriceModel {
     func parseCoinData(json: JSON) -> CoinObject {
         var coinObject: CoinObject?
@@ -39,6 +55,14 @@ class PriceModel {
         }
         
         return coinObject!
+    }
+    func parseHistoricalData(json: JSON, ticker: String, name: String) -> [CoinHistory] {
+        var coinHistory: [CoinHistory] = []
+        
+        for results in json["Data"].arrayValue {
+            coinHistory.append(CoinHistory(ticker: ticker, name: name, time: results["time"].intValue, readableTime: "", closePrice: results["close"].intValue))
+        }
+        return coinHistory
     }
     
 }

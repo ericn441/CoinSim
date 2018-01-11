@@ -13,6 +13,8 @@
 		BB24977120070CDD00D17B94 /* PriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24977020070CDD00D17B94 /* PriceModel.swift */; };
 		BB513D482006E0CB00F7A1D6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB513D472006E0CB00F7A1D6 /* DataManager.swift */; };
 		BB513D492006E12400F7A1D6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB513D4A2006E12400F7A1D6 /* Alamofire.framework */; };
+		BBA05B302007DE390021BDA3 /* TradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA05B2F2007DE390021BDA3 /* TradeViewController.swift */; };
+		BBB0BA5B20082146008E6607 /* ScrollableGraphView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBB0BA5C20082146008E6607 /* ScrollableGraphView.framework */; };
 		BBB789412006D35F00EA6F54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789402006D35F00EA6F54 /* AppDelegate.swift */; };
 		BBB789462006D35F00EA6F54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB789442006D35F00EA6F54 /* Main.storyboard */; };
 		BBB789482006D35F00EA6F54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBB789472006D35F00EA6F54 /* Assets.xcassets */; };
@@ -49,6 +51,8 @@
 		BB24977020070CDD00D17B94 /* PriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceModel.swift; sourceTree = "<group>"; };
 		BB513D472006E0CB00F7A1D6 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BB513D4A2006E12400F7A1D6 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBA05B2F2007DE390021BDA3 /* TradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeViewController.swift; sourceTree = "<group>"; };
+		BBB0BA5C20082146008E6607 /* ScrollableGraphView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ScrollableGraphView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB7893D2006D35F00EA6F54 /* CoinSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB789402006D35F00EA6F54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBB789452006D35F00EA6F54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBB0BA5B20082146008E6607 /* ScrollableGraphView.framework in Frameworks */,
 				BB24976E2006FA6200D17B94 /* MXParallaxHeader.framework in Frameworks */,
 				BB24976A2006E38E00D17B94 /* SwiftyJSON.framework in Frameworks */,
 				BB513D492006E12400F7A1D6 /* Alamofire.framework in Frameworks */,
@@ -96,6 +101,7 @@
 		7077DEA71147ADAFE6EEA0C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BBB0BA5C20082146008E6607 /* ScrollableGraphView.framework */,
 				BB24976F2006FA6200D17B94 /* MXParallaxHeader.framework */,
 				BB24976D2006F55600D17B94 /* CSStickyHeaderFlowLayout.framework */,
 				BB24976B2006E38E00D17B94 /* SwiftyJSON.framework */,
@@ -196,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				BBB789732006DE4300EA6F54 /* PricesViewController.swift */,
+				BBA05B2F2007DE390021BDA3 /* TradeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -384,12 +391,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-CoinSim/Pods-CoinSim-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework",
+				"${BUILT_PRODUCTS_DIR}/ScrollableGraphView/ScrollableGraphView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXParallaxHeader.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollableGraphView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +416,7 @@
 				BBB789742006DE4300EA6F54 /* PricesViewController.swift in Sources */,
 				BB513D482006E0CB00F7A1D6 /* DataManager.swift in Sources */,
 				BBB789412006D35F00EA6F54 /* AppDelegate.swift in Sources */,
+				BBA05B302007DE390021BDA3 /* TradeViewController.swift in Sources */,
 				BB24977120070CDD00D17B94 /* PriceModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

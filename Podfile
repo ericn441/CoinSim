@@ -3,4 +3,5 @@ target 'CoinSim' do
     pod 'Alamofire'
     pod 'SwiftyJSON'
     pod 'MXParallaxHeader'
+    pod 'ScrollableGraphView'
 end

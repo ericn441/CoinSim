@@ -36,9 +36,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJf-lC-5bY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="214" y="1066"/>
+            <point key="canvasLocation" x="214" y="1075"/>
         </scene>
-        <!--Prices-->
+        <!--Prices View Controller-->
         <scene sceneID="CKw-6U-xqf">
             <objects>
                 <viewController id="iaN-hS-gfw" customClass="PricesViewController" customModule="CoinSim" customModuleProvider="target" sceneMemberID="viewController">
@@ -82,7 +82,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="og9-X1-4xn">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="og9-X1-4xn">
                                                             <rect key="frame" x="8" y="46" width="25" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="25" id="kt0-JC-8j9"/>
@@ -101,8 +101,8 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+$149.48 (1.05%) " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XA-0m-4BO">
                                                             <rect key="frame" x="158" y="39" width="180" height="32"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                            <color key="textColor" red="0.0" green="0.5607843137254902" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24hr Trade Volume - $18,013,900,000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nur-fi-z2a">
@@ -170,10 +170,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Ttw-hB-i71"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Prices" image="prices-tab-icon" id="4ew-3s-3qk"/>
+                    <navigationItem key="navigationItem" id="5Co-oP-oZm"/>
                     <connections>
                         <outlet property="headerView" destination="rN0-Bq-l79" id="CTn-NG-SjA"/>
                         <outlet property="tableView" destination="ecc-oA-53P" id="BED-Wu-G9i"/>
+                        <outlet property="walletValue" destination="zCJ-2V-bbE" id="cI1-Pg-LgD"/>
+                        <segue destination="EY6-PN-CZo" kind="show" identifier="priceToTrade" id="BR0-yK-OzT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rl6-BO-NeN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -207,7 +209,57 @@
                     <viewLayoutGuide key="safeArea" id="iwx-Zg-f5W"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-842.39999999999998" y="1065.5172413793105"/>
+            <point key="canvasLocation" x="-924" y="1960"/>
+        </scene>
+        <!--Trade View Controller-->
+        <scene sceneID="4Yv-uX-zHM">
+            <objects>
+                <viewController id="EY6-PN-CZo" customClass="TradeViewController" customModule="CoinSim" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zg7-Ye-zmk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$15,432.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dha-rv-9Ux">
+                                <rect key="frame" x="16" y="85" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                <color key="textColor" red="0.23137254900000001" green="0.3294117647" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4I-d2-AO4">
+                                <rect key="frame" x="16" y="501" width="170" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Buy"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxD-sj-edQ">
+                                <rect key="frame" x="194" y="501" width="165" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sell"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c90-IO-h7c">
+                                <rect key="frame" x="16" y="160" width="343" height="332"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-$1,873.34 (21.76%) this week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJw-nd-8wz">
+                                <rect key="frame" x="16" y="122" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="DVe-sQ-Y6A"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9PH-bn-CjB"/>
+                    <connections>
+                        <outlet property="coinPrice" destination="Dha-rv-9Ux" id="NZq-CO-Kft"/>
+                        <outlet property="coinPriceChange" destination="mJw-nd-8wz" id="L9Z-cH-CVe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Wl-Lj-SKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-924" y="2658.6206896551726"/>
         </scene>
         <!--Settings-->
         <scene sceneID="2CN-Ia-6Ge">
@@ -223,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="06F-tW-jP6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1183" y="1075"/>
+            <point key="canvasLocation" x="1520.8" y="1074.5127436281859"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="YSf-aS-iKk">
@@ -235,7 +287,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="iaN-hS-gfw" kind="relationship" relationship="viewControllers" id="hSy-yX-3j2"/>
+                        <segue destination="hNc-dH-6jV" kind="relationship" relationship="viewControllers" id="hSy-yX-3j2"/>
                         <segue destination="a4c-7F-R6V" kind="relationship" relationship="viewControllers" id="6S5-HT-RXj"/>
                         <segue destination="fx2-tF-bkA" kind="relationship" relationship="viewControllers" id="oIn-HB-me2"/>
                     </connections>
@@ -244,9 +296,27 @@
             </objects>
             <point key="canvasLocation" x="215" y="149"/>
         </scene>
+        <!--Prices-->
+        <scene sceneID="0AN-kH-IVA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hNc-dH-6jV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Prices" image="prices-tab-icon" id="4ew-3s-3qk"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ljk-Eh-jKH">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="iaN-hS-gfw" kind="relationship" relationship="rootViewController" id="El8-Ub-CCp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kco-c2-JNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-924" y="1066"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="Default.png" width="320" height="568"/>
         <image name="prices-tab-icon" width="21" height="18"/>
         <image name="settings-tab-icon" width="21" height="21"/>
         <image name="wallets-tab-icon" width="21" height="23"/>

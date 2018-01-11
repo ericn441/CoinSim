@@ -1,18 +1,21 @@
 PODS:
   - Alamofire (4.5.1)
   - MXParallaxHeader (0.6.1)
+  - ScrollableGraphView (4.0.4)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - MXParallaxHeader
+  - ScrollableGraphView
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
+  ScrollableGraphView: 072ea302f4ca27779692656a49d51fe537b2b1e7
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 15f675a3d6e3d046fd539e1dad9a2df71cc6dd0c
+PODFILE CHECKSUM: 824df48b96386bd4b90d0ce5a0fa241c9cd87494
 
 COCOAPODS: 1.4.0.beta.1
