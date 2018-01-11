@@ -10,6 +10,7 @@
 		6BF0414F6B9C94AEB1D938EE /* Pods_CoinSim.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25D5B21B214031D33C3679A /* Pods_CoinSim.framework */; };
 		BB24976A2006E38E00D17B94 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB24976B2006E38E00D17B94 /* SwiftyJSON.framework */; };
 		BB24976E2006FA6200D17B94 /* MXParallaxHeader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB24976F2006FA6200D17B94 /* MXParallaxHeader.framework */; };
+		BB24977120070CDD00D17B94 /* PriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24977020070CDD00D17B94 /* PriceModel.swift */; };
 		BB513D482006E0CB00F7A1D6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB513D472006E0CB00F7A1D6 /* DataManager.swift */; };
 		BB513D492006E12400F7A1D6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB513D4A2006E12400F7A1D6 /* Alamofire.framework */; };
 		BBB789412006D35F00EA6F54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789402006D35F00EA6F54 /* AppDelegate.swift */; };
@@ -18,7 +19,6 @@
 		BBB7894B2006D35F00EA6F54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB789492006D35F00EA6F54 /* LaunchScreen.storyboard */; };
 		BBB789562006D35F00EA6F54 /* CoinSimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789552006D35F00EA6F54 /* CoinSimTests.swift */; };
 		BBB789612006D35F00EA6F54 /* CoinSimUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789602006D35F00EA6F54 /* CoinSimUITests.swift */; };
-		BBB789702006DCB300EA6F54 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB7896F2006DCB300EA6F54 /* Default-568h@2x.png */; };
 		BBB789742006DE4300EA6F54 /* PricesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789732006DE4300EA6F54 /* PricesViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +46,7 @@
 		BB24976B2006E38E00D17B94 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB24976D2006F55600D17B94 /* CSStickyHeaderFlowLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CSStickyHeaderFlowLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB24976F2006FA6200D17B94 /* MXParallaxHeader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MXParallaxHeader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB24977020070CDD00D17B94 /* PriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceModel.swift; sourceTree = "<group>"; };
 		BB513D472006E0CB00F7A1D6 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BB513D4A2006E12400F7A1D6 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB7893D2006D35F00EA6F54 /* CoinSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,7 +61,6 @@
 		BBB7895C2006D35F00EA6F54 /* CoinSimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoinSimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB789602006D35F00EA6F54 /* CoinSimUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinSimUITests.swift; sourceTree = "<group>"; };
 		BBB789622006D35F00EA6F54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BBB7896F2006DCB300EA6F54 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BBB789732006DE4300EA6F54 /* PricesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +108,7 @@
 		BB513D452006E09000F7A1D6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BB24977020070CDD00D17B94 /* PriceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -123,7 +124,6 @@
 		BBB789342006D35F00EA6F54 = {
 			isa = PBXGroup;
 			children = (
-				BBB7896F2006DCB300EA6F54 /* Default-568h@2x.png */,
 				BBB7893F2006D35F00EA6F54 /* CoinSim */,
 				BBB789542006D35F00EA6F54 /* CoinSimTests */,
 				BBB7895F2006D35F00EA6F54 /* CoinSimUITests */,
@@ -320,7 +320,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBB7894B2006D35F00EA6F54 /* LaunchScreen.storyboard in Resources */,
-				BBB789702006DCB300EA6F54 /* Default-568h@2x.png in Resources */,
 				BBB789482006D35F00EA6F54 /* Assets.xcassets in Resources */,
 				BBB789462006D35F00EA6F54 /* Main.storyboard in Resources */,
 			);
@@ -408,6 +407,7 @@
 				BBB789742006DE4300EA6F54 /* PricesViewController.swift in Sources */,
 				BB513D482006E0CB00F7A1D6 /* DataManager.swift in Sources */,
 				BBB789412006D35F00EA6F54 /* AppDelegate.swift in Sources */,
+				BB24977120070CDD00D17B94 /* PriceModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

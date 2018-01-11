@@ -12,7 +12,7 @@ import SwiftyJSON
 
 struct DataManager {
     
-    fileprivate static let baseURL = "https://api.coinmarketcap.com/"
+    fileprivate static let baseURL = "https://api.coinmarketcap.com"
     
     fileprivate enum ResourcePath: CustomStringConvertible {
         
@@ -29,36 +29,24 @@ struct DataManager {
         
         var description: String {
             switch self {
-                case .getBitcoinPrice:          return "/v1.0/ticker/bitcoin"
-                case .getEthereumPrice:         return "/v1.0/ticker/ethereum"
-                case .getRipplePrice:           return "/v1.0/ticker/ripple"
-                case .getBitcoinCashPrice:      return "/v1.0/ticker/bitcoin-cash"
-                case .getLitecoinPrice:         return "/v1.0/ticker/litecoin"
-                case .getRaiBlocksPrice:        return "/v1.0/ticker/raiblocks"
-                case .getMoneroPrice:           return "/v1.0/ticker/monero"
-                case .getStellarPrice:          return "/v1.0/ticker/stellar"
-                case .getIOTAPrice:             return "/v1.0/ticker/iota"
-                case .getNEOPrice:              return "/v1.0/ticker/neo"
+                case .getBitcoinPrice:          return "/v1/ticker/bitcoin"
+                case .getEthereumPrice:         return "/v1/ticker/ethereum"
+                case .getRipplePrice:           return "/v1/ticker/ripple"
+                case .getBitcoinCashPrice:      return "/v1/ticker/bitcoin-cash"
+                case .getLitecoinPrice:         return "/v1/ticker/litecoin"
+                case .getRaiBlocksPrice:        return "/v1/ticker/raiblocks"
+                case .getMoneroPrice:           return "/v1/ticker/monero"
+                case .getStellarPrice:          return "/v1/ticker/stellar"
+                case .getIOTAPrice:             return "/v1/ticker/iota"
+                case .getNEOPrice:              return "/v1/ticker/neo"
             }
         }
     }
     
-    static func getAllCoinPrices(_ completionHandler: @escaping (JSON) -> ()) {
-        
-        //Coin URLS
-        let btcURL = baseURL + ResourcePath.getBitcoinPrice.description
-        let ethURL = baseURL + ResourcePath.getEthereumPrice.description
-        let xrpURL = baseURL + ResourcePath.getRipplePrice.description
-        let bccURL = baseURL + ResourcePath.getBitcoinCashPrice.description
-        let ltcURL = baseURL + ResourcePath.getLitecoinPrice.description
-        let xrbURL = baseURL + ResourcePath.getRaiBlocksPrice.description
-        let xmrURL = baseURL + ResourcePath.getMoneroPrice.description
-        let xlmURL = baseURL + ResourcePath.getStellarPrice.description
-        let iotamURL = baseURL + ResourcePath.getIOTAPrice.description
-        let neoURL = baseURL + ResourcePath.getNEOPrice.description
-        
+    static func getBitcoinPrice(_ completionHandler: @escaping (JSON) -> ()) {
         let parameters: Parameters = [:]
-        
+        let btcURL = baseURL + ResourcePath.getBitcoinPrice.description
+
         //Bitcoin
         Alamofire.request(btcURL, method: .get, parameters: parameters).responseJSON{ response in
             guard response.result.error == nil else {
@@ -72,7 +60,11 @@ struct DataManager {
                 completionHandler(data)
             }
         }
-        
+    }
+    static func getEthereumPrice(_ completionHandler: @escaping (JSON) -> ()) {
+        let parameters: Parameters = [:]
+        let ethURL = baseURL + ResourcePath.getEthereumPrice.description
+
         //Ethereum
         Alamofire.request(ethURL, method: .get, parameters: parameters).responseJSON{ response in
             guard response.result.error == nil else {
@@ -86,7 +78,11 @@ struct DataManager {
                 completionHandler(data)
             }
         }
-        
+    }
+    static func getRipplePrice(_ completionHandler: @escaping (JSON) -> ()) {
+        let parameters: Parameters = [:]
+        let xrpURL = baseURL + ResourcePath.getRipplePrice.description
+
         //Ripple
         Alamofire.request(xrpURL, method: .get, parameters: parameters).responseJSON{ response in
             guard response.result.error == nil else {
@@ -101,6 +97,11 @@ struct DataManager {
             }
         }
         
+    }
+    static func getBitcoinCashPrice(_ completionHandler: @escaping (JSON) -> ()) {
+        let parameters: Parameters = [:]
+        let bccURL = baseURL + ResourcePath.getBitcoinCashPrice.description
+
         //Bitcoin Cash
         Alamofire.request(bccURL, method: .get, parameters: parameters).responseJSON{ response in
             guard response.result.error == nil else {
@@ -114,7 +115,11 @@ struct DataManager {
                 completionHandler(data)
             }
         }
-        
+    }
+    static func getLitecoinPrice(_ completionHandler: @escaping (JSON) -> ()) {
+        let parameters: Parameters = [:]
+        let ltcURL = baseURL + ResourcePath.getLitecoinPrice.description
+
         //Litecoin
         Alamofire.request(ltcURL, method: .get, parameters: parameters).responseJSON{ response in
             guard response.result.error == nil else {
@@ -128,6 +133,10 @@ struct DataManager {
                 completionHandler(data)
             }
         }
+    }
+    static func getRaiBlocksPrice(_ completionHandler: @escaping (JSON) -> ()) {
+        let parameters: Parameters = [:]
+        let xrbURL = baseURL + ResourcePath.getRaiBlocksPrice.description
         
         //RaiBlocks
         Alamofire.request(xrbURL, method: .get, parameters: parameters).responseJSON{ response in
@@ -142,7 +151,11 @@ struct DataManager {
                 completionHandler(data)
             }
         }
-        
+    }
+    static func getMoneroPrice(_ completionHandler: @escaping (JSON) -> ()) {
+        let parameters: Parameters = [:]
+        let xmrURL = baseURL + ResourcePath.getMoneroPrice.description
+
         //Monero
         Alamofire.request(xmrURL, method: .get, parameters: parameters).responseJSON{ response in
             guard response.result.error == nil else {
@@ -156,7 +169,11 @@ struct DataManager {
                 completionHandler(data)
             }
         }
-        
+    }
+    static func getStellarPrice(_ completionHandler: @escaping (JSON) -> ()) {
+        let parameters: Parameters = [:]
+        let xlmURL = baseURL + ResourcePath.getStellarPrice.description
+
         //Stellar
         Alamofire.request(xlmURL, method: .get, parameters: parameters).responseJSON{ response in
             guard response.result.error == nil else {
@@ -171,6 +188,11 @@ struct DataManager {
             }
         }
         
+    }
+    static func getIotaPrice(_ completionHandler: @escaping (JSON) -> ()) {
+        let parameters: Parameters = [:]
+        let iotamURL = baseURL + ResourcePath.getIOTAPrice.description
+
         //IOTA
         Alamofire.request(iotamURL, method: .get, parameters: parameters).responseJSON{ response in
             guard response.result.error == nil else {
@@ -184,7 +206,11 @@ struct DataManager {
                 completionHandler(data)
             }
         }
-        
+    }
+    static func getNeoPrice(_ completionHandler: @escaping (JSON) -> ()) {
+        let parameters: Parameters = [:]
+        let neoURL = baseURL + ResourcePath.getNEOPrice.description
+
         //NEO
         Alamofire.request(neoURL, method: .get, parameters: parameters).responseJSON{ response in
             guard response.result.error == nil else {
@@ -199,6 +225,5 @@ struct DataManager {
             }
         }
     }
-    
     
 }

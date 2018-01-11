@@ -76,7 +76,7 @@
                                                             <color key="textColor" red="0.23137254900000001" green="0.3294117647" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Total Market Value - $245,647,611,528" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBI-6v-m8I">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Total Market Cap - $245,647,611,528" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBI-6v-m8I">
                                                             <rect key="frame" x="8" y="102" width="329" height="20"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                                                             <nil key="textColor"/>
@@ -91,16 +91,16 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvJ-b7-hMc">
-                                                            <rect key="frame" x="41" y="46" width="42" height="25"/>
+                                                            <rect key="frame" x="41" y="46" width="70" height="25"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="42" id="Vub-vt-5pB"/>
+                                                                <constraint firstAttribute="width" constant="70" id="Vub-vt-5pB"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+$149.48 (1.05%) " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XA-0m-4BO">
-                                                            <rect key="frame" x="157" y="39" width="180" height="32"/>
+                                                            <rect key="frame" x="158" y="39" width="180" height="32"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -122,13 +122,13 @@
                                                         <constraint firstItem="pBI-6v-m8I" firstAttribute="top" secondItem="nur-fi-z2a" secondAttribute="bottom" constant="3" id="2M7-1P-a7H"/>
                                                         <constraint firstItem="og9-X1-4xn" firstAttribute="top" secondItem="fvJ-b7-hMc" secondAttribute="top" id="2if-Eo-W3M"/>
                                                         <constraint firstItem="fvJ-b7-hMc" firstAttribute="leading" secondItem="og9-X1-4xn" secondAttribute="trailing" constant="8" symbolic="YES" id="9Mc-XH-tnD"/>
-                                                        <constraint firstItem="4XA-0m-4BO" firstAttribute="leading" secondItem="fvJ-b7-hMc" secondAttribute="trailing" constant="74" id="FGz-UJ-cz7"/>
+                                                        <constraint firstItem="4XA-0m-4BO" firstAttribute="leading" secondItem="fvJ-b7-hMc" secondAttribute="trailing" constant="47" id="FGz-UJ-cz7"/>
                                                         <constraint firstItem="a8h-KG-Wd3" firstAttribute="firstBaseline" secondItem="hFT-5l-aG2" secondAttribute="firstBaseline" id="Mod-d3-YkP"/>
                                                         <constraint firstItem="a8h-KG-Wd3" firstAttribute="baseline" secondItem="hFT-5l-aG2" secondAttribute="baseline" id="OCw-cB-QIL"/>
                                                         <constraint firstItem="nur-fi-z2a" firstAttribute="top" secondItem="fvJ-b7-hMc" secondAttribute="bottom" constant="8" symbolic="YES" id="Q4e-oT-2iT"/>
                                                         <constraint firstItem="hFT-5l-aG2" firstAttribute="leading" secondItem="a8h-KG-Wd3" secondAttribute="trailing" constant="8" symbolic="YES" id="W17-hr-dRQ"/>
                                                         <constraint firstItem="hFT-5l-aG2" firstAttribute="trailing" secondItem="dol-PW-2rw" secondAttribute="trailingMargin" id="Xrm-o2-WvZ"/>
-                                                        <constraint firstItem="hFT-5l-aG2" firstAttribute="trailing" secondItem="4XA-0m-4BO" secondAttribute="trailing" id="d7m-oU-hdN"/>
+                                                        <constraint firstItem="hFT-5l-aG2" firstAttribute="trailing" secondItem="4XA-0m-4BO" secondAttribute="trailing" constant="-1" id="d7m-oU-hdN"/>
                                                         <constraint firstItem="pBI-6v-m8I" firstAttribute="bottom" secondItem="dol-PW-2rw" secondAttribute="bottomMargin" id="eOb-Tp-Dfc"/>
                                                         <constraint firstItem="4XA-0m-4BO" firstAttribute="top" secondItem="a8h-KG-Wd3" secondAttribute="bottom" constant="1" id="mid-6B-c8G"/>
                                                         <constraint firstItem="nur-fi-z2a" firstAttribute="top" secondItem="4XA-0m-4BO" secondAttribute="bottom" constant="8" symbolic="YES" id="pYE-xm-OPD"/>
@@ -151,7 +151,13 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cardView" destination="dol-PW-2rw" id="TGr-Na-Qv2"/>
+                                            <outlet property="coinIcon" destination="og9-X1-4xn" id="DLL-sh-fur"/>
                                             <outlet property="coinName" destination="a8h-KG-Wd3" id="DIt-h0-wzQ"/>
+                                            <outlet property="coinPrice" destination="hFT-5l-aG2" id="1EF-5A-xL6"/>
+                                            <outlet property="coinTicker" destination="fvJ-b7-hMc" id="lWr-RS-QkD"/>
+                                            <outlet property="marketCap" destination="pBI-6v-m8I" id="eV7-uv-Ia4"/>
+                                            <outlet property="priceChange" destination="4XA-0m-4BO" id="n4o-W3-8Y3"/>
+                                            <outlet property="tradeVolume" destination="nur-fi-z2a" id="pBe-5n-2UT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -181,13 +187,22 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Wallet Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2B-Xx-OyQ">
+                            <rect key="frame" x="0.0" y="103" width="600" height="21"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                            <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.23137254901960785" green="0.32941176470588235" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="P2B-Xx-OyQ" firstAttribute="top" secondItem="zCJ-2V-bbE" secondAttribute="bottom" constant="-2" id="DLk-SC-zrZ"/>
+                        <constraint firstItem="P2B-Xx-OyQ" firstAttribute="trailing" secondItem="zCJ-2V-bbE" secondAttribute="trailing" id="EM5-OO-Gpg"/>
                         <constraint firstItem="zCJ-2V-bbE" firstAttribute="leading" secondItem="rN0-Bq-l79" secondAttribute="leading" id="Kx4-kX-yN2"/>
                         <constraint firstItem="zCJ-2V-bbE" firstAttribute="top" secondItem="iwx-Zg-f5W" secondAttribute="top" constant="46" id="Mcj-OE-X0k"/>
                         <constraint firstAttribute="trailing" secondItem="zCJ-2V-bbE" secondAttribute="trailing" id="jfl-2x-CZx"/>
                         <constraint firstItem="zCJ-2V-bbE" firstAttribute="centerY" secondItem="rN0-Bq-l79" secondAttribute="centerY" constant="0.5" id="pDO-t7-cFt"/>
+                        <constraint firstItem="P2B-Xx-OyQ" firstAttribute="leading" secondItem="zCJ-2V-bbE" secondAttribute="leading" id="vmi-c5-X9k"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="iwx-Zg-f5W"/>
                 </view>
