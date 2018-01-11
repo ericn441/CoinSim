@@ -45,7 +45,7 @@ struct DataManager {
     
     static func getAllCoinPrices(_ completionHandler: @escaping (JSON) -> ()) {
         
-        //Coin URLs
+        //Coin URLS
         let btcURL = baseURL + ResourcePath.getBitcoinPrice.description
         let ethURL = baseURL + ResourcePath.getEthereumPrice.description
         let xrpURL = baseURL + ResourcePath.getRipplePrice.description
