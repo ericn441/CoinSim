@@ -1,15 +1,18 @@
 PODS:
   - Alamofire (4.5.1)
+  - MXParallaxHeader (0.6.1)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
   - Alamofire
+  - MXParallaxHeader
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 92c2dde97958915a8357d5e1deeddbc7bfc9976c
+PODFILE CHECKSUM: 15f675a3d6e3d046fd539e1dad9a2df71cc6dd0c
 
 COCOAPODS: 1.4.0.beta.1

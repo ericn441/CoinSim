@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6BF0414F6B9C94AEB1D938EE /* Pods_CoinSim.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25D5B21B214031D33C3679A /* Pods_CoinSim.framework */; };
 		BB24976A2006E38E00D17B94 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB24976B2006E38E00D17B94 /* SwiftyJSON.framework */; };
+		BB24976E2006FA6200D17B94 /* MXParallaxHeader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB24976F2006FA6200D17B94 /* MXParallaxHeader.framework */; };
 		BB513D482006E0CB00F7A1D6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB513D472006E0CB00F7A1D6 /* DataManager.swift */; };
 		BB513D492006E12400F7A1D6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB513D4A2006E12400F7A1D6 /* Alamofire.framework */; };
 		BBB789412006D35F00EA6F54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789402006D35F00EA6F54 /* AppDelegate.swift */; };
@@ -43,6 +44,8 @@
 		A9B04D1119000A0CAB91D7B6 /* Pods-CoinSim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinSim.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoinSim/Pods-CoinSim.release.xcconfig"; sourceTree = "<group>"; };
 		B25D5B21B214031D33C3679A /* Pods_CoinSim.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinSim.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB24976B2006E38E00D17B94 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB24976D2006F55600D17B94 /* CSStickyHeaderFlowLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CSStickyHeaderFlowLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB24976F2006FA6200D17B94 /* MXParallaxHeader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MXParallaxHeader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB513D472006E0CB00F7A1D6 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BB513D4A2006E12400F7A1D6 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB7893D2006D35F00EA6F54 /* CoinSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB24976E2006FA6200D17B94 /* MXParallaxHeader.framework in Frameworks */,
 				BB24976A2006E38E00D17B94 /* SwiftyJSON.framework in Frameworks */,
 				BB513D492006E12400F7A1D6 /* Alamofire.framework in Frameworks */,
 				6BF0414F6B9C94AEB1D938EE /* Pods_CoinSim.framework in Frameworks */,
@@ -92,6 +96,8 @@
 		7077DEA71147ADAFE6EEA0C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BB24976F2006FA6200D17B94 /* MXParallaxHeader.framework */,
+				BB24976D2006F55600D17B94 /* CSStickyHeaderFlowLayout.framework */,
 				BB24976B2006E38E00D17B94 /* SwiftyJSON.framework */,
 				BB513D4A2006E12400F7A1D6 /* Alamofire.framework */,
 				B25D5B21B214031D33C3679A /* Pods_CoinSim.framework */,
@@ -378,11 +384,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CoinSim/Pods-CoinSim-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXParallaxHeader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
