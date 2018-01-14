@@ -14,6 +14,7 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
     //Coin Data
     var coinHistory: [CoinHistory] = []
     var coinData: CoinObject = CoinObject(id: "", name: "", symbol: "", priceUSD: "", volume: "", marketCap: "", priceChange: "")
+    var maxCoinPrice: Double = 0.0
     
     //UI Componets
     @IBOutlet var coinPrice: UILabel!
@@ -46,11 +47,22 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
         }
         
         let graphView = ScrollableGraphView(frame: CGRect(x: 16, y: 160, width: 343, height: 332), dataSource: self)
-        
         let linePlot = LinePlot(identifier: "line") // Identifier should be unique for each plot.
         let referenceLines = ReferenceLines()
-        graphView.rangeMax = prices.max()!
-        graphView.rangeMin = prices.min()!
+        
+        if prices.max()! < 1.0 { //scale coins under a dollar up by 10x
+            for i in 0..<prices.count {
+                prices[i] = prices[i] * 100
+            }
+            graphView.rangeMax = prices.max()!
+            graphView.rangeMin = prices.min()!
+            maxCoinPrice = graphView.rangeMax / 100
+        } else {
+            graphView.rangeMax = prices.max()!
+            graphView.rangeMin = prices.min()!
+            maxCoinPrice = graphView.rangeMax
+        }
+        
         graphView.addPlot(plot: linePlot)
         graphView.addReferenceLines(referenceLines: referenceLines)
         self.view.addSubview(graphView)
@@ -81,7 +93,11 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
     
     //MARK: - GraphView Delegates
     func value(forPlot plot: Plot, atIndex pointIndex: Int) -> Double {
-        return Double(coinHistory[pointIndex].closePrice)
+        if maxCoinPrice < 1.0 {
+            return Double(coinHistory[pointIndex].closePrice) * 100
+        } else {
+            return Double(coinHistory[pointIndex].closePrice)
+        }
     }
     
     func label(atIndex pointIndex: Int) -> String {

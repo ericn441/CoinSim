@@ -35,9 +35,9 @@ class CoinHistory {
     var name: String
     var time: Int
     var readableTime: String
-    var closePrice: Int
+    var closePrice: Double
     
-    init(ticker: String, name: String, time: Int, readableTime: String, closePrice: Int) {
+    init(ticker: String, name: String, time: Int, readableTime: String, closePrice: Double) {
         self.ticker = ticker
         self.name = name
         self.time = time
@@ -60,7 +60,7 @@ class PriceModel {
         var coinHistory: [CoinHistory] = []
         
         for results in json["Data"].arrayValue {
-            coinHistory.append(CoinHistory(ticker: ticker, name: name, time: results["time"].intValue, readableTime: "", closePrice: results["close"].intValue))
+            coinHistory.append(CoinHistory(ticker: ticker, name: name, time: results["time"].intValue, readableTime: "", closePrice: results["close"].doubleValue))
         }
         return coinHistory
     }
