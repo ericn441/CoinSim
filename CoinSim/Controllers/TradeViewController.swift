@@ -11,34 +11,67 @@ import ScrollableGraphView
 
 class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
 
-    //Coin Data
+    //MARK: - UI Componets
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var coinPrice: UILabel!
+    @IBOutlet var coinPriceChange: UILabel!
+    @IBOutlet var buyButton: UIButton!
+    @IBOutlet var sellbutton: UIButton!
+    @IBOutlet var walletText: UIButton!
+    @IBOutlet var walletAmountUSD: UIButton!
+    @IBOutlet var walletAmount: UIButton!
+    @IBOutlet var coinIcon: UIImageView!
+    
+    
+    //MARK: - Coin Data
     var coinHistory: [CoinHistory] = []
     var coinData: CoinObject = CoinObject(id: "", name: "", symbol: "", priceUSD: "", volume: "", marketCap: "", priceChange: "")
     var maxCoinPrice: Double = 0.0
     
-    //UI Componets
-    @IBOutlet var coinPrice: UILabel!
-    @IBOutlet var coinPriceChange: UILabel!
-    
+    //MARK: - View Controller Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Set title
         navigationItem.title = "\(coinData.name) Price"
+        navigationController?.navigationBar.barTintColor = UIColor(red: 23/255, green: 52/255, blue: 126/255, alpha: 1.0)
         
         //Set price
         coinPrice.text = formatCurrency(value: Double(coinData.priceUSD)!)
         
         //Set price change
-        coinPriceChange.text = coinData.priceChange
+        if coinData.priceChange.contains("-") {
+             coinPriceChange.textColor = .red
+        } else {
+             coinPriceChange.textColor = UIColor(red: 0/255, green: 143/255, blue: 0/255, alpha: 1.0)
+        }
+        coinPriceChange.text = coinData.priceChange + " this hour"
         
         //Convert time
         convertUnixTimeToLocal()
         
-        //Load Graph
+        //Load graph
         plotGraph()
         
+        //Set wallet icon
+        coinIcon.contentMode = .scaleAspectFit
+        coinIcon.image = UIImage(named:"\(coinData.id)-icon")
+        
+        //Set wallet name
+        walletText.setTitle(coinData.name + " Wallet", for: .normal)
+        
+        //Set wallet amount
+        walletAmount.setTitle("2.43539084 \(coinData.symbol.uppercased())", for: .normal)
+        
+        //Set wallet amount USD
+        walletAmountUSD.setTitle("$100,000.00", for: .normal)
+        
+        
+        
     }
+    
+    
+    //MARK: - Helper Functions
     func plotGraph() {
         var prices: [Double] = []
         
@@ -46,11 +79,11 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
             prices.append(Double(results.closePrice))
         }
         
-        let graphView = ScrollableGraphView(frame: CGRect(x: 16, y: 160, width: 343, height: 332), dataSource: self)
-        let linePlot = LinePlot(identifier: "line") // Identifier should be unique for each plot.
-        let referenceLines = ReferenceLines()
+        let graphView = ScrollableGraphView(frame: CGRect(x: 16, y: 110, width: 343, height: 332), dataSource: self)
+        let linePlot = LinePlot(identifier: "line") // Identifier should be unique for each plot if needed.
+        let referenceLines = ReferenceLines() //Line settings
         
-        if prices.max()! < 1.0 { //scale coins under a dollar up by 10x
+        if prices.max()! < 1.0 { //Scale coins under a dollar up by 10x
             for i in 0..<prices.count {
                 prices[i] = prices[i] * 100
             }
@@ -65,10 +98,10 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
         
         graphView.addPlot(plot: linePlot)
         graphView.addReferenceLines(referenceLines: referenceLines)
-        self.view.addSubview(graphView)
+        self.scrollView.addSubview(graphView)
     }
+    
     func convertUnixTimeToLocal() {
-        
         for results in coinHistory {
             let date = NSDate(timeIntervalSince1970: TimeInterval(results.time))
             let dateFormatter = DateFormatter()
@@ -82,6 +115,7 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
             }
         }
     }
+    
     func formatCurrency(value: Double) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -91,9 +125,10 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
         return result!
     }
     
+    
     //MARK: - GraphView Delegates
     func value(forPlot plot: Plot, atIndex pointIndex: Int) -> Double {
-        if maxCoinPrice < 1.0 {
+        if maxCoinPrice < 1.0 { //Scale graph if coin price is < $1.00
             return Double(coinHistory[pointIndex].closePrice) * 100
         } else {
             return Double(coinHistory[pointIndex].closePrice)

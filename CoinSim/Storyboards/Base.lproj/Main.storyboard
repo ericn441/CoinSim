@@ -76,7 +76,7 @@
                                                             <color key="textColor" red="0.23137254900000001" green="0.3294117647" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Total Market Cap - $245,647,611,528" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBI-6v-m8I">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Market Cap - $245,647,611,528" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBI-6v-m8I">
                                                             <rect key="frame" x="8" y="102" width="329" height="20"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                                                             <nil key="textColor"/>
@@ -128,6 +128,7 @@
                                                         <constraint firstItem="nur-fi-z2a" firstAttribute="top" secondItem="fvJ-b7-hMc" secondAttribute="bottom" constant="8" symbolic="YES" id="Q4e-oT-2iT"/>
                                                         <constraint firstItem="hFT-5l-aG2" firstAttribute="leading" secondItem="a8h-KG-Wd3" secondAttribute="trailing" constant="8" symbolic="YES" id="W17-hr-dRQ"/>
                                                         <constraint firstItem="hFT-5l-aG2" firstAttribute="trailing" secondItem="dol-PW-2rw" secondAttribute="trailingMargin" id="Xrm-o2-WvZ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="pBI-6v-m8I" secondAttribute="trailing" constant="8" id="bu1-TY-Mrm"/>
                                                         <constraint firstItem="hFT-5l-aG2" firstAttribute="trailing" secondItem="4XA-0m-4BO" secondAttribute="trailing" constant="-1" id="d7m-oU-hdN"/>
                                                         <constraint firstItem="pBI-6v-m8I" firstAttribute="bottom" secondItem="dol-PW-2rw" secondAttribute="bottomMargin" id="eOb-Tp-Dfc"/>
                                                         <constraint firstItem="4XA-0m-4BO" firstAttribute="top" secondItem="a8h-KG-Wd3" secondAttribute="bottom" constant="1" id="mid-6B-c8G"/>
@@ -216,45 +217,167 @@
             <objects>
                 <viewController id="EY6-PN-CZo" customClass="TradeViewController" customModule="CoinSim" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zg7-Ye-zmk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="867"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$15,432.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dha-rv-9Ux">
-                                <rect key="frame" x="16" y="85" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
-                                <color key="textColor" red="0.23137254900000001" green="0.3294117647" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4I-d2-AO4">
-                                <rect key="frame" x="16" y="501" width="170" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Buy"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxD-sj-edQ">
-                                <rect key="frame" x="194" y="501" width="165" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sell"/>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c90-IO-h7c">
-                                <rect key="frame" x="16" y="160" width="343" height="332"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-$1,873.34 (21.76%) this week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJw-nd-8wz">
-                                <rect key="frame" x="16" y="122" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdM-HJ-YwU">
+                                <rect key="frame" x="0.0" y="64" width="375" height="754"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$15,432.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dha-rv-9Ux">
+                                        <rect key="frame" x="16" y="18" width="343" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="5q5-b8-o9D"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                        <color key="textColor" red="0.23137254900000001" green="0.3294117647" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-$1,873.34 (21.76%) this week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJw-nd-8wz">
+                                        <rect key="frame" x="16" y="71" width="343" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="uKF-Vk-KNI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4I-d2-AO4">
+                                        <rect key="frame" x="199" y="465" width="166" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="M0I-ed-yax"/>
+                                            <constraint firstAttribute="width" constant="166" id="Y3U-pq-jYd"/>
+                                            <constraint firstAttribute="width" secondItem="q4I-d2-AO4" secondAttribute="height" multiplier="166:55" id="qRB-gg-cIb"/>
+                                        </constraints>
+                                        <state key="normal" image="sell-button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxD-sj-edQ">
+                                        <rect key="frame" x="16" y="465" width="166" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="G1c-2d-4Ys"/>
+                                            <constraint firstAttribute="width" secondItem="AxD-sj-edQ" secondAttribute="height" multiplier="166:55" id="OkB-Jq-9lr"/>
+                                            <constraint firstAttribute="width" constant="166" id="sYT-Uj-1wo"/>
+                                        </constraints>
+                                        <state key="normal" image="buy-button"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_____________________________________________________" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pv8-06-5vB">
+                                        <rect key="frame" x="0.0" y="522" width="375" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="____________________________________________________" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmp-8P-Dgd">
+                                        <rect key="frame" x="0.0" y="590" width="375" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoin-icon" translatesAutoresizingMaskIntoConstraints="NO" id="dku-MA-mQi">
+                                        <rect key="frame" x="8" y="561" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="1Xi-Q6-qId"/>
+                                            <constraint firstAttribute="width" constant="25" id="G30-pj-LwV"/>
+                                            <constraint firstAttribute="width" secondItem="dku-MA-mQi" secondAttribute="height" multiplier="1:1" id="cPx-7f-J4L"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSG-A9-Diw">
+                                        <rect key="frame" x="41" y="540" width="250" height="68"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="BWo-i8-SsU"/>
+                                            <constraint firstAttribute="height" constant="68" id="Qdm-E5-2hD"/>
+                                            <constraint firstAttribute="width" secondItem="wSG-A9-Diw" secondAttribute="height" multiplier="22:5" constant="-49.200000000000045" id="aPL-uP-fX8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Bitcoin Wallet">
+                                            <color key="titleColor" red="0.23137254900000001" green="0.3294117647" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9R-tP-Izr">
+                                        <rect key="frame" x="199" y="540" width="138" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Q9R-tP-Izr" secondAttribute="height" multiplier="23:15" constant="85.86666666666666" id="0HT-N0-KZf"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="6Il-gU-xlz"/>
+                                            <constraint firstAttribute="height" constant="34" id="etS-oD-njq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="$100,000,000.00">
+                                            <color key="titleColor" red="0.23137254900000001" green="0.3294117647" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMZ-QI-K5j">
+                                        <rect key="frame" x="337" y="540" width="38" height="68"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="68" id="W43-rH-Xut"/>
+                                            <constraint firstAttribute="width" constant="38" id="Zos-nF-syP"/>
+                                            <constraint firstAttribute="width" secondItem="zMZ-QI-K5j" secondAttribute="height" multiplier="6:17" constant="14" id="xd0-eX-l10"/>
+                                        </constraints>
+                                        <state key="normal" image="disclosure-indicator"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kE-Rd-qrw">
+                                        <rect key="frame" x="199" y="574" width="138" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="H7X-NQ-ktT"/>
+                                            <constraint firstAttribute="width" secondItem="0kE-Rd-qrw" secondAttribute="height" multiplier="23:15" constant="85.86666666666666" id="iQG-fw-L3y"/>
+                                            <constraint firstAttribute="width" constant="138" id="vRc-Bg-8E3"/>
+                                        </constraints>
+                                        <state key="normal" title="0 BTC">
+                                            <color key="titleColor" red="0.23137254900000001" green="0.3294117647" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="AxD-sj-edQ" firstAttribute="top" secondItem="q4I-d2-AO4" secondAttribute="top" id="1Wm-l9-aUN"/>
+                                    <constraint firstItem="AxD-sj-edQ" firstAttribute="leading" secondItem="fdM-HJ-YwU" secondAttribute="leading" constant="16" id="2xH-9b-9Ve"/>
+                                    <constraint firstItem="zMZ-QI-K5j" firstAttribute="baseline" secondItem="wSG-A9-Diw" secondAttribute="baseline" id="5Ho-1e-V6i"/>
+                                    <constraint firstItem="wSG-A9-Diw" firstAttribute="top" secondItem="Q9R-tP-Izr" secondAttribute="top" id="9S8-cJ-f80"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pv8-06-5vB" secondAttribute="trailing" id="ABF-gn-fqb"/>
+                                    <constraint firstItem="Dha-rv-9Ux" firstAttribute="leading" secondItem="fdM-HJ-YwU" secondAttribute="leading" constant="16" id="BLk-sd-VYZ"/>
+                                    <constraint firstItem="zMZ-QI-K5j" firstAttribute="trailing" secondItem="zmp-8P-Dgd" secondAttribute="trailing" id="D4k-Rd-WhW"/>
+                                    <constraint firstItem="Dha-rv-9Ux" firstAttribute="trailing" secondItem="mJw-nd-8wz" secondAttribute="trailing" id="JPu-eZ-xkl"/>
+                                    <constraint firstItem="mJw-nd-8wz" firstAttribute="leading" secondItem="AxD-sj-edQ" secondAttribute="leading" id="Kdb-dm-POY"/>
+                                    <constraint firstItem="wSG-A9-Diw" firstAttribute="bottom" secondItem="0kE-Rd-qrw" secondAttribute="bottom" id="Kkh-As-BzW"/>
+                                    <constraint firstItem="Dha-rv-9Ux" firstAttribute="leading" secondItem="mJw-nd-8wz" secondAttribute="leading" id="Tbb-8m-LwS"/>
+                                    <constraint firstItem="wSG-A9-Diw" firstAttribute="leading" secondItem="dku-MA-mQi" secondAttribute="trailing" constant="8" symbolic="YES" id="Uoh-HB-nsp"/>
+                                    <constraint firstItem="Q9R-tP-Izr" firstAttribute="leading" secondItem="wSG-A9-Diw" secondAttribute="trailing" constant="-92" id="VCx-1S-Xui"/>
+                                    <constraint firstItem="Pv8-06-5vB" firstAttribute="leading" secondItem="fdM-HJ-YwU" secondAttribute="leading" id="cbj-Di-PJt"/>
+                                    <constraint firstItem="dku-MA-mQi" firstAttribute="centerY" secondItem="wSG-A9-Diw" secondAttribute="centerY" constant="-0.5" id="dUr-mI-4ay"/>
+                                    <constraint firstItem="AxD-sj-edQ" firstAttribute="top" secondItem="fdM-HJ-YwU" secondAttribute="top" constant="465" id="evL-Dx-zbO"/>
+                                    <constraint firstAttribute="bottom" secondItem="zmp-8P-Dgd" secondAttribute="bottom" constant="143" id="gzG-K8-BTC"/>
+                                    <constraint firstItem="zmp-8P-Dgd" firstAttribute="top" secondItem="dku-MA-mQi" secondAttribute="bottom" constant="4" id="jNG-ps-4JP"/>
+                                    <constraint firstItem="Pv8-06-5vB" firstAttribute="top" secondItem="AxD-sj-edQ" secondAttribute="bottom" constant="2" id="lzP-xY-a9A"/>
+                                    <constraint firstItem="Dha-rv-9Ux" firstAttribute="centerX" secondItem="fdM-HJ-YwU" secondAttribute="centerX" id="osc-cR-xNM"/>
+                                    <constraint firstItem="Pv8-06-5vB" firstAttribute="leading" secondItem="zmp-8P-Dgd" secondAttribute="leading" id="pax-Nz-4ar"/>
+                                    <constraint firstItem="Q9R-tP-Izr" firstAttribute="leading" secondItem="0kE-Rd-qrw" secondAttribute="leading" id="rgH-0h-5p7"/>
+                                    <constraint firstItem="mJw-nd-8wz" firstAttribute="top" secondItem="Dha-rv-9Ux" secondAttribute="bottom" constant="8" symbolic="YES" id="sLU-xv-Et4"/>
+                                    <constraint firstItem="mJw-nd-8wz" firstAttribute="centerX" secondItem="Pv8-06-5vB" secondAttribute="centerX" id="sfZ-3U-sRa"/>
+                                    <constraint firstItem="Dha-rv-9Ux" firstAttribute="top" secondItem="fdM-HJ-YwU" secondAttribute="top" constant="18" id="sr0-oq-PK5"/>
+                                    <constraint firstItem="q4I-d2-AO4" firstAttribute="leading" secondItem="AxD-sj-edQ" secondAttribute="trailing" constant="17" id="tWS-IW-uDo"/>
+                                    <constraint firstItem="dku-MA-mQi" firstAttribute="top" secondItem="Pv8-06-5vB" secondAttribute="bottom" constant="18" id="vxd-gC-mQF"/>
+                                    <constraint firstItem="dku-MA-mQi" firstAttribute="leading" secondItem="fdM-HJ-YwU" secondAttribute="leadingMargin" id="y4t-nl-wct"/>
+                                    <constraint firstAttribute="trailing" secondItem="q4I-d2-AO4" secondAttribute="trailing" constant="10" id="yez-GW-2gl"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fdM-HJ-YwU" firstAttribute="leading" secondItem="zg7-Ye-zmk" secondAttribute="leading" id="MXS-Jr-1vf"/>
+                            <constraint firstItem="fdM-HJ-YwU" firstAttribute="bottom" secondItem="DVe-sQ-Y6A" secondAttribute="bottom" id="UAB-ei-Oaa"/>
+                            <constraint firstItem="fdM-HJ-YwU" firstAttribute="top" secondItem="DVe-sQ-Y6A" secondAttribute="top" id="WLP-gB-jPV"/>
+                            <constraint firstAttribute="trailing" secondItem="fdM-HJ-YwU" secondAttribute="trailing" id="th0-Aa-0ki"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DVe-sQ-Y6A"/>
                     </view>
                     <navigationItem key="navigationItem" id="9PH-bn-CjB"/>
+                    <size key="freeformSize" width="375" height="867"/>
                     <connections>
+                        <outlet property="buyButton" destination="AxD-sj-edQ" id="fcg-Ms-ZMd"/>
+                        <outlet property="coinIcon" destination="dku-MA-mQi" id="3kw-4r-cx8"/>
                         <outlet property="coinPrice" destination="Dha-rv-9Ux" id="NZq-CO-Kft"/>
                         <outlet property="coinPriceChange" destination="mJw-nd-8wz" id="L9Z-cH-CVe"/>
+                        <outlet property="scrollView" destination="fdM-HJ-YwU" id="F7x-jS-Rft"/>
+                        <outlet property="sellbutton" destination="q4I-d2-AO4" id="Mqk-hi-7HP"/>
+                        <outlet property="walletAmount" destination="0kE-Rd-qrw" id="MoK-m6-MqP"/>
+                        <outlet property="walletAmountUSD" destination="Q9R-tP-Izr" id="jyz-kw-CIg"/>
+                        <outlet property="walletText" destination="wSG-A9-Diw" id="EVZ-ch-WKG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Wl-Lj-SKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -317,7 +440,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bitcoin-icon" width="25" height="25"/>
+        <image name="buy-button" width="166" height="54"/>
+        <image name="disclosure-indicator" width="9" height="12"/>
         <image name="prices-tab-icon" width="21" height="18"/>
+        <image name="sell-button" width="166" height="55"/>
         <image name="settings-tab-icon" width="21" height="21"/>
         <image name="wallets-tab-icon" width="21" height="23"/>
     </resources>
