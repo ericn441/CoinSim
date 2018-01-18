@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    var wallets: [Wallet] = []
+    let realm = try! Realm()
     
     //MARK: - View Controller Life Cycle
     override func viewDidLoad() {
@@ -18,16 +21,93 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //Set navbar color
         navigationController?.navigationBar.barTintColor = UIColor(red: 23/255, green: 52/255, blue: 126/255, alpha: 1.0)
+        
+        //Load Wallets
+        loadWallets()
+        
     }
-    
+    //MARK: - Helper Functions
+    func loadWallets() {
+        
+        //USD
+        Wallet.defaultUSDWallet(in: realm)
+        let usdWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "usd")
+        wallets.append(usdWallet!)
+        
+        //Bitcoin
+        Wallet.defaultBitcoinWallet(in: realm)
+        let bitcoinWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "bitcoin")
+        wallets.append(bitcoinWallet!)
+        
+        //Ethereum
+        Wallet.defaultEthereumWallet(in: realm)
+        let ethereumWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "ethereum")
+        wallets.append(ethereumWallet!)
+        
+        //Ripple
+        Wallet.defaultRippleWallet(in: realm)
+        let rippleWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "ripple")
+        wallets.append(rippleWallet!)
+        
+        //Bitcoin Cash
+        Wallet.defaultBitcoinCashWallet(in: realm)
+        let bitcoinCashWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "bitcoin-cash")
+        wallets.append(bitcoinCashWallet!)
+        
+        //Litecoin
+        Wallet.defaultLitecoinWallet(in: realm)
+        let litecoinWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "litecoin")
+        wallets.append(litecoinWallet!)
+        
+        //RaiBlocks
+        Wallet.defaultRaiBlocksWallet(in: realm)
+        let raiBlocksWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "raiblocks")
+        wallets.append(raiBlocksWallet!)
+        
+        //Monero
+        Wallet.defaultMoneroWallet(in: realm)
+        let moneroWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "monero")
+        wallets.append(moneroWallet!)
+        
+        //Stellar
+        Wallet.defaultStellarWallet(in: realm)
+        let stellarWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "stellar")
+        wallets.append(stellarWallet!)
+        
+        //IOTA
+        Wallet.defaultIOTAWallet(in: realm)
+        let iotaWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "iota")
+        wallets.append(iotaWallet!)
+        
+        //NEO
+        Wallet.defaultNEOWallet(in: realm)
+        let neoWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "neo")
+        wallets.append(neoWallet!)
+        
+        self.tableView.reloadData()
+    }
     
     //MARK: - UITableView Delegates
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return wallets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "walletCell", for: indexPath) as! WalletsTableViewCell
+        
+        //Wallet Name
+        cell.walletName.text = wallets[indexPath.row].symbol + " Wallet"
+        
+        //Wallet Icon
+        cell.coinIcon.contentMode = .scaleAspectFit
+        cell.coinIcon.image = UIImage(named: "\(wallets[indexPath.row].id)-icon")
+        
+        //Wallet Amount
+        cell.walletAmount.text = String(wallets[indexPath.row].amount) + " \(wallets[indexPath.row].symbol)"
+        
+        //Wallet Amount USD
+        cell.walletAmountUSD.text = "$" + String(wallets[indexPath.row].amountUSD)
+        
         return cell
     }
     

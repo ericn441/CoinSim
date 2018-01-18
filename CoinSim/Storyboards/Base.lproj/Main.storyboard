@@ -113,11 +113,27 @@
                     <navigationItem key="navigationItem" title="Wallets" id="c2w-c9-2bq"/>
                     <connections>
                         <outlet property="tableView" destination="cc5-og-AbG" id="YAr-LZ-oR6"/>
+                        <segue destination="LcS-Ws-TvG" kind="show" id="BHp-h6-GVV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJf-lC-5bY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="213.59999999999999" y="1968.6656671664171"/>
+            <point key="canvasLocation" x="212" y="1860"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jyb-Dd-vfp">
+            <objects>
+                <viewController id="LcS-Ws-TvG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8ap-nd-hHa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="PWO-Ac-Dge"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gpJ-4o-czj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="212" y="2578"/>
         </scene>
         <!--Prices View Controller-->
         <scene sceneID="CKw-6U-xqf">
@@ -291,7 +307,7 @@
                     <viewLayoutGuide key="safeArea" id="iwx-Zg-f5W"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-1610" y="1969"/>
+            <point key="canvasLocation" x="-1610" y="1860"/>
         </scene>
         <!--Trade View Controller-->
         <scene sceneID="4Yv-uX-zHM">
