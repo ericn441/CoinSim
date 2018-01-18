@@ -4,4 +4,5 @@ target 'CoinSim' do
     pod 'SwiftyJSON'
     pod 'MXParallaxHeader'
     pod 'ScrollableGraphView'
+    pod 'RealmSwift'
 end

@@ -45,7 +45,7 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
         } else {
              coinPriceChange.textColor = UIColor(red: 0/255, green: 143/255, blue: 0/255, alpha: 1.0)
         }
-        coinPriceChange.text = coinData.priceChange + " this hour"
+        coinPriceChange.text = coinData.priceChange + " this day"
         
         //Convert time
         convertUnixTimeToLocal()
