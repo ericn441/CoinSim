@@ -14,6 +14,7 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     var wallets: [Wallet] = []
     let realm = try! Realm()
+    var selectedIndex: Int = 0
     
     //MARK: - View Controller Life Cycle
     override func viewDidLoad() {
@@ -25,14 +26,26 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
         //Load Wallets
         loadWallets()
         
-        //TEST WRITES
+        print(realm.configuration.fileURL)
+        
+        //*******TEST WRITES********
         try! realm.write {
+
+            //Update wallets
             realm.create(Wallet.self, value: ["id": "bitcoin", "amount":2.0], update: true)
             let wallet = realm.object(ofType: Wallet.self, forPrimaryKey: "bitcoin")!
             let priceData = Double(SharedCoinData.shared.dict["bitcoin"]!.priceUSD)
             realm.create(Wallet.self, value: ["id": "bitcoin", "amountUSD": priceData! * wallet.amount], update: true)
             self.tableView.reloadData()
+
         }
+        
+        //Date formatter
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+        let dateStr =  dateFormatter.string(from: Date())
+        
+        TransactionRecord.createBuyTransaction(in: realm, coinName: "Bitcoin", coinSymbol: "BTC", date: dateStr, transactionType: "buy", buyAmount: 1.0, buyAmountUSD: 11231.31)
         
     }
     
@@ -97,6 +110,21 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.tableView.reloadData()
     }
+    func loadTransactionRecord(coinName: String) -> [TransactionRecord] {
+        
+        //Query transaction for selected coin
+        let transactionRecordQuery = realm.objects(TransactionRecord.self).filter("coinName = '\(coinName)'")
+        
+        //Append results into array
+        var transactionRecord: [TransactionRecord] = []
+        for results in transactionRecordQuery {
+            transactionRecord.append(TransactionRecord(id: results.id, coinName: results.coinName, coinSymbol: results.coinSymbol, date: results.date, transactionType: results.transactionType, buyAmount: results.buyAmount, buyAmountUSD: results.buyAmountUSD, sellAmount: results.sellAmount, sellAmountUSD: results.sellAmountUSD))
+        }
+        
+        //return transaction records
+        return transactionRecord
+
+    }
     
     func formatCurrency(value: Double) -> String {
         let formatter = NumberFormatter()
@@ -134,6 +162,7 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        selectedIndex = indexPath.row
         self.performSegue(withIdentifier: "walletToTransaction", sender: nil)
     }
     
@@ -145,7 +174,9 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "walletToTransaction" {
-            // do work
+            let destinationVC = segue.destination as! TransactionsViewController
+            destinationVC.wallet = wallets[selectedIndex]
+            destinationVC.transactionHistory = loadTransactionRecord(coinName: wallets[selectedIndex].name)
         }
     }
 

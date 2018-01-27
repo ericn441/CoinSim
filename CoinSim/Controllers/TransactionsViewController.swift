@@ -10,20 +10,25 @@ import UIKit
 
 class TransactionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    //MARK: - UI Componets
     @IBOutlet weak var tableView: UITableView!
+    
+    
+    //MARK: Transaction Data
+    var wallet: Wallet = Wallet(id: "", name: "", symbol: "", amount: 0.0, amountUSD: 0.0)
+    var transactionHistory: [TransactionRecord] = []
+    
     
     //MARK: - View Controller Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = wallet.name + " Wallet"
+        self.tableView.reloadData()
     }
+    
     
     //MARK: - IBActions
     @IBAction func tappedBuyButton(_ sender: Any) {
-        guard let button = sender as? UIButton else { return }
-        guard let superview = button.superview else { return }
-        guard let cell = superview.superview as? TransactionsActionTableViewCell else { return }
-        guard let indexPath = tableView.indexPath(for: cell) else { return }
-        
         if #available(iOS 10.0, *) {
             let impact = UIImpactFeedbackGenerator(style: .light)
             impact.impactOccurred()
@@ -31,12 +36,8 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         
         self.performSegue(withIdentifier: "transactionsToExchange", sender: nil)
     }
+    
     @IBAction func tappedSellButton(_ sender: Any) {
-        guard let button = sender as? UIButton else { return }
-        guard let superview = button.superview else { return }
-        guard let cell = superview.superview as? TransactionsActionTableViewCell else { return }
-        guard let indexPath = tableView.indexPath(for: cell) else { return }
-        
         if #available(iOS 10.0, *) {
             let impact = UIImpactFeedbackGenerator(style: .light)
             impact.impactOccurred()
@@ -50,9 +51,17 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if section == 0 {
+            return 1
+        } else if section == 1 {
+            return 1
+        } else {
+            return transactionHistory.count
+        }
     }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 2 {
             return "Transaction History"
@@ -60,17 +69,36 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             return ""
         }
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
+        if indexPath.section == 0 { //Price Header
             let headerCell = tableView.dequeueReusableCell(withIdentifier: "headerCell", for: indexPath) as! TransactionsHeaderTableViewCell
-
+            
+            headerCell.priceLabel.text = String(wallet.amount) + " \(wallet.symbol)"
+            headerCell.priceUSDLabel.text = "$" + String(wallet.amountUSD)
+            
             return headerCell
-        } else if indexPath.section == 1 {
+            
+        } else if indexPath.section == 1 { //Buy & Sell Actions
             let actionsCell = tableView.dequeueReusableCell(withIdentifier: "actionsCell", for: indexPath) as! TransactionsActionTableViewCell
-
             return actionsCell
-        } else {
+            
+        } else { //Transaction History
             let historyCell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! TransactionsHistoryTableViewCell
+            
+            if transactionHistory[indexPath.row].transactionType == "buy" {
+                historyCell.actionIcon.image = UIImage(named: "buy-icon")
+                historyCell.transactionType.text = "Bought " + wallet.name
+                historyCell.amountLabel.text = String(transactionHistory[indexPath.row].buyAmount) + " \(wallet.symbol)"
+                historyCell.amountUSDLabel.text = "$"+String(transactionHistory[indexPath.row].buyAmountUSD)
+                historyCell.date.text = transactionHistory[indexPath.row].date
+            } else {
+                historyCell.actionIcon.image = UIImage(named: "sell-icon")
+                historyCell.transactionType.text = "Sold " + wallet.name
+                historyCell.amountLabel.text = String(transactionHistory[indexPath.row].sellAmount) + " \(wallet.symbol)"
+                historyCell.amountUSDLabel.text = "$"+String(transactionHistory[indexPath.row].sellAmountUSD)
+                historyCell.date.text = transactionHistory[indexPath.row].date
+            }
 
             return historyCell
         }
@@ -108,7 +136,7 @@ class TransactionsActionTableViewCell: UITableViewCell {
     @IBOutlet weak var sellButton: UIButton!
 }
 class TransactionsHistoryTableViewCell: UITableViewCell {
-    @IBOutlet weak var coinIcon: UIImageView!
+    @IBOutlet weak var actionIcon: UIImageView!
     @IBOutlet weak var transactionType: UILabel!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var amountLabel: UILabel!

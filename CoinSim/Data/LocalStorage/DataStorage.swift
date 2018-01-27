@@ -189,18 +189,54 @@ class Wallet: Object {
     
 }
 
+
 class TransactionRecord: Object {
     
-    @objc dynamic var buyAmount = ""
-    @objc dynamic var buyAmountUSD = ""
-    @objc dynamic var buyCoinName = ""
-    @objc dynamic var sellAmount = ""
-    @objc dynamic var sellAmountUSD = ""
-    @objc dynamic var sellCoinName = ""
-    @objc dynamic var id = UUID().uuidString
-    @objc dynamic var date = ""
+    //MARK: - Init
+    convenience init(id: String, coinName: String, coinSymbol: String, date: String, transactionType: String, buyAmount: Double, buyAmountUSD: Double, sellAmount: Double, sellAmountUSD: Double) {
+        self.init()
+        self.id = id
+        self.coinName = coinName
+        self.coinSymbol = coinSymbol
+        self.date = date
+        self.transactionType = transactionType
+        self.buyAmount = buyAmount
+        self.buyAmountUSD = buyAmountUSD
+        self.sellAmount = sellAmount
+        self.sellAmountUSD = sellAmountUSD
+    }
     
+    //MARK: - Presisted Properties
+    @objc dynamic var id = ""
+    @objc dynamic var coinName = ""
+    @objc dynamic var coinSymbol = ""
+    @objc dynamic var date = ""
+    @objc dynamic var transactionType = ""
+    @objc dynamic var buyAmount = 0.0
+    @objc dynamic var buyAmountUSD = 0.0
+    @objc dynamic var sellAmount = 0.0
+    @objc dynamic var sellAmountUSD = 0.0
+
+    //MARK: - Decleare Primary Key
     override static func primaryKey() -> String? {
         return "id"
     }
+    
+    //MARK: - Create Buy Transaction Record
+    static func createBuyTransaction(in realm: Realm, coinName: String, coinSymbol:String, date: String, transactionType: String, buyAmount: Double, buyAmountUSD: Double) {
+        let buyTransaction = TransactionRecord(id: UUID().uuidString, coinName: coinName, coinSymbol: coinSymbol, date: date, transactionType: transactionType, buyAmount: buyAmount, buyAmountUSD: buyAmountUSD, sellAmount: 0.0, sellAmountUSD: 0.0)
+        try! realm.write {
+            realm.add(buyTransaction)
+        }
+        
+    }
+    
+    //MARK: - Create Sell Transaction Record
+    static func createSellTransaction(in realm: Realm, coinName: String, coinSymbol:String, date: String, transactionType: String, sellAmount: Double, sellAmountUSD: Double) {
+        let sellTransaction = TransactionRecord(id: UUID().uuidString, coinName: coinName, coinSymbol: coinSymbol, date: date, transactionType: transactionType, buyAmount: 0.0, buyAmountUSD: 0.0, sellAmount: sellAmount, sellAmountUSD: sellAmountUSD)
+        try! realm.write {
+            realm.add(sellTransaction)
+        }
+    }
+    
 }

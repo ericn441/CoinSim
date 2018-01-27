@@ -25,7 +25,6 @@
 		BBB789612006D35F00EA6F54 /* CoinSimUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789602006D35F00EA6F54 /* CoinSimUITests.swift */; };
 		BBB789742006DE4300EA6F54 /* PricesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789732006DE4300EA6F54 /* PricesViewController.swift */; };
 		BBDBC03E200C56130096B0A7 /* WalletsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBC03D200C56130096B0A7 /* WalletsViewController.swift */; };
-		BBDBC040200C59D30096B0A7 /* WalletsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBC03F200C59D30096B0A7 /* WalletsModel.swift */; };
 		BBDBC042200C5B3C0096B0A7 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBC041200C5B3C0096B0A7 /* DataStorage.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +73,6 @@
 		BBB789622006D35F00EA6F54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBB789732006DE4300EA6F54 /* PricesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesViewController.swift; sourceTree = "<group>"; };
 		BBDBC03D200C56130096B0A7 /* WalletsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsViewController.swift; sourceTree = "<group>"; };
-		BBDBC03F200C59D30096B0A7 /* WalletsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsModel.swift; sourceTree = "<group>"; };
 		BBDBC041200C5B3C0096B0A7 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				BB24977020070CDD00D17B94 /* PriceModel.swift */,
-				BBDBC03F200C59D30096B0A7 /* WalletsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -448,7 +445,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBDBC040200C59D30096B0A7 /* WalletsModel.swift in Sources */,
 				BBB789742006DE4300EA6F54 /* PricesViewController.swift in Sources */,
 				BB513D482006E0CB00F7A1D6 /* DataManager.swift in Sources */,
 				BBDBC042200C5B3C0096B0A7 /* DataStorage.swift in Sources */,
