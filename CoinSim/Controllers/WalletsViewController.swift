@@ -25,7 +25,18 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
         //Load Wallets
         loadWallets()
         
+        //TEST WRITES
+        try! realm.write {
+            realm.create(Wallet.self, value: ["id": "bitcoin", "amount":2.0], update: true)
+            let wallet = realm.object(ofType: Wallet.self, forPrimaryKey: "bitcoin")!
+            let priceData = Double(SharedCoinData.shared.dict["bitcoin"]!.priceUSD)
+            realm.create(Wallet.self, value: ["id": "bitcoin", "amountUSD": priceData! * wallet.amount], update: true)
+            self.tableView.reloadData()
+        }
+        
     }
+    
+    
     //MARK: - Helper Functions
     func loadWallets() {
         
@@ -87,7 +98,17 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.tableView.reloadData()
     }
     
-    //MARK: - UITableView Delegates
+    func formatCurrency(value: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.maximumFractionDigits = 2
+        formatter.locale = Locale(identifier: Locale.current.identifier)
+        let result = formatter.string(from: value as NSNumber)
+        return result!
+    }
+    
+    
+    //MARK: - UITableView Protocols
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return wallets.count
     }
@@ -106,13 +127,14 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.walletAmount.text = String(wallets[indexPath.row].amount) + " \(wallets[indexPath.row].symbol)"
         
         //Wallet Amount USD
-        cell.walletAmountUSD.text = "$" + String(wallets[indexPath.row].amountUSD)
+        cell.walletAmountUSD.text = formatCurrency(value: wallets[indexPath.row].amountUSD)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        self.performSegue(withIdentifier: "walletToTransaction", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -122,7 +144,9 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //do work if needed
+        if segue.identifier == "walletToTransaction" {
+            // do work
+        }
     }
 
 }

@@ -13,6 +13,8 @@
 		BB24977120070CDD00D17B94 /* PriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24977020070CDD00D17B94 /* PriceModel.swift */; };
 		BB513D482006E0CB00F7A1D6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB513D472006E0CB00F7A1D6 /* DataManager.swift */; };
 		BB513D492006E12400F7A1D6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB513D4A2006E12400F7A1D6 /* Alamofire.framework */; };
+		BB7B9A612010780300C275E9 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B9A602010780300C275E9 /* ExchangeViewController.swift */; };
+		BB7B9A632010786400C275E9 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B9A622010786400C275E9 /* TransactionsViewController.swift */; };
 		BBA05B302007DE390021BDA3 /* TradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA05B2F2007DE390021BDA3 /* TradeViewController.swift */; };
 		BBB0BA5B20082146008E6607 /* ScrollableGraphView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBB0BA5C20082146008E6607 /* ScrollableGraphView.framework */; };
 		BBB789412006D35F00EA6F54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789402006D35F00EA6F54 /* AppDelegate.swift */; };
@@ -54,6 +56,8 @@
 		BB24977020070CDD00D17B94 /* PriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceModel.swift; sourceTree = "<group>"; };
 		BB513D472006E0CB00F7A1D6 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BB513D4A2006E12400F7A1D6 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB7B9A602010780300C275E9 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
+		BB7B9A622010786400C275E9 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		BBA05B2F2007DE390021BDA3 /* TradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeViewController.swift; sourceTree = "<group>"; };
 		BBB0BA5C20082146008E6607 /* ScrollableGraphView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ScrollableGraphView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB7893D2006D35F00EA6F54 /* CoinSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +224,8 @@
 				BBB789732006DE4300EA6F54 /* PricesViewController.swift */,
 				BBA05B2F2007DE390021BDA3 /* TradeViewController.swift */,
 				BBDBC03D200C56130096B0A7 /* WalletsViewController.swift */,
+				BB7B9A622010786400C275E9 /* TransactionsViewController.swift */,
+				BB7B9A602010780300C275E9 /* ExchangeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -446,6 +452,8 @@
 				BBB789742006DE4300EA6F54 /* PricesViewController.swift in Sources */,
 				BB513D482006E0CB00F7A1D6 /* DataManager.swift in Sources */,
 				BBDBC042200C5B3C0096B0A7 /* DataStorage.swift in Sources */,
+				BB7B9A632010786400C275E9 /* TransactionsViewController.swift in Sources */,
+				BB7B9A612010780300C275E9 /* ExchangeViewController.swift in Sources */,
 				BBB789412006D35F00EA6F54 /* AppDelegate.swift in Sources */,
 				BBDBC03E200C56130096B0A7 /* WalletsViewController.swift in Sources */,
 				BBA05B302007DE390021BDA3 /* TradeViewController.swift in Sources */,

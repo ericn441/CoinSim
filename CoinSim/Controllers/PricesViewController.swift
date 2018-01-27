@@ -16,10 +16,11 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet var walletValue: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var refreshCtrl: UIRefreshControl!
+    var didSelectRow: Bool = false
     
     //MARK: - Coin Data
     var coins: [String:CoinObject] = [:]
-    var coinsLoaded: [String:Bool] = ["bitcoin":false, "ethereum":false, "ripple":false, "bitcoinCash":false, "litecoin":false, "raiblocks": false, "monero":false, "stellar":false, "iota":false, "neo":false]
+    var coinsLoaded: [String:Bool] = ["bitcoin":false, "ethereum":false, "ripple":false, "bitcoinCash":false, "litecoin":false, "raiblocks": false, "monero":false, "stellar":false, "iota":false, "neo":false] //Async tracker
 
     //MARK: - Historical Data
     var selectedCoinData: CoinObject = CoinObject(id: "", name: "", symbol: "", priceUSD: "", volume: "", marketCap: "", priceChange: "")
@@ -36,7 +37,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var marketCap: String!
     }
     var renderableCoinsArray: [RenderableCoin] = []
-    
+
     
     //MARK: - ViewController Life Cycle
     override func viewDidLoad() {
@@ -191,6 +192,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             self.determinePriceChange()
             self.tableView.reloadData()
+            SharedCoinData.shared.dict = coins //Shared Singleton Instance
         }
         
     }
@@ -276,25 +278,37 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
-        
-        DataManager.getHistoricalPrice(renderableCoinsArray[indexPath.row].coinTicker) { (JSON) in
-
-            //Append selected coin data
-            self.selectedCoinData.id = self.renderableCoinsArray[indexPath.row].coinName.lowercased()
-            self.selectedCoinData.name = self.renderableCoinsArray[indexPath.row].coinName
-            self.selectedCoinData.symbol = self.renderableCoinsArray[indexPath.row].coinTicker
-            self.selectedCoinData.priceUSD = self.renderableCoinsArray[indexPath.row].coinPrice
-            self.selectedCoinData.volume = self.renderableCoinsArray[indexPath.row].tradeVolume
-            self.selectedCoinData.marketCap = self.renderableCoinsArray[indexPath.row].marketCap
-            self.selectedCoinData.priceChange = self.renderableCoinsArray[indexPath.row].priceChange
+        if tableView.isUserInteractionEnabled { //prevent duplicate selection
+            if #available(iOS 10.0, *) {
+                let impact = UIImpactFeedbackGenerator(style: .light)
+                impact.impactOccurred()
+            }
             
-            //Append selected coin history
-            self.selectedCoinPriceHistory = PriceModel().parseHistoricalData(json: JSON, ticker: self.renderableCoinsArray[indexPath.row].coinTicker.uppercased(), name: self.renderableCoinsArray[indexPath.row].coinName)
-            
-            //Perform segue
-            self.performSegue(withIdentifier: "priceToTrade", sender: nil)
+            //Async call
+            DataManager.getHistoricalPrice(renderableCoinsArray[indexPath.row].coinTicker) { (JSON) in
+                
+                print("DataManager Called")
+                //Append selected coin data
+                self.selectedCoinData.id = self.renderableCoinsArray[indexPath.row].coinName.lowercased()
+                self.selectedCoinData.name = self.renderableCoinsArray[indexPath.row].coinName
+                self.selectedCoinData.symbol = self.renderableCoinsArray[indexPath.row].coinTicker
+                self.selectedCoinData.priceUSD = self.renderableCoinsArray[indexPath.row].coinPrice
+                self.selectedCoinData.volume = self.renderableCoinsArray[indexPath.row].tradeVolume
+                self.selectedCoinData.marketCap = self.renderableCoinsArray[indexPath.row].marketCap
+                self.selectedCoinData.priceChange = self.renderableCoinsArray[indexPath.row].priceChange
+                
+                //Append selected coin history
+                self.selectedCoinPriceHistory = PriceModel().parseHistoricalData(json: JSON, ticker: self.renderableCoinsArray[indexPath.row].coinTicker.uppercased(), name: self.renderableCoinsArray[indexPath.row].coinName)
+                
+                //Perform segue
+                tableView.isUserInteractionEnabled = true //enable tableview after async call completes
+                self.performSegue(withIdentifier: "priceToTrade", sender: nil)
+            }
         }
+        
+        //disable tableview after first async call
+        tableView.deselectRow(at: indexPath, animated: false)
+        tableView.isUserInteractionEnabled = false
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

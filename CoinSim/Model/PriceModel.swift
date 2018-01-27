@@ -9,6 +9,11 @@
 import Foundation
 import SwiftyJSON
 
+class SharedCoinData { //Singleton Shared Instance
+    static let shared = SharedCoinData()
+    var dict = [String:CoinObject]()
+}
+
 class CoinObject {
     
     var id: String

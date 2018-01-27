@@ -113,27 +113,172 @@
                     <navigationItem key="navigationItem" title="Wallets" id="c2w-c9-2bq"/>
                     <connections>
                         <outlet property="tableView" destination="cc5-og-AbG" id="YAr-LZ-oR6"/>
-                        <segue destination="LcS-Ws-TvG" kind="show" id="BHp-h6-GVV"/>
+                        <segue destination="LcS-Ws-TvG" kind="show" identifier="walletToTransaction" id="FFn-kw-rwx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJf-lC-5bY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="212" y="1860"/>
+            <point key="canvasLocation" x="212" y="1985"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="jyb-Dd-vfp">
+        <scene sceneID="Rcr-Us-2nf">
             <objects>
-                <viewController id="LcS-Ws-TvG" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8ap-nd-hHa">
+                <viewController id="LRc-gH-TcZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gbv-LW-UtY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="qwY-HL-tCN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Km0-hy-HcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-719" y="3580"/>
+        </scene>
+        <!--Transactions View Controller-->
+        <scene sceneID="jyb-Dd-vfp">
+            <objects>
+                <viewController id="LcS-Ws-TvG" customClass="TransactionsViewController" customModule="CoinSim" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8ap-nd-hHa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QxV-P3-qBq">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" rowHeight="120" id="oxN-Wd-Yrt" customClass="TransactionsHeaderTableViewCell" customModule="CoinSim" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="120"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oxN-Wd-Yrt" id="Ixw-9s-6jn">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 BTC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocX-z6-c4E">
+                                                    <rect key="frame" x="15" y="19" width="345" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="35"/>
+                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eW-IG-O5O">
+                                                    <rect key="frame" x="15" y="65" width="345" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.23137254900000001" green="0.3294117647" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="priceLabel" destination="ocX-z6-c4E" id="bL8-IZ-5jY"/>
+                                            <outlet property="priceUSDLabel" destination="3eW-IG-O5O" id="cfc-AQ-Jfw"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="actionsCell" rowHeight="80" id="QzX-RW-XHP" customClass="TransactionsActionTableViewCell" customModule="CoinSim" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="148" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QzX-RW-XHP" id="rqB-eM-PWa">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1n-aX-ung">
+                                                    <rect key="frame" x="15" y="12" width="166" height="54"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="buy-button"/>
+                                                    <connections>
+                                                        <action selector="tappedBuyButton:" destination="LcS-Ws-TvG" eventType="touchUpInside" id="FSR-hv-LSh"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYA-dL-fw3">
+                                                    <rect key="frame" x="194" y="11" width="166" height="55"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="sell-button"/>
+                                                    <connections>
+                                                        <action selector="tappedSellButton:" destination="LcS-Ws-TvG" eventType="touchUpInside" id="0jX-wM-Dvj"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="buyButton" destination="w1n-aX-ung" id="mL8-8P-Em5"/>
+                                            <outlet property="sellButton" destination="nYA-dL-fw3" id="QAb-Nv-Ow1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="70" id="fSd-fS-RFB" customClass="TransactionsHistoryTableViewCell" customModule="CoinSim" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="228" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fSd-fS-RFB" id="C99-Bh-1Fh">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BTR-uA-UFV">
+                                                    <rect key="frame" x="15" y="15" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bought Bitcoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05O-8n-dnR">
+                                                    <rect key="frame" x="63" y="15" width="170" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jan 16th 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEN-YA-ohh">
+                                                    <rect key="frame" x="63" y="38" width="170" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.40 BTC" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wi1-yQ-nmL">
+                                                    <rect key="frame" x="241" y="15" width="119" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$268.26" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enX-cG-MaW">
+                                                    <rect key="frame" x="241" y="38" width="119" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="amountLabel" destination="wi1-yQ-nmL" id="Mo8-3p-uHB"/>
+                                            <outlet property="amountUSDLabel" destination="enX-cG-MaW" id="OtL-Ah-qtH"/>
+                                            <outlet property="coinIcon" destination="BTR-uA-UFV" id="woD-Ji-cxC"/>
+                                            <outlet property="date" destination="vEN-YA-ohh" id="Yb6-bu-BGc"/>
+                                            <outlet property="transactionType" destination="05O-8n-dnR" id="4cd-I7-Yck"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="LcS-Ws-TvG" id="kFx-Nj-Cyf"/>
+                                    <outlet property="delegate" destination="LcS-Ws-TvG" id="edp-W7-PAk"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QxV-P3-qBq" firstAttribute="bottom" secondItem="PWO-Ac-Dge" secondAttribute="bottom" id="0n5-tO-PY0"/>
+                            <constraint firstItem="QxV-P3-qBq" firstAttribute="top" secondItem="PWO-Ac-Dge" secondAttribute="top" id="JnL-DK-O1J"/>
+                            <constraint firstItem="QxV-P3-qBq" firstAttribute="leading" secondItem="8ap-nd-hHa" secondAttribute="leading" id="qW7-Aq-WfR"/>
+                            <constraint firstAttribute="trailing" secondItem="QxV-P3-qBq" secondAttribute="trailing" id="sWV-yN-WQ1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PWO-Ac-Dge"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="QxV-P3-qBq" id="iEF-wD-Fxp"/>
+                        <segue destination="LRc-gH-TcZ" kind="show" identifier="transactionsToExchange" id="1lI-NC-sPl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gpJ-4o-czj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="212" y="2578"/>
+            <point key="canvasLocation" x="214" y="2792"/>
         </scene>
         <!--Prices View Controller-->
         <scene sceneID="CKw-6U-xqf">
@@ -288,7 +433,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Wallet Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2B-Xx-OyQ">
-                            <rect key="frame" x="0.0" y="103" width="600" height="21"/>
+                            <rect key="frame" x="0.0" y="105" width="600" height="28"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                             <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -296,29 +441,30 @@
                     </subviews>
                     <color key="backgroundColor" red="0.23137254901960785" green="0.32941176470588235" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="P2B-Xx-OyQ" firstAttribute="top" secondItem="zCJ-2V-bbE" secondAttribute="bottom" constant="-2" id="DLk-SC-zrZ"/>
-                        <constraint firstItem="P2B-Xx-OyQ" firstAttribute="trailing" secondItem="zCJ-2V-bbE" secondAttribute="trailing" id="EM5-OO-Gpg"/>
+                        <constraint firstItem="P2B-Xx-OyQ" firstAttribute="leading" secondItem="zCJ-2V-bbE" secondAttribute="leading" id="66G-t2-Rkf"/>
                         <constraint firstItem="zCJ-2V-bbE" firstAttribute="leading" secondItem="rN0-Bq-l79" secondAttribute="leading" id="Kx4-kX-yN2"/>
                         <constraint firstItem="zCJ-2V-bbE" firstAttribute="top" secondItem="iwx-Zg-f5W" secondAttribute="top" constant="46" id="Mcj-OE-X0k"/>
+                        <constraint firstItem="P2B-Xx-OyQ" firstAttribute="top" secondItem="zCJ-2V-bbE" secondAttribute="bottom" id="Nox-Iz-WGy"/>
+                        <constraint firstItem="P2B-Xx-OyQ" firstAttribute="trailing" secondItem="zCJ-2V-bbE" secondAttribute="trailing" id="SWJ-Fb-49b"/>
                         <constraint firstAttribute="trailing" secondItem="zCJ-2V-bbE" secondAttribute="trailing" id="jfl-2x-CZx"/>
+                        <constraint firstItem="iwx-Zg-f5W" firstAttribute="bottom" secondItem="P2B-Xx-OyQ" secondAttribute="bottom" constant="17" id="nRz-sH-yqG"/>
                         <constraint firstItem="zCJ-2V-bbE" firstAttribute="centerY" secondItem="rN0-Bq-l79" secondAttribute="centerY" constant="0.5" id="pDO-t7-cFt"/>
-                        <constraint firstItem="P2B-Xx-OyQ" firstAttribute="leading" secondItem="zCJ-2V-bbE" secondAttribute="leading" id="vmi-c5-X9k"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="iwx-Zg-f5W"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="-1610" y="1860"/>
+            <point key="canvasLocation" x="-1614" y="1985"/>
         </scene>
         <!--Trade View Controller-->
         <scene sceneID="4Yv-uX-zHM">
             <objects>
                 <viewController id="EY6-PN-CZo" customClass="TradeViewController" customModule="CoinSim" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zg7-Ye-zmk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="867"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="770"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdM-HJ-YwU">
-                                <rect key="frame" x="0.0" y="64" width="375" height="754"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="657"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$15,432.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dha-rv-9Ux">
                                         <rect key="frame" x="16" y="18" width="343" height="45"/>
@@ -346,6 +492,9 @@
                                             <constraint firstAttribute="width" secondItem="q4I-d2-AO4" secondAttribute="height" multiplier="166:55" id="qRB-gg-cIb"/>
                                         </constraints>
                                         <state key="normal" image="sell-button"/>
+                                        <connections>
+                                            <action selector="tappedSell:" destination="EY6-PN-CZo" eventType="touchUpInside" id="Dps-M3-a39"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxD-sj-edQ">
                                         <rect key="frame" x="16" y="465" width="166" height="55"/>
@@ -355,6 +504,9 @@
                                             <constraint firstAttribute="width" constant="166" id="sYT-Uj-1wo"/>
                                         </constraints>
                                         <state key="normal" image="buy-button"/>
+                                        <connections>
+                                            <action selector="tappedBuy:" destination="EY6-PN-CZo" eventType="touchUpInside" id="rQ6-NB-hjK"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_____________________________________________________" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pv8-06-5vB">
                                         <rect key="frame" x="0.0" y="522" width="375" height="21"/>
@@ -387,6 +539,9 @@
                                         <state key="normal" title="Bitcoin Wallet">
                                             <color key="titleColor" red="0.23137254900000001" green="0.3294117647" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tappedWalletText:" destination="EY6-PN-CZo" eventType="touchUpInside" id="4rY-ea-xBO"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9R-tP-Izr">
                                         <rect key="frame" x="199" y="540" width="138" height="34"/>
@@ -399,6 +554,9 @@
                                         <state key="normal" title="$100,000,000.00">
                                             <color key="titleColor" red="0.23137254900000001" green="0.3294117647" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tappedWalletAmountUSD:" destination="EY6-PN-CZo" eventType="touchUpInside" id="NqM-eT-ge0"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMZ-QI-K5j">
                                         <rect key="frame" x="337" y="541" width="38" height="68"/>
@@ -408,6 +566,9 @@
                                             <constraint firstAttribute="width" secondItem="zMZ-QI-K5j" secondAttribute="height" multiplier="6:17" constant="14" id="xd0-eX-l10"/>
                                         </constraints>
                                         <state key="normal" image="disclosure-indicator"/>
+                                        <connections>
+                                            <action selector="tappedArrow:" destination="EY6-PN-CZo" eventType="touchUpInside" id="Mey-Bd-EM0"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kE-Rd-qrw">
                                         <rect key="frame" x="199" y="574" width="138" height="34"/>
@@ -420,6 +581,9 @@
                                         <state key="normal" title="0 BTC">
                                             <color key="titleColor" red="0.23137254900000001" green="0.3294117647" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tappedWalletAmount:" destination="EY6-PN-CZo" eventType="touchUpInside" id="DuI-Or-eTq"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -465,7 +629,7 @@
                         <viewLayoutGuide key="safeArea" id="DVe-sQ-Y6A"/>
                     </view>
                     <navigationItem key="navigationItem" id="9PH-bn-CjB"/>
-                    <size key="freeformSize" width="375" height="867"/>
+                    <size key="freeformSize" width="375" height="770"/>
                     <connections>
                         <outlet property="buyButton" destination="AxD-sj-edQ" id="fcg-Ms-ZMd"/>
                         <outlet property="coinIcon" destination="dku-MA-mQi" id="3kw-4r-cx8"/>
@@ -476,11 +640,13 @@
                         <outlet property="walletAmount" destination="0kE-Rd-qrw" id="MoK-m6-MqP"/>
                         <outlet property="walletAmountUSD" destination="Q9R-tP-Izr" id="jyz-kw-CIg"/>
                         <outlet property="walletText" destination="wSG-A9-Diw" id="EVZ-ch-WKG"/>
+                        <segue destination="LcS-Ws-TvG" kind="show" identifier="tradeToTractions" id="bt2-EG-MiG"/>
+                        <segue destination="LRc-gH-TcZ" kind="show" identifier="tradeToExchange" id="SQn-Ci-kkg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Wl-Lj-SKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1610" y="2668"/>
+            <point key="canvasLocation" x="-1614" y="2792"/>
         </scene>
         <!--Settings-->
         <scene sceneID="2CN-Ia-6Ge">
@@ -534,7 +700,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kco-c2-JNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1610" y="1075"/>
+            <point key="canvasLocation" x="-1615" y="1075"/>
         </scene>
         <!--Wallets-->
         <scene sceneID="xjz-0M-ygG">
@@ -565,4 +731,8 @@
         <image name="settings-tab-icon" width="21" height="21"/>
         <image name="wallets-tab-icon" width="21" height="23"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="bt2-EG-MiG"/>
+        <segue reference="SQn-Ci-kkg"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -8,6 +8,7 @@
 
 import UIKit
 import ScrollableGraphView
+import RealmSwift
 
 class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
 
@@ -27,6 +28,8 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
     var coinHistory: [CoinHistory] = []
     var coinData: CoinObject = CoinObject(id: "", name: "", symbol: "", priceUSD: "", volume: "", marketCap: "", priceChange: "")
     var maxCoinPrice: Double = 0.0
+    let realm = try! Realm()
+    
     
     //MARK: - View Controller Life Cycle
     override func viewDidLoad() {
@@ -61,13 +64,43 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
         walletText.setTitle(coinData.name + " Wallet", for: .normal)
         
         //Set wallet amount
-        walletAmount.setTitle("2.43539084 \(coinData.symbol.uppercased())", for: .normal)
+        guard let wallet = realm.object(ofType: Wallet.self, forPrimaryKey: coinData.id) else { return }//fetch wallet data
+        walletAmount.setTitle("\(wallet.amount) \(coinData.symbol.uppercased())", for: .normal)
         
         //Set wallet amount USD
-        walletAmountUSD.setTitle("$100,000.00", for: .normal)
+        walletAmountUSD.setTitle("\(formatCurrency(value: wallet.amountUSD))", for: .normal)
         
+    }
+    
+    
+    //MARK: - IBActions
+    @IBAction func tappedWalletText(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "tradeToTractions", sender: nil)
+    }
+    @IBAction func tappedWalletAmount(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "tradeToTractions", sender: nil)
+    }
+    @IBAction func tappedWalletAmountUSD(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "tradeToTractions", sender: nil)
+    }
+    @IBAction func tappedArrow(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "tradeToTractions", sender: nil)
+    }
+    @IBAction func tappedBuy(_ sender: UIButton) {
+        if #available(iOS 10.0, *) {
+            let impact = UIImpactFeedbackGenerator(style: .light)
+            impact.impactOccurred()
+        }
         
+        self.performSegue(withIdentifier: "tradeToExchange", sender: nil)
+    }
+    @IBAction func tappedSell(_ sender: UIButton) {
+        if #available(iOS 10.0, *) {
+            let impact = UIImpactFeedbackGenerator(style: .light)
+            impact.impactOccurred()
+        }
         
+        self.performSegue(withIdentifier: "tradeToExchange", sender: nil)
     }
     
     
@@ -126,7 +159,7 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
     }
     
     
-    //MARK: - GraphView Delegates
+    //MARK: - GraphView Protocols
     func value(forPlot plot: Plot, atIndex pointIndex: Int) -> Double {
         if maxCoinPrice < 1.0 { //Scale graph if coin price is < $1.00
             return Double(coinHistory[pointIndex].closePrice) * 100
@@ -142,5 +175,17 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
     func numberOfPoints() -> Int {
         return coinHistory.count
     }
+    
+    
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "tradeToTractions" {
+            //do work if needed
+        }
+    }
 
+    
+    
+    
+    
 }
