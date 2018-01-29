@@ -11,6 +11,7 @@ import UIKit
 class TransactionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     //MARK: - UI Componets
+    var refreshCtrl: UIRefreshControl!
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -22,6 +23,12 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     //MARK: - View Controller Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Pull to refresh
+        self.refreshCtrl = UIRefreshControl()
+        self.refreshCtrl.addTarget(self, action: #selector(refreshTransactions), for: .valueChanged)
+        self.tableView.addSubview(refreshCtrl)
+        
         navigationItem.title = wallet.name + " Wallet"
         self.tableView.reloadData()
     }
@@ -48,6 +55,20 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         self.performSegue(withIdentifier: "transactionsToExchange", sender: nil)
     }
     
+    
+    //MARK: - Helper Functions
+    @objc func refreshTransactions() {
+        
+    }
+    
+    func formatCurrency(value: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.maximumFractionDigits = 2
+        formatter.locale = Locale(identifier: Locale.current.identifier)
+        let result = formatter.string(from: value as NSNumber)
+        return result!
+    }
     
     //MARK: - UITableView Protocols
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -77,7 +98,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             let headerCell = tableView.dequeueReusableCell(withIdentifier: "headerCell", for: indexPath) as! TransactionsHeaderTableViewCell
             
             headerCell.priceLabel.text = String(wallet.amount) + " \(wallet.symbol)"
-            headerCell.priceUSDLabel.text = "$" + String(wallet.amountUSD)
+            headerCell.priceUSDLabel.text = formatCurrency(value: Double(wallet.amountUSD))
             
             return headerCell
             

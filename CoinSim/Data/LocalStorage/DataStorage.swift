@@ -63,7 +63,7 @@ class Wallet: Object {
     
     //MARK: - Create Default Ethereum Wallet
     private static func createEthereumWallet(in realm: Realm) -> Wallet {
-        let ethereumWallet = Wallet(id: "ethereum", name: "Ethereum", symbol: "ETC", amount: 0.0, amountUSD: 0.0)
+        let ethereumWallet = Wallet(id: "ethereum", name: "Ethereum", symbol: "ETH", amount: 0.0, amountUSD: 0.0)
         try! realm.write {
             realm.add(ethereumWallet, update: true)
         }

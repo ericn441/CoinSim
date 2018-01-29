@@ -20,7 +20,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //MARK: - Coin Data
     var coins: [String:CoinObject] = [:]
-    var coinsLoaded: [String:Bool] = ["bitcoin":false, "ethereum":false, "ripple":false, "bitcoinCash":false, "litecoin":false, "raiblocks": false, "monero":false, "stellar":false, "iota":false, "neo":false] //Async tracker
+    var coinsLoaded: [String:Bool] = ["bitcoin":false, "ethereum":false, "ripple":false, "bitcoin-cash":false, "litecoin":false, "raiblocks": false, "monero":false, "stellar":false, "iota":false, "neo":false] //Async tracker
 
     //MARK: - Historical Data
     var selectedCoinData: CoinObject = CoinObject(id: "", name: "", symbol: "", priceUSD: "", volume: "", marketCap: "", priceChange: "")
@@ -114,8 +114,8 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.compileCoinData()
         }
         DataManager.getBitcoinCashPrice { (JSON) in
-            self.coins["bitcoinCash"] = PriceModel().parseCoinData(json: JSON)
-            self.coinsLoaded["bitcoinCash"] = true
+            self.coins["bitcoin-cash"] = PriceModel().parseCoinData(json: JSON)
+            self.coinsLoaded["bitcoin-cash"] = true
             self.compileCoinData()
         }
         DataManager.getLitecoinPrice { (JSON) in
@@ -181,7 +181,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "monero-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
                     case "stellar":
                         renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "stellar-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
-                    case "iota":
+                    case "iota": //coinmarketcap api gives back wrong ticker
                         renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: "IOT", coinIcon: UIImage(named: "iota-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
                     case "neo":
                         renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "neo-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
