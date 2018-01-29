@@ -63,6 +63,9 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // Define height of parallax header
         tableView.parallaxHeader.minimumHeight = topLayoutGuide.length
+        
+        //Calculate total wallet value
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -346,9 +349,9 @@ extension String {
         formatter.minimumFractionDigits = 2
         return formatter.string(from: Double(self)! as NSNumber)!
     }
-    func setMinTailingDigitsToEight() -> String {
+    func setMaxTailingDigitsToEight() -> String {
         let formatter = NumberFormatter()
-        formatter.minimumFractionDigits = 8
+        formatter.maximumFractionDigits = 8
         return formatter.string(from: Double(self)! as NSNumber)!
     }
 }

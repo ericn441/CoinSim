@@ -188,9 +188,6 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
             })
 
         }
-        
-        
-        
     }
     
     func formatCurrency(value: Double) -> String {

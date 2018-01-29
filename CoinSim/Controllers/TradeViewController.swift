@@ -66,13 +66,25 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
         walletText.setTitle(coinData.name + " Wallet", for: .normal)
         
         //Set wallet amount
-        guard let walletQuery = realm.object(ofType: Wallet.self, forPrimaryKey: coinData.id) else { return }//fetch wallet data
+        guard let walletQuery = realm.object(ofType: Wallet.self, forPrimaryKey: coinData.id) else { return } //fetch wallet data
         wallet = walletQuery
         walletAmount.setTitle("\(wallet.amount) \(coinData.symbol.uppercased())", for: .normal)
         
         //Set wallet amount USD
         walletAmountUSD.setTitle("\(formatCurrency(value: wallet.amountUSD))", for: .normal)
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        //Set wallet amount
+        guard let walletQuery = realm.object(ofType: Wallet.self, forPrimaryKey: coinData.id) else { return } //fetch wallet data
+        wallet = walletQuery
+        walletAmount.setTitle("\(wallet.amount) \(coinData.symbol.uppercased())", for: .normal)
+        
+        //Set wallet amount USD
+        walletAmountUSD.setTitle("\(formatCurrency(value: wallet.amountUSD))", for: .normal)
     }
     
     

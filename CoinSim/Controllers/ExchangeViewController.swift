@@ -118,6 +118,15 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
                     }
                     
                     //update UI and segue
+                    self.showLoadingAlert(completionHandler: { (completed) in
+                        let triggerTime = (Int64(NSEC_PER_SEC) * 1)
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(triggerTime) / Double(NSEC_PER_SEC), execute: { () -> Void in
+                            self.dismiss(animated: true, completion: {
+                                let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+                                self.navigationController!.popToViewController(viewControllers[viewControllers.count - 2], animated: true)
+                            })
+                        })
+                    })
                     
                 } else {
                     self.showErrorAlert(errorMessage: "You do not have enough $$$ to buy \(self.wallet.name) 😢")
@@ -165,7 +174,15 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
                     }
                     
                     //update UI and segue
-                    
+                    self.showLoadingAlert(completionHandler: { (completed) in
+                        let triggerTime = (Int64(NSEC_PER_SEC) * 1)
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(triggerTime) / Double(NSEC_PER_SEC), execute: { () -> Void in
+                            self.dismiss(animated: true, completion: {
+                                let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+                                self.navigationController!.popToViewController(viewControllers[viewControllers.count - 2], animated: true)
+                            })
+                        })
+                    })
                     
                 } else {
                     self.showErrorAlert(errorMessage: "You do not have enough \(self.wallet.name) to sell for $$$ 😢")
@@ -192,7 +209,7 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
         guard let coinPriceAsString = SharedCoinData.shared.dict[wallet.id]?.priceUSD else { return }
         guard let coinPrice = Double(coinPriceAsString) else { return }
         let calculatedCoinSum = inputValueAsDouble / coinPrice
-        coinTextField.text = String(calculatedCoinSum).setMinTailingDigitsToEight()
+        coinTextField.text = String(calculatedCoinSum).setMaxTailingDigitsToEight()
         
         usdTextField.text = "$" + editedInput
         
@@ -220,16 +237,15 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
         let result = formatter.string(from: value as NSNumber)
         return result!
     }
-    func showLoadingAlert() {
-        //Loading Spinner
-        let triggerTime = (Int64(NSEC_PER_SEC) * 1)
-        let alertController = UIAlertController(title: nil, message: "Loading.. \n\n", preferredStyle: UIAlertControllerStyle.alert)
-        
-        let activityIndicator = NVActivityIndicatorView(frame: CGRect(x: 135.0, y: 65.5, width: 75, height: 75), type: .ballTrianglePath, color: .orange, padding: 20)
+    func showLoadingAlert(completionHandler: @escaping (_ isCompleted: Bool) -> Void) {
+        let alertController = UIAlertController(title: "Processing...\n\n", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let activityIndicator = NVActivityIndicatorView(frame: CGRect(x: 135.0, y: 65.5, width: 75, height: 75), type: .ballTrianglePath, color: .blue, padding: 20)
         activityIndicator.center = CGPoint(x: 135.0, y: 70.5)
         alertController.view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
-        self.present(alertController, animated: false, completion: nil)
+        present(alertController, animated: true, completion: {
+            completionHandler(true)
+        })
     }
     func showErrorAlert(errorMessage: String) {
         let alert = UIAlertController(title: errorMessage, message: "", preferredStyle: UIAlertControllerStyle.alert)
