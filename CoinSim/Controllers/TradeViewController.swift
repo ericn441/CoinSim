@@ -27,7 +27,9 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
     //MARK: - Coin Data
     var coinHistory: [CoinHistory] = []
     var coinData: CoinObject = CoinObject(id: "", name: "", symbol: "", priceUSD: "", volume: "", marketCap: "", priceChange: "")
+    var wallet: Wallet = Wallet(id: "", name: "", symbol: "", amount: 0.0, amountUSD: 0.0)
     var maxCoinPrice: Double = 0.0
+    var isBuyMenu: Bool = true
     let realm = try! Realm()
     
     
@@ -64,7 +66,8 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
         walletText.setTitle(coinData.name + " Wallet", for: .normal)
         
         //Set wallet amount
-        guard let wallet = realm.object(ofType: Wallet.self, forPrimaryKey: coinData.id) else { return }//fetch wallet data
+        guard let walletQuery = realm.object(ofType: Wallet.self, forPrimaryKey: coinData.id) else { return }//fetch wallet data
+        wallet = walletQuery
         walletAmount.setTitle("\(wallet.amount) \(coinData.symbol.uppercased())", for: .normal)
         
         //Set wallet amount USD
@@ -92,6 +95,7 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
             impact.impactOccurred()
         }
         
+        isBuyMenu = true
         self.performSegue(withIdentifier: "tradeToExchange", sender: nil)
     }
     @IBAction func tappedSell(_ sender: UIButton) {
@@ -100,6 +104,7 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
             impact.impactOccurred()
         }
         
+        isBuyMenu = false
         self.performSegue(withIdentifier: "tradeToExchange", sender: nil)
     }
     
@@ -158,6 +163,22 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
         return result!
     }
     
+    func loadTransactionRecord(coinName: String) -> [TransactionRecord] {
+        
+        //Query transaction for selected coin
+        let transactionRecordQuery = realm.objects(TransactionRecord.self).filter("coinName = '\(coinName)'")
+        
+        //Append results into array
+        var transactionRecord: [TransactionRecord] = []
+        for results in transactionRecordQuery {
+            transactionRecord.append(TransactionRecord(id: results.id, coinName: results.coinName, coinSymbol: results.coinSymbol, date: results.date, transactionType: results.transactionType, buyAmount: results.buyAmount, buyAmountUSD: results.buyAmountUSD, sellAmount: results.sellAmount, sellAmountUSD: results.sellAmountUSD))
+        }
+        
+        //return transaction records
+        return transactionRecord
+        
+    }
+    
     
     //MARK: - GraphView Protocols
     func value(forPlot plot: Plot, atIndex pointIndex: Int) -> Double {
@@ -180,7 +201,13 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "tradeToTractions" {
-            //do work if needed
+            let destinationVC = segue.destination as! TransactionsViewController
+            destinationVC.wallet = wallet
+            destinationVC.transactionHistory = loadTransactionRecord(coinName: wallet.name)
+        } else if segue.identifier == "tradeToExchange" {
+            let destinationVC = segue.destination as! ExchangeViewController
+            destinationVC.wallet = wallet
+            destinationVC.isBuyMenu = isBuyMenu
         }
     }
 

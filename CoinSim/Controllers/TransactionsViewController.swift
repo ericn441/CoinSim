@@ -17,7 +17,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     //MARK: Transaction Data
     var wallet: Wallet = Wallet(id: "", name: "", symbol: "", amount: 0.0, amountUSD: 0.0)
     var transactionHistory: [TransactionRecord] = []
-    
+    var isBuyMenu: Bool = true
     
     //MARK: - View Controller Life Cycle
     override func viewDidLoad() {
@@ -34,6 +34,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             impact.impactOccurred()
         }
         
+        isBuyMenu = true
         self.performSegue(withIdentifier: "transactionsToExchange", sender: nil)
     }
     
@@ -43,6 +44,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             impact.impactOccurred()
         }
         
+        isBuyMenu = false
         self.performSegue(withIdentifier: "transactionsToExchange", sender: nil)
     }
     
@@ -121,7 +123,9 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "transactionsToExchange" {
-            //do work if needed
+            let destinationVC = segue.destination as! ExchangeViewController
+            destinationVC.wallet = wallet
+            destinationVC.isBuyMenu = isBuyMenu
         }
     }
 

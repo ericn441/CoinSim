@@ -287,7 +287,6 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             //Async call
             DataManager.getHistoricalPrice(renderableCoinsArray[indexPath.row].coinTicker) { (JSON) in
                 
-                print("DataManager Called")
                 //Append selected coin data
                 self.selectedCoinData.id = self.renderableCoinsArray[indexPath.row].coinName.lowercased()
                 self.selectedCoinData.name = self.renderableCoinsArray[indexPath.row].coinName
@@ -347,4 +346,24 @@ extension String {
         formatter.minimumFractionDigits = 2
         return formatter.string(from: Double(self)! as NSNumber)!
     }
+    func setMinTailingDigitsToEight() -> String {
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 8
+        return formatter.string(from: Double(self)! as NSNumber)!
+    }
+}
+
+protocol MyTextFieldDelegate {
+    func textFieldDidDelete()
+}
+
+class MyTextField: UITextField {
+    
+    var myDelegate: MyTextFieldDelegate?
+    
+    override func deleteBackward() {
+        super.deleteBackward()
+        myDelegate?.textFieldDidDelete()
+    }
+    
 }

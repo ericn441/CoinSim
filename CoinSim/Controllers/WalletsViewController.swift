@@ -36,6 +36,8 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
             let wallet = realm.object(ofType: Wallet.self, forPrimaryKey: "bitcoin")!
             let priceData = Double(SharedCoinData.shared.dict["bitcoin"]!.priceUSD)
             realm.create(Wallet.self, value: ["id": "bitcoin", "amountUSD": priceData! * wallet.amount], update: true)
+            
+            realm.create(Wallet.self, value: ["id": "usd", "amount":10000.0, "amountUSD":10000.0], update: true)
             self.tableView.reloadData()
 
         }

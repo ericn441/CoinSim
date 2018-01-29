@@ -120,20 +120,145 @@
             </objects>
             <point key="canvasLocation" x="212" y="1985"/>
         </scene>
-        <!--View Controller-->
+        <!--Exchange View Controller-->
         <scene sceneID="Rcr-Us-2nf">
             <objects>
-                <viewController id="LRc-gH-TcZ" sceneMemberID="viewController">
+                <viewController id="LRc-gH-TcZ" customClass="ExchangeViewController" customModule="CoinSim" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gbv-LW-UtY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="line" placeholder="$0.00" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f2X-sZ-TeR" customClass="MyTextField" customModule="CoinSim" customModuleProvider="target">
+                                <rect key="frame" x="16" y="312" width="169" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="pcF-IY-3Ss"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0.00" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="uo0-3i-j9L" customClass="MyTextField" customModule="CoinSim" customModuleProvider="target">
+                                <rect key="frame" x="193" y="313" width="169" height="35"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="npy-UD-aWT">
+                                <rect key="frame" x="58" y="228" width="85" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD Balance: $10,000" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Itr-Dc-Vhd">
+                                <rect key="frame" x="16" y="80" width="343" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="i7u-TN-Ieb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="28"/>
+                                <color key="textColor" red="0.23137254901960785" green="0.32941176470588235" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC Balance: 0.82325454" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufz-ZW-fla">
+                                <rect key="frame" x="16" y="123" width="343" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="ekm-zO-0Ri"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="28"/>
+                                <color key="textColor" red="0.23137254900000001" green="0.3294117647" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVf-EM-EJz">
+                                <rect key="frame" x="233" y="228" width="85" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uik-U6-Yw6">
+                                <rect key="frame" x="16" y="365" width="343" height="50"/>
+                                <state key="normal" image="large-buy-button"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trade-icon" translatesAutoresizingMaskIntoConstraints="NO" id="lph-FK-Wl7">
+                                <rect key="frame" x="167" y="226" width="45" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="bQe-7w-p5J"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="usd-icon" translatesAutoresizingMaskIntoConstraints="NO" id="9Vs-df-Re8">
+                                <rect key="frame" x="88" y="265" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="FYd-Ch-EQn"/>
+                                    <constraint firstAttribute="width" constant="25" id="iMc-xU-fDP"/>
+                                    <constraint firstAttribute="width" secondItem="9Vs-df-Re8" secondAttribute="height" multiplier="1:1" id="xJ8-Q0-Jgo"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoin-icon" translatesAutoresizingMaskIntoConstraints="NO" id="DfE-8E-sMm">
+                                <rect key="frame" x="264" y="266" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DfE-8E-sMm" secondAttribute="height" multiplier="1:1" id="1ix-gK-DcD"/>
+                                    <constraint firstAttribute="height" constant="25" id="Psy-4G-3gf"/>
+                                    <constraint firstAttribute="width" constant="25" id="dl0-aA-F8g"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price of BTC: $10,000" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j7J-kO-3MG">
+                                <rect key="frame" x="16" y="166" width="343" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="CpD-jp-aze"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
+                                <color key="textColor" red="0.23137254901960785" green="0.32941176470588235" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="f2X-sZ-TeR" firstAttribute="centerY" secondItem="uo0-3i-j9L" secondAttribute="centerY" id="18W-Hw-c8e"/>
+                            <constraint firstItem="j7J-kO-3MG" firstAttribute="leading" secondItem="f2X-sZ-TeR" secondAttribute="leading" id="1Vh-mF-n4b"/>
+                            <constraint firstItem="Itr-Dc-Vhd" firstAttribute="top" secondItem="qwY-HL-tCN" secondAttribute="top" constant="16" id="1nd-wq-wbb"/>
+                            <constraint firstItem="qwY-HL-tCN" firstAttribute="trailing" secondItem="DVf-EM-EJz" secondAttribute="trailing" constant="57" id="7Qq-VR-diz"/>
+                            <constraint firstItem="qwY-HL-tCN" firstAttribute="trailing" secondItem="uo0-3i-j9L" secondAttribute="trailing" constant="13" id="8uh-pQ-T54"/>
+                            <constraint firstItem="DVf-EM-EJz" firstAttribute="leading" secondItem="lph-FK-Wl7" secondAttribute="trailing" constant="21" id="9aM-Je-i2J"/>
+                            <constraint firstItem="f2X-sZ-TeR" firstAttribute="leading" secondItem="uik-U6-Yw6" secondAttribute="leading" id="DlW-Gp-IRB"/>
+                            <constraint firstItem="lph-FK-Wl7" firstAttribute="top" secondItem="j7J-kO-3MG" secondAttribute="bottom" constant="25" id="ECB-ES-l3S"/>
+                            <constraint firstItem="lph-FK-Wl7" firstAttribute="centerY" secondItem="DVf-EM-EJz" secondAttribute="centerY" id="Hgp-Vu-6SK"/>
+                            <constraint firstItem="Itr-Dc-Vhd" firstAttribute="leading" secondItem="ufz-ZW-fla" secondAttribute="leading" id="LNa-8b-Rsx"/>
+                            <constraint firstItem="uo0-3i-j9L" firstAttribute="leading" secondItem="f2X-sZ-TeR" secondAttribute="trailing" constant="8" symbolic="YES" id="LSF-Qi-uQx"/>
+                            <constraint firstItem="Itr-Dc-Vhd" firstAttribute="trailing" secondItem="ufz-ZW-fla" secondAttribute="trailing" id="MZA-Il-OJd"/>
+                            <constraint firstItem="ufz-ZW-fla" firstAttribute="top" secondItem="Itr-Dc-Vhd" secondAttribute="bottom" constant="8" symbolic="YES" id="Npq-0Z-5h5"/>
+                            <constraint firstItem="f2X-sZ-TeR" firstAttribute="bottom" secondItem="uo0-3i-j9L" secondAttribute="bottom" id="O0n-ZU-pjH"/>
+                            <constraint firstItem="9Vs-df-Re8" firstAttribute="top" secondItem="npy-UD-aWT" secondAttribute="bottom" constant="7" id="QCb-SH-B2t"/>
+                            <constraint firstItem="uik-U6-Yw6" firstAttribute="top" secondItem="f2X-sZ-TeR" secondAttribute="bottom" constant="17" id="S2t-Zb-xhd"/>
+                            <constraint firstItem="ufz-ZW-fla" firstAttribute="trailing" secondItem="j7J-kO-3MG" secondAttribute="trailing" id="SB6-aa-WB9"/>
+                            <constraint firstItem="lph-FK-Wl7" firstAttribute="leading" secondItem="npy-UD-aWT" secondAttribute="trailing" constant="24" id="Ufr-al-q4O"/>
+                            <constraint firstItem="9Vs-df-Re8" firstAttribute="leading" secondItem="qwY-HL-tCN" secondAttribute="leading" constant="88" id="bRT-4D-I1C"/>
+                            <constraint firstItem="npy-UD-aWT" firstAttribute="baseline" secondItem="DVf-EM-EJz" secondAttribute="baseline" id="dEM-SG-IIk"/>
+                            <constraint firstItem="9Vs-df-Re8" firstAttribute="centerX" secondItem="f2X-sZ-TeR" secondAttribute="centerX" id="eJT-tx-c7g"/>
+                            <constraint firstItem="npy-UD-aWT" firstAttribute="leading" secondItem="qwY-HL-tCN" secondAttribute="leading" constant="58" id="eav-bI-ULu"/>
+                            <constraint firstItem="DfE-8E-sMm" firstAttribute="top" secondItem="DVf-EM-EJz" secondAttribute="bottom" constant="8" symbolic="YES" id="fTJ-d9-JgA"/>
+                            <constraint firstItem="j7J-kO-3MG" firstAttribute="trailing" secondItem="uik-U6-Yw6" secondAttribute="trailing" id="gLY-2P-t0k"/>
+                            <constraint firstItem="ufz-ZW-fla" firstAttribute="leading" secondItem="j7J-kO-3MG" secondAttribute="leading" id="lmQ-Ly-mZ5"/>
+                            <constraint firstItem="f2X-sZ-TeR" firstAttribute="top" secondItem="9Vs-df-Re8" secondAttribute="bottom" constant="22" id="m0d-2U-Bhg"/>
+                            <constraint firstItem="Itr-Dc-Vhd" firstAttribute="leading" secondItem="gbv-LW-UtY" secondAttribute="leadingMargin" id="m38-D7-kpm"/>
+                            <constraint firstItem="npy-UD-aWT" firstAttribute="centerX" secondItem="9Vs-df-Re8" secondAttribute="centerX" id="qRg-aO-M3F"/>
+                            <constraint firstItem="f2X-sZ-TeR" firstAttribute="baseline" secondItem="uo0-3i-j9L" secondAttribute="baseline" id="uRZ-O5-vtE"/>
+                            <constraint firstItem="j7J-kO-3MG" firstAttribute="top" secondItem="ufz-ZW-fla" secondAttribute="bottom" constant="8" symbolic="YES" id="uVr-4B-wzz"/>
+                            <constraint firstItem="qwY-HL-tCN" firstAttribute="trailing" secondItem="DfE-8E-sMm" secondAttribute="trailing" constant="86" id="zed-m6-YU3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="qwY-HL-tCN"/>
                     </view>
+                    <connections>
+                        <outlet property="actionButton" destination="uik-U6-Yw6" id="5ui-cz-pzr"/>
+                        <outlet property="coinBalance" destination="ufz-ZW-fla" id="r0B-Ab-EKO"/>
+                        <outlet property="coinIcon" destination="DfE-8E-sMm" id="KXF-iZ-itH"/>
+                        <outlet property="coinPrice" destination="j7J-kO-3MG" id="GhJ-rn-vcU"/>
+                        <outlet property="coinSymbol" destination="DVf-EM-EJz" id="rzg-3V-krE"/>
+                        <outlet property="coinTextField" destination="uo0-3i-j9L" id="J9Q-na-OZd"/>
+                        <outlet property="usdBalance" destination="Itr-Dc-Vhd" id="JvZ-Pv-Qm4"/>
+                        <outlet property="usdTextField" destination="f2X-sZ-TeR" id="4yf-fG-V2g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Km0-hy-HcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-719" y="3580"/>
+            <point key="canvasLocation" x="-719.20000000000005" y="3579.7601199400301"/>
         </scene>
         <!--Transactions View Controller-->
         <scene sceneID="jyb-Dd-vfp">
@@ -145,9 +270,9 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QxV-P3-qBq">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.23137254900000001" green="0.3294117647" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" rowHeight="120" id="oxN-Wd-Yrt" customClass="TransactionsHeaderTableViewCell" customModule="CoinSim" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="headerCell" rowHeight="120" id="oxN-Wd-Yrt" customClass="TransactionsHeaderTableViewCell" customModule="CoinSim" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oxN-Wd-Yrt" id="Ixw-9s-6jn">
@@ -186,7 +311,7 @@
                                             <outlet property="priceUSDLabel" destination="3eW-IG-O5O" id="cfc-AQ-Jfw"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="actionsCell" rowHeight="80" id="QzX-RW-XHP" customClass="TransactionsActionTableViewCell" customModule="CoinSim" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="actionsCell" rowHeight="80" id="QzX-RW-XHP" customClass="TransactionsActionTableViewCell" customModule="CoinSim" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="148" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QzX-RW-XHP" id="rqB-eM-PWa">
@@ -230,7 +355,7 @@
                                             <outlet property="sellButton" destination="nYA-dL-fw3" id="QAb-Nv-Ow1"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="70" id="fSd-fS-RFB" customClass="TransactionsHistoryTableViewCell" customModule="CoinSim" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="70" id="fSd-fS-RFB" customClass="TransactionsHistoryTableViewCell" customModule="CoinSim" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="228" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fSd-fS-RFB" id="C99-Bh-1Fh">
@@ -310,7 +435,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="QxV-P3-qBq" firstAttribute="bottom" secondItem="PWO-Ac-Dge" secondAttribute="bottom" id="0n5-tO-PY0"/>
                             <constraint firstItem="QxV-P3-qBq" firstAttribute="top" secondItem="PWO-Ac-Dge" secondAttribute="top" id="JnL-DK-O1J"/>
@@ -774,9 +899,12 @@
         <image name="bitcoin-icon" width="25" height="25"/>
         <image name="buy-button" width="166" height="54"/>
         <image name="disclosure-indicator" width="9" height="12"/>
+        <image name="large-buy-button" width="343" height="50"/>
         <image name="prices-tab-icon" width="21" height="18"/>
         <image name="sell-button" width="166" height="55"/>
         <image name="settings-tab-icon" width="21" height="21"/>
+        <image name="trade-icon" width="45" height="34"/>
+        <image name="usd-icon" width="25" height="24"/>
         <image name="wallets-tab-icon" width="21" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
