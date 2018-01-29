@@ -5,4 +5,5 @@ target 'CoinSim' do
     pod 'MXParallaxHeader'
     pod 'ScrollableGraphView'
     pod 'RealmSwift'
+    pod 'NVActivityIndicatorView'
 end

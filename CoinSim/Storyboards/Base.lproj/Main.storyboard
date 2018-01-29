@@ -176,6 +176,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uik-U6-Yw6">
                                 <rect key="frame" x="16" y="365" width="343" height="50"/>
                                 <state key="normal" image="large-buy-button"/>
+                                <connections>
+                                    <action selector="tappedActionButton:" destination="LRc-gH-TcZ" eventType="touchUpInside" id="bFX-cu-RBf"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trade-icon" translatesAutoresizingMaskIntoConstraints="NO" id="lph-FK-Wl7">
                                 <rect key="frame" x="167" y="226" width="45" height="34"/>

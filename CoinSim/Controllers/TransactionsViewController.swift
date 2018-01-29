@@ -7,18 +7,20 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TransactionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     //MARK: - UI Componets
     var refreshCtrl: UIRefreshControl!
     @IBOutlet weak var tableView: UITableView!
-    
+    let realm = try! Realm()
     
     //MARK: Transaction Data
     var wallet: Wallet = Wallet(id: "", name: "", symbol: "", amount: 0.0, amountUSD: 0.0)
     var transactionHistory: [TransactionRecord] = []
     var isBuyMenu: Bool = true
+    
     
     //MARK: - View Controller Life Cycle
     override func viewDidLoad() {
@@ -59,6 +61,24 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     //MARK: - Helper Functions
     @objc func refreshTransactions() {
         
+        //Query transaction for selected coin
+        let transactionRecordQuery = realm.objects(TransactionRecord.self).filter("coinName = '\(wallet.name)'")
+        
+        //Append results into array
+        var transactions: [TransactionRecord] = []
+        for results in transactionRecordQuery {
+            transactions.append(TransactionRecord(id: results.id, coinName: results.coinName, coinSymbol: results.coinSymbol, date: results.date, transactionType: results.transactionType, buyAmount: results.buyAmount, buyAmountUSD: results.buyAmountUSD, sellAmount: results.sellAmount, sellAmountUSD: results.sellAmountUSD))
+        }
+        
+        //return transaction records
+        transactionHistory = transactions
+        
+        //UIRefresh delay
+        let triggerTime = (Int64(NSEC_PER_SEC) * 1)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(triggerTime) / Double(NSEC_PER_SEC), execute: { () -> Void in
+            self.tableView.reloadData()
+            self.refreshCtrl?.endRefreshing()
+        })
     }
     
     func formatCurrency(value: Double) -> String {

@@ -83,12 +83,6 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK: - Helper Functions
     @objc func fetchAllCoinPrices() {
         
-        //UIRefresh delay
-        let triggerTime = (Int64(NSEC_PER_SEC) * 1)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(triggerTime) / Double(NSEC_PER_SEC), execute: { () -> Void in
-            self.refreshCtrl?.endRefreshing()
-        })
-        
         //Clear renderable coins
         renderableCoinsArray.removeAll()
         
@@ -190,9 +184,15 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             }
             
-            self.determinePriceChange()
-            self.tableView.reloadData()
+            self.determinePriceChange() //Updates prices since API does not give that data
             SharedCoinData.shared.dict = coins //Shared Singleton Instance
+            
+            //UIRefresh delay
+            let triggerTime = (Int64(NSEC_PER_SEC) * 1)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(triggerTime) / Double(NSEC_PER_SEC), execute: { () -> Void in
+                self.tableView.reloadData()
+                self.refreshCtrl?.endRefreshing()
+            })
         }
         
     }

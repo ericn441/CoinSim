@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import NVActivityIndicatorView
 
 class ExchangeViewController: UIViewController, MyTextFieldDelegate {
     
@@ -77,6 +78,79 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
         }
     }
     
+    //MARK: - IBActions
+    @IBAction func tappedActionButton(_ sender: UIButton) {
+        if isBuyMenu { //MARK: Buy
+            let alert = UIAlertController(title: "Buy \(coinTextField.text!) \(wallet.name) for \(usdTextField.text!)?", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+            
+            //Buy Action
+            alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: { action in
+               
+                //Check if input values are valids
+                guard let buyInput = self.coinTextField.text else { return }
+                guard let buyAmount = Double(buyInput) else { return }
+                guard let buyInputUSD = self.usdTextField.text else { return }
+                let editedInput = buyInputUSD.replacingOccurrences(of: "$", with: "")
+                guard let buyAmountUSD = Double(editedInput) else { return }
+                
+                //Check if USD balance is available
+                if self.usdWallet.amountUSD >= buyAmountUSD {
+                    
+                    //Log the transaction
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+                    let dateStr =  dateFormatter.string(from: Date())
+                    
+                    TransactionRecord.createBuyTransaction(in: self.realm, coinName: self.wallet.name, coinSymbol: self.wallet.symbol, date: dateStr, transactionType: "buy", buyAmount: buyAmount, buyAmountUSD: buyAmountUSD)
+                    
+                    //Segue out and refresh wallet
+                    
+                    
+                } else {
+                    self.showErrorAlert(errorMessage: "You do not have enough $$$ to buy \(self.wallet.name) 😢")
+                }
+                
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+            
+        } else { //MARK: Sell
+            let alert = UIAlertController(title: "Sell \(coinTextField.text!) \(wallet.name) for \(usdTextField.text!)?", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+            
+            //Sell Action
+            alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: { action in
+                //Check if input values are valids
+                guard let sellInput = self.coinTextField.text else { return }
+                guard let sellAmount = Double(sellInput) else { return }
+                guard let sellInputUSD = self.usdTextField.text else { return }
+                let editedInput = sellInputUSD.replacingOccurrences(of: "$", with: "")
+                guard let sellAmountUSD = Double(editedInput) else { return }
+                
+                //Check if USD balance is available
+                if sellAmount <= self.wallet.amount {
+                    
+                    //Log the transaction
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+                    let dateStr =  dateFormatter.string(from: Date())
+                    
+                    TransactionRecord.createSellTransaction(in: self.realm, coinName: self.wallet.name, coinSymbol: self.wallet.symbol, date: dateStr, transactionType: "sell", sellAmount: sellAmount, sellAmountUSD: sellAmountUSD)
+                    
+                    //Segue out and refresh wallet
+                    
+                    
+                } else {
+                    self.showErrorAlert(errorMessage: "You do not have enough \(self.wallet.name) to sell for $$$ 😢")
+                }
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+        }
+       
+    }
+    
     
     //MARK: - TextField Protocols
     func textFieldDidDelete() {
@@ -120,7 +194,23 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
         let result = formatter.string(from: value as NSNumber)
         return result!
     }
-
+    func showLoadingAlert() {
+        //Loading Spinner
+        let triggerTime = (Int64(NSEC_PER_SEC) * 1)
+        let alertController = UIAlertController(title: nil, message: "Loading.. \n\n", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let activityIndicator = NVActivityIndicatorView(frame: CGRect(x: 135.0, y: 65.5, width: 75, height: 75), type: .ballTrianglePath, color: .orange, padding: 20)
+        activityIndicator.center = CGPoint(x: 135.0, y: 70.5)
+        alertController.view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        self.present(alertController, animated: false, completion: nil)
+    }
+    func showErrorAlert(errorMessage: String) {
+        let alert = UIAlertController(title: errorMessage, message: "", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     
     
 }

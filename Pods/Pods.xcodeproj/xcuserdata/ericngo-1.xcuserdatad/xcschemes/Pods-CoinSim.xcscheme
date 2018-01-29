@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "108854AFDEACA8FAF4A311C674FBF13B"
+               BlueprintIdentifier = "F32BF28FD467285C1A5CD2F37781AFF7"
                BuildableName = "Pods_CoinSim.framework"
                BlueprintName = "Pods-CoinSim"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "108854AFDEACA8FAF4A311C674FBF13B"
+            BlueprintIdentifier = "F32BF28FD467285C1A5CD2F37781AFF7"
             BuildableName = "Pods_CoinSim.framework"
             BlueprintName = "Pods-CoinSim"
             ReferencedContainer = "container:Pods.xcodeproj">

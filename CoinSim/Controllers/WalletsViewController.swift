@@ -36,16 +36,6 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
         loadWallets()
         
         print(realm.configuration.fileURL)
-        print(SharedCoinData.shared.dict["bitcoin-cash"]!.priceUSD)
-        
-        
-        //Date formatter
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
-        let dateStr =  dateFormatter.string(from: Date())
-        
-        TransactionRecord.createBuyTransaction(in: realm, coinName: "Bitcoin", coinSymbol: "BTC", date: dateStr, transactionType: "buy", buyAmount: 1.0, buyAmountUSD: 11231.31)
-        
     }
     
     
@@ -128,6 +118,7 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //***TEST WRITES***
         try! realm.write {
+            realm.create(Wallet.self, value: ["id": "usd", "amount":10000.0, "amountUSD":10000.0], update: true)
             realm.create(Wallet.self, value: ["id": "bitcoin", "amount":2.0], update: true)
             realm.create(Wallet.self, value: ["id": "ethereum", "amount":1.5], update: true)
             realm.create(Wallet.self, value: ["id": "ripple", "amount":2021.0], update: true)
@@ -189,15 +180,16 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
             let neoPriceData = Double(SharedCoinData.shared.dict["neo"]!.priceUSD)
             realm.create(Wallet.self, value: ["id": "neo", "amountUSD": neoPriceData! * neoWallet.amount], update: true)
             
-            self.tableView.reloadData()
+            //UIRefresh delay
+            let triggerTime = (Int64(NSEC_PER_SEC) * 1)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(triggerTime) / Double(NSEC_PER_SEC), execute: { () -> Void in
+                self.tableView.reloadData()
+                self.refreshCtrl?.endRefreshing()
+            })
 
         }
         
-        //UIRefresh delay
-        let triggerTime = (Int64(NSEC_PER_SEC) * 1)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(triggerTime) / Double(NSEC_PER_SEC), execute: { () -> Void in
-            self.refreshCtrl?.endRefreshing()
-        })
+        
         
     }
     
