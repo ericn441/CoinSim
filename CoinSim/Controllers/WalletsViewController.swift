@@ -117,15 +117,15 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
     @objc func refreshWalletValues() {
         
         //***TEST WRITES***
-        try! realm.write {
-            realm.create(Wallet.self, value: ["id": "usd", "amount":10000.0, "amountUSD":10000.0], update: true)
-            realm.create(Wallet.self, value: ["id": "bitcoin", "amount":2.0], update: true)
-            realm.create(Wallet.self, value: ["id": "ethereum", "amount":1.5], update: true)
-            realm.create(Wallet.self, value: ["id": "ripple", "amount":2021.0], update: true)
-            realm.create(Wallet.self, value: ["id": "litecoin", "amount":20.0], update: true)
-            realm.create(Wallet.self, value: ["id": "raiblocks", "amount":432.0], update: true)
-            self.tableView.reloadData()
-        }
+//        try! realm.write {
+//            realm.create(Wallet.self, value: ["id": "usd", "amountUSD":10000.0], update: true)
+//            realm.create(Wallet.self, value: ["id": "bitcoin", "amount":2.0], update: true)
+//            realm.create(Wallet.self, value: ["id": "ethereum", "amount":1.5], update: true)
+//            realm.create(Wallet.self, value: ["id": "ripple", "amount":2021.0], update: true)
+//            realm.create(Wallet.self, value: ["id": "litecoin", "amount":20.0], update: true)
+//            realm.create(Wallet.self, value: ["id": "raiblocks", "amount":432.0], update: true)
+//            self.tableView.reloadData()
+//        }
 
 
         try! realm.write {
@@ -218,12 +218,16 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.coinIcon.contentMode = .scaleAspectFit
         cell.coinIcon.image = UIImage(named: "\(wallets[indexPath.row].id)-icon")
         
-        //Wallet Amount
-        cell.walletAmount.text = String(wallets[indexPath.row].amount) + " \(wallets[indexPath.row].symbol)"
-        
         //Wallet Amount USD
         cell.walletAmountUSD.text = formatCurrency(value: wallets[indexPath.row].amountUSD)
         
+        //Wallet Amount
+        if indexPath.row == 0 {
+            cell.walletAmount.text?.removeAll()
+        } else {
+            cell.walletAmount.text = String(wallets[indexPath.row].amount) + " \(wallets[indexPath.row].symbol)"
+        }
+
         return cell
     }
     

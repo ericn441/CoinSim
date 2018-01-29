@@ -56,13 +56,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 BTC" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zch-bx-CCg">
-                                                    <rect key="frame" x="196" y="44" width="138" height="25"/>
+                                                    <rect key="frame" x="196" y="52" width="138" height="25"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" red="0.23137254900000001" green="0.3294117647" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeC-p1-vvV">
-                                                    <rect key="frame" x="196" y="11" width="138" height="25"/>
+                                                    <rect key="frame" x="196" y="27" width="138" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="138" id="eQK-LU-GnK"/>
                                                         <constraint firstAttribute="height" constant="25" id="jaR-Fi-siG"/>
@@ -73,9 +73,9 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Zw9-No-vQG" firstAttribute="firstBaseline" secondItem="WeC-p1-vvV" secondAttribute="firstBaseline" constant="6.5" id="2FD-zY-HZI"/>
+                                                <constraint firstItem="Zw9-No-vQG" firstAttribute="firstBaseline" secondItem="WeC-p1-vvV" secondAttribute="firstBaseline" constant="-9.5" id="2FD-zY-HZI"/>
                                                 <constraint firstItem="EQn-9h-QSF" firstAttribute="centerY" secondItem="bAg-Pm-Dce" secondAttribute="centerY" id="2wT-eX-hth"/>
-                                                <constraint firstItem="Zch-bx-CCg" firstAttribute="top" secondItem="WeC-p1-vvV" secondAttribute="bottom" constant="8" id="3TZ-ls-lFv"/>
+                                                <constraint firstItem="Zch-bx-CCg" firstAttribute="top" secondItem="WeC-p1-vvV" secondAttribute="bottom" id="3TZ-ls-lFv"/>
                                                 <constraint firstItem="Zw9-No-vQG" firstAttribute="bottom" secondItem="bAg-Pm-Dce" secondAttribute="bottomMargin" id="As8-uk-Q7x"/>
                                                 <constraint firstItem="WeC-p1-vvV" firstAttribute="trailing" secondItem="bAg-Pm-Dce" secondAttribute="trailingMargin" id="Y5a-K3-cCA"/>
                                                 <constraint firstItem="EQn-9h-QSF" firstAttribute="centerY" secondItem="Zw9-No-vQG" secondAttribute="centerY" id="e7h-3W-4v0"/>
@@ -84,7 +84,7 @@
                                                 <constraint firstItem="Zw9-No-vQG" firstAttribute="leading" secondItem="EQn-9h-QSF" secondAttribute="trailing" constant="9" id="qh8-hJ-aqI"/>
                                                 <constraint firstItem="WeC-p1-vvV" firstAttribute="leading" secondItem="Zch-bx-CCg" secondAttribute="leading" id="v19-pY-rft"/>
                                                 <constraint firstItem="WeC-p1-vvV" firstAttribute="leading" secondItem="Zw9-No-vQG" secondAttribute="trailing" constant="8" symbolic="YES" id="wzS-14-Omj"/>
-                                                <constraint firstItem="Zw9-No-vQG" firstAttribute="baseline" secondItem="Zch-bx-CCg" secondAttribute="baseline" constant="-2" id="zGM-fF-FbH"/>
+                                                <constraint firstItem="Zw9-No-vQG" firstAttribute="baseline" secondItem="Zch-bx-CCg" secondAttribute="baseline" constant="-10" id="zGM-fF-FbH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -911,7 +911,7 @@
         <image name="wallets-tab-icon" width="21" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bt2-EG-MiG"/>
+        <segue reference="FFn-kw-rwx"/>
         <segue reference="1lI-NC-sPl"/>
     </inferredMetricsTieBreakers>
 </document>

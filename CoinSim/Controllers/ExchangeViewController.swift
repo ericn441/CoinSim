@@ -81,18 +81,19 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
     //MARK: - IBActions
     @IBAction func tappedActionButton(_ sender: UIButton) {
         if isBuyMenu { //MARK: Buy
-            let alert = UIAlertController(title: "Buy \(coinTextField.text!) \(wallet.name) for \(usdTextField.text!)?", message: "", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+            let buyAlert = UIAlertController(title: "Buy \(coinTextField.text!) \(wallet.name) for \(usdTextField.text!)?", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            buyAlert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
             
             //Buy Action
-            alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: { action in
+            buyAlert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: { action in
                
                 //Check if input values are valids
                 guard let buyInput = self.coinTextField.text else { return }
                 guard let buyAmount = Double(buyInput) else { return }
                 guard let buyInputUSD = self.usdTextField.text else { return }
-                let editedInput = buyInputUSD.replacingOccurrences(of: "$", with: "")
-                guard let buyAmountUSD = Double(editedInput) else { return }
+                let removedDollarSign = buyInputUSD.replacingOccurrences(of: "$", with: "")
+                let removedComma = removedDollarSign.replacingOccurrences(of: ",", with: "")
+                guard let buyAmountUSD = Double(removedComma) else { return }
                 
                 //Check if USD balance is available
                 if self.usdWallet.amountUSD >= buyAmountUSD {
@@ -104,8 +105,19 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
                     
                     TransactionRecord.createBuyTransaction(in: self.realm, coinName: self.wallet.name, coinSymbol: self.wallet.symbol, date: dateStr, transactionType: "buy", buyAmount: buyAmount, buyAmountUSD: buyAmountUSD)
                     
-                    //Segue out and refresh wallet
+                    //add coin to wallet
+                    let newBuyTotal = self.wallet.amount + buyAmount
+                    let newBuyUSDTotal = self.wallet.amountUSD + buyAmountUSD
                     
+                    //Subtract $ from bank
+                    let bankTotalUSD = self.usdWallet.amountUSD - buyAmountUSD
+
+                    try! self.realm.write {
+                        self.realm.create(Wallet.self, value: ["id": self.usdWallet.id, "amountUSD": bankTotalUSD], update: true)
+                        self.realm.create(Wallet.self, value: ["id": self.wallet.id, "amount": newBuyTotal, "amountUSD": newBuyUSDTotal], update: true)
+                    }
+                    
+                    //update UI and segue
                     
                 } else {
                     self.showErrorAlert(errorMessage: "You do not have enough $$$ to buy \(self.wallet.name) 😢")
@@ -113,20 +125,22 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
                 
             }))
             
-            self.present(alert, animated: true, completion: nil)
+            self.present(buyAlert, animated: true, completion: nil)
             
         } else { //MARK: Sell
-            let alert = UIAlertController(title: "Sell \(coinTextField.text!) \(wallet.name) for \(usdTextField.text!)?", message: "", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+            let sellAlert = UIAlertController(title: "Sell \(coinTextField.text!) \(wallet.name) for \(usdTextField.text!)?", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            sellAlert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
             
             //Sell Action
-            alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: { action in
+            sellAlert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: { action in
                 //Check if input values are valids
-                guard let sellInput = self.coinTextField.text else { return }
-                guard let sellAmount = Double(sellInput) else { return }
-                guard let sellInputUSD = self.usdTextField.text else { return }
-                let editedInput = sellInputUSD.replacingOccurrences(of: "$", with: "")
-                guard let sellAmountUSD = Double(editedInput) else { return }
+                guard let sellInput = self.coinTextField.text else { print("sell input failed"); return }
+                guard let sellAmount = Double(sellInput) else { print("sell amount failed"); return }
+                guard let sellInputUSD = self.usdTextField.text else { print("sell usd failed"); return }
+                let removedDollarSign = sellInputUSD.replacingOccurrences(of: "$", with: "")
+                let removedComma = removedDollarSign.replacingOccurrences(of: ",", with: "")
+                print(removedComma)
+                guard let sellAmountUSD = Double(removedComma) else { print("sell amountUSD failed"); return }
                 
                 //Check if USD balance is available
                 if sellAmount <= self.wallet.amount {
@@ -138,7 +152,19 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
                     
                     TransactionRecord.createSellTransaction(in: self.realm, coinName: self.wallet.name, coinSymbol: self.wallet.symbol, date: dateStr, transactionType: "sell", sellAmount: sellAmount, sellAmountUSD: sellAmountUSD)
                     
-                    //Segue out and refresh wallet
+                    //add $ to bank
+                    let bankTotalUSD = self.usdWallet.amountUSD + sellAmountUSD
+                    
+                    //subtract coin from wallet
+                    let newSellTotal = self.wallet.amount - sellAmount
+                    let newSellUSDTotal = self.wallet.amountUSD - sellAmountUSD
+                    
+                    try! self.realm.write {
+                        self.realm.create(Wallet.self, value: ["id": self.usdWallet.id, "amountUSD": bankTotalUSD], update: true)
+                        self.realm.create(Wallet.self, value: ["id": self.wallet.id, "amount": newSellTotal, "amountUSD": newSellUSDTotal], update: true)
+                    }
+                    
+                    //update UI and segue
                     
                     
                 } else {
@@ -146,7 +172,7 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
                 }
             }))
             
-            self.present(alert, animated: true, completion: nil)
+            self.present(sellAlert, animated: true, completion: nil)
         }
        
     }
