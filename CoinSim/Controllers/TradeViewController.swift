@@ -42,7 +42,7 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
         navigationController?.navigationBar.barTintColor = UIColor(red: 23/255, green: 52/255, blue: 126/255, alpha: 1.0)
         
         //Set price
-        coinPrice.text = formatCurrency(value: Double(coinData.priceUSD)!)
+        coinPrice.text = Utils.formatCurrency(value: Double(coinData.priceUSD)!)
         
         //Set price change
         if coinData.priceChange.contains("-") {
@@ -71,7 +71,7 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
         walletAmount.setTitle("\(wallet.amount) \(coinData.symbol.uppercased())", for: .normal)
         
         //Set wallet amount USD
-        walletAmountUSD.setTitle("\(formatCurrency(value: wallet.amountUSD))", for: .normal)
+        walletAmountUSD.setTitle(Utils.formatCurrency(value: wallet.amountUSD), for: .normal)
         
     }
     
@@ -84,7 +84,7 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
         walletAmount.setTitle("\(wallet.amount) \(coinData.symbol.uppercased())", for: .normal)
         
         //Set wallet amount USD
-        walletAmountUSD.setTitle("\(formatCurrency(value: wallet.amountUSD))", for: .normal)
+        walletAmountUSD.setTitle(Utils.formatCurrency(value: wallet.amountUSD), for: .normal)
     }
     
     
@@ -164,15 +164,6 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
                 results.readableTime = beforeEqualsTo
             }
         }
-    }
-    
-    func formatCurrency(value: Double) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.maximumFractionDigits = 2
-        formatter.locale = Locale(identifier: Locale.current.identifier)
-        let result = formatter.string(from: value as NSNumber)
-        return result!
     }
     
     func loadTransactionRecord(coinName: String) -> [TransactionRecord] {

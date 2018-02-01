@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6BF0414F6B9C94AEB1D938EE /* Pods_CoinSim.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25D5B21B214031D33C3679A /* Pods_CoinSim.framework */; };
+		BB1E4D7F201FD82800F878B9 /* Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E4D7E201FD82800F878B9 /* Utilites.swift */; };
 		BB24976A2006E38E00D17B94 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB24976B2006E38E00D17B94 /* SwiftyJSON.framework */; };
 		BB24976E2006FA6200D17B94 /* MXParallaxHeader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB24976F2006FA6200D17B94 /* MXParallaxHeader.framework */; };
 		BB24977120070CDD00D17B94 /* PriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24977020070CDD00D17B94 /* PriceModel.swift */; };
@@ -49,6 +50,7 @@
 		1147115C75E208CF2C8C8CB8 /* Pods-CoinSim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinSim.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoinSim/Pods-CoinSim.debug.xcconfig"; sourceTree = "<group>"; };
 		A9B04D1119000A0CAB91D7B6 /* Pods-CoinSim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinSim.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoinSim/Pods-CoinSim.release.xcconfig"; sourceTree = "<group>"; };
 		B25D5B21B214031D33C3679A /* Pods_CoinSim.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinSim.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB1E4D7E201FD82800F878B9 /* Utilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilites.swift; sourceTree = "<group>"; };
 		BB24976B2006E38E00D17B94 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB24976D2006F55600D17B94 /* CSStickyHeaderFlowLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CSStickyHeaderFlowLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB24976F2006FA6200D17B94 /* MXParallaxHeader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MXParallaxHeader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,29 +121,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BB1E4D80201FD89A00F878B9 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				BBB789442006D35F00EA6F54 /* Main.storyboard */,
+				BBDBC041200C5B3C0096B0A7 /* DataStorage.swift */,
+				BB513D472006E0CB00F7A1D6 /* DataManager.swift */,
+				BB1E4D7E201FD82800F878B9 /* Utilites.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		BB513D452006E09000F7A1D6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				BB24977020070CDD00D17B94 /* PriceModel.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		BB513D462006E09900F7A1D6 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				BB7B9A5F20103C3000C275E9 /* API Calls */,
-				BBDBC043200C5C000096B0A7 /* LocalStorage */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		BB7B9A5F20103C3000C275E9 /* API Calls */ = {
-			isa = PBXGroup;
-			children = (
-				BB513D472006E0CB00F7A1D6 /* DataManager.swift */,
-			);
-			path = "API Calls";
 			sourceTree = "<group>";
 		};
 		BBB789342006D35F00EA6F54 = {
@@ -169,8 +165,7 @@
 		BBB7893F2006D35F00EA6F54 /* CoinSim */ = {
 			isa = PBXGroup;
 			children = (
-				BBB789712006DE0600EA6F54 /* Storyboards */,
-				BB513D462006E09900F7A1D6 /* Data */,
+				BB1E4D80201FD89A00F878B9 /* Shared */,
 				BB513D452006E09000F7A1D6 /* Model */,
 				BBB789722006DE2800EA6F54 /* Controllers */,
 				BBB7896E2006D36D00EA6F54 /* Support */,
@@ -207,14 +202,6 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
-		BBB789712006DE0600EA6F54 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				BBB789442006D35F00EA6F54 /* Main.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
 		BBB789722006DE2800EA6F54 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,14 +212,6 @@
 				BB7B9A602010780300C275E9 /* ExchangeViewController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		BBDBC043200C5C000096B0A7 /* LocalStorage */ = {
-			isa = PBXGroup;
-			children = (
-				BBDBC041200C5B3C0096B0A7 /* DataStorage.swift */,
-			);
-			path = LocalStorage;
 			sourceTree = "<group>";
 		};
 		C66D473ED9EAF705FCAD1638 /* Pods */ = {
@@ -447,6 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB1E4D7F201FD82800F878B9 /* Utilites.swift in Sources */,
 				BBB789742006DE4300EA6F54 /* PricesViewController.swift in Sources */,
 				BB513D482006E0CB00F7A1D6 /* DataManager.swift in Sources */,
 				BBDBC042200C5B3C0096B0A7 /* DataStorage.swift in Sources */,

@@ -58,7 +58,7 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
         
         //Set usd balance
         usdWallet = Wallet.defaultUSDWallet(in: realm)
-        usdBalance.text = "USD Balance: \(formatCurrency(value: usdWallet.amountUSD))"
+        usdBalance.text = "USD Balance: \(Utils.formatCurrency(value: usdWallet.amountUSD))"
         
         //Set wallet balance
         coinBalance.text = "\(wallet.name) Balance: \(wallet.amount)"
@@ -66,7 +66,7 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
         //Set coin price
         if let price = SharedCoinData.shared.dict[wallet.id]?.priceUSD {
             if let priceAsDouble = Double(price) {
-                coinPrice.text = "Price of \(wallet.name): \(formatCurrency(value: priceAsDouble))"
+                coinPrice.text = "Price of \(wallet.name): \(Utils.formatCurrency(value: priceAsDouble))"
             }
         }
         
@@ -129,7 +129,7 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
                     })
                     
                 } else {
-                    self.showErrorAlert(errorMessage: "You do not have enough $$$ to buy \(self.wallet.name) 😢")
+                    Utils.showErrorAlert(targetVC: self, errorMessage: "You do not have enough $$$ to buy \(self.wallet.name) 😢")
                 }
                 
             }))
@@ -185,7 +185,7 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
                     })
                     
                 } else {
-                    self.showErrorAlert(errorMessage: "You do not have enough \(self.wallet.name) to sell for $$$ 😢")
+                    Utils.showErrorAlert(targetVC: self, errorMessage: "You do not have enough \(self.wallet.name) to sell for $$$ 😢")
                 }
             }))
             
@@ -224,19 +224,11 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
         guard let coinPriceAsString = SharedCoinData.shared.dict[wallet.id]?.priceUSD else { return }
         guard let coinPrice = Double(coinPriceAsString) else { return }
         let calculatedCoinSum = inputValueAsDouble * coinPrice
-        usdTextField.text = formatCurrency(value: calculatedCoinSum)
+        usdTextField.text = Utils.formatCurrency(value: calculatedCoinSum)
     }
     
     
     //MARK: - Helper Functions
-    func formatCurrency(value: Double) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.maximumFractionDigits = 2
-        formatter.locale = Locale(identifier: Locale.current.identifier)
-        let result = formatter.string(from: value as NSNumber)
-        return result!
-    }
     func showLoadingAlert(completionHandler: @escaping (_ isCompleted: Bool) -> Void) {
         let alertController = UIAlertController(title: "Processing...\n\n", message: "", preferredStyle: UIAlertControllerStyle.alert)
         let activityIndicator = NVActivityIndicatorView(frame: CGRect(x: 135.0, y: 65.5, width: 75, height: 75), type: .ballTrianglePath, color: .blue, padding: 20)
@@ -247,13 +239,6 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
             completionHandler(true)
         })
     }
-    func showErrorAlert(errorMessage: String) {
-        let alert = UIAlertController(title: errorMessage, message: "", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    
     
 }
 

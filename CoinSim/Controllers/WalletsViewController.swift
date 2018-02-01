@@ -72,10 +72,10 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
         let litecoinWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "litecoin")
         wallets.append(litecoinWallet!)
         
-        //RaiBlocks
-        Wallet.defaultRaiBlocksWallet(in: realm)
-        let raiBlocksWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "raiblocks")
-        wallets.append(raiBlocksWallet!)
+        //Nano
+        Wallet.defaultNanoWallet(in: realm)
+        let nanoWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "nano")
+        wallets.append(nanoWallet!)
         
         //Monero
         Wallet.defaultMoneroWallet(in: realm)
@@ -117,15 +117,15 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
     @objc func refreshWalletValues() {
         
         //***TEST WRITES***
-//        try! realm.write {
-//            realm.create(Wallet.self, value: ["id": "usd", "amountUSD":10000.0], update: true)
-//            realm.create(Wallet.self, value: ["id": "bitcoin", "amount":2.0], update: true)
-//            realm.create(Wallet.self, value: ["id": "ethereum", "amount":1.5], update: true)
-//            realm.create(Wallet.self, value: ["id": "ripple", "amount":2021.0], update: true)
-//            realm.create(Wallet.self, value: ["id": "litecoin", "amount":20.0], update: true)
-//            realm.create(Wallet.self, value: ["id": "raiblocks", "amount":432.0], update: true)
-//            self.tableView.reloadData()
-//        }
+        //try! realm.write {
+            //realm.create(Wallet.self, value: ["id": "usd", "amountUSD":10000.0], update: true)
+            //realm.create(Wallet.self, value: ["id": "bitcoin", "amount":2.0], update: true)
+            //realm.create(Wallet.self, value: ["id": "ethereum", "amount":1.5], update: true)
+            //realm.create(Wallet.self, value: ["id": "ripple", "amount":2021.0], update: true)
+            //realm.create(Wallet.self, value: ["id": "litecoin", "amount":20.0], update: true)
+            //realm.create(Wallet.self, value: ["id": "nano", "amount":432.0], update: true)
+            //self.tableView.reloadData()
+        //}
 
 
         try! realm.write {
@@ -155,10 +155,10 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
             let litecoinPriceData = Double(SharedCoinData.shared.dict["litecoin"]!.priceUSD)
             realm.create(Wallet.self, value: ["id": "litecoin", "amountUSD": litecoinPriceData! * litecoinWallet.amount], update: true)
             
-            //Update Raiblocks Wallet
-            let raiblocksWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "raiblocks")!
-            let raiblocksPriceData = Double(SharedCoinData.shared.dict["raiblocks"]!.priceUSD)
-            realm.create(Wallet.self, value: ["id": "raiblocks", "amountUSD": raiblocksPriceData! * raiblocksWallet.amount], update: true)
+            //Update Nano Wallet
+            let nanoWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "nano")!
+            let nanoPriceData = Double(SharedCoinData.shared.dict["nano"]!.priceUSD)
+            realm.create(Wallet.self, value: ["id": "nano", "amountUSD": nanoPriceData! * nanoWallet.amount], update: true)
             
             //Update Monero Wallet
             let moneroWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "monero")!
@@ -190,15 +190,6 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func formatCurrency(value: Double) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.maximumFractionDigits = 2
-        formatter.locale = Locale(identifier: Locale.current.identifier)
-        let result = formatter.string(from: value as NSNumber)
-        return result!
-    }
-    
     
     //MARK: - UITableView Protocols
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -216,7 +207,7 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.coinIcon.image = UIImage(named: "\(wallets[indexPath.row].id)-icon")
         
         //Wallet Amount USD
-        cell.walletAmountUSD.text = formatCurrency(value: wallets[indexPath.row].amountUSD)
+        cell.walletAmountUSD.text = Utils.formatCurrency(value: wallets[indexPath.row].amountUSD)
         
         //Wallet Amount
         if indexPath.row == 0 {

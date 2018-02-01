@@ -117,18 +117,18 @@ class Wallet: Object {
         return realm.object(ofType: Wallet.self, forPrimaryKey: "litecoin") ?? createLitecoinWallet(in: realm)
     }
     
-    //MARK: - Create Default RaiBlocks Wallet
-    private static func createRaiBlocksWallet(in realm: Realm) -> Wallet {
-        let raiBlocksWallet = Wallet(id: "raiblocks", name: "RaiBlocks", symbol: "XRB", amount: 0.0, amountUSD: 0.0)
+    //MARK: - Create Default Nano Wallet
+    private static func createNanoWallet(in realm: Realm) -> Wallet {
+        let nanoWallet = Wallet(id: "nano", name: "Nano", symbol: "XRB", amount: 0.0, amountUSD: 0.0)
         try! realm.write {
-            realm.add(raiBlocksWallet, update: true)
+            realm.add(nanoWallet, update: true)
         }
-        return raiBlocksWallet
+        return nanoWallet
     }
     
     @discardableResult
-    static func defaultRaiBlocksWallet(in realm: Realm) -> Wallet {
-        return realm.object(ofType: Wallet.self, forPrimaryKey: "raiblocks") ?? createRaiBlocksWallet(in: realm)
+    static func defaultNanoWallet(in realm: Realm) -> Wallet {
+        return realm.object(ofType: Wallet.self, forPrimaryKey: "nano") ?? createNanoWallet(in: realm)
     }
     
     //MARK: - Create Default Monero Wallet

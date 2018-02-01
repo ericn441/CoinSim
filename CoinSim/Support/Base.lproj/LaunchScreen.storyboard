@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,18 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash Screen" translatesAutoresizingMaskIntoConstraints="NO" id="jqI-f7-CvD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="jqI-f7-CvD" secondAttribute="height" multiplier="375:667" id="2ZM-ii-iTx"/>
-                                    <constraint firstAttribute="width" constant="375" id="9N3-4e-uYw"/>
-                                    <constraint firstAttribute="height" constant="667" id="wxc-ZQ-qk7"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="-69" width="414" height="736"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jqI-f7-CvD" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="8cT-5v-ZK4"/>
-                            <constraint firstItem="jqI-f7-CvD" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ysO-Ax-STc"/>
+                            <constraint firstItem="jqI-f7-CvD" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="75f-Cp-4Ov"/>
+                            <constraint firstItem="jqI-f7-CvD" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="M8M-yd-mvp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

@@ -20,7 +20,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //MARK: - Coin Data
     var coins: [String:CoinObject] = [:]
-    var coinsLoaded: [String:Bool] = ["bitcoin":false, "ethereum":false, "ripple":false, "bitcoin-cash":false, "litecoin":false, "raiblocks": false, "monero":false, "stellar":false, "iota":false, "neo":false] //Async tracker
+    var coinsLoaded: [String:Bool] = ["bitcoin":false, "ethereum":false, "ripple":false, "bitcoin-cash":false, "litecoin":false, "nano": false, "monero":false, "stellar":false, "iota":false, "neo":false] //Async tracker
 
     //MARK: - Historical Data
     var selectedCoinData: CoinObject = CoinObject(id: "", name: "", symbol: "", priceUSD: "", volume: "", marketCap: "", priceChange: "")
@@ -120,9 +120,10 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.coinsLoaded["litecoin"] = true
             self.compileCoinData()
         }
-        DataManager.getRaiBlocksPrice { (JSON) in
-            self.coins["raiblocks"] = PriceModel().parseCoinData(json: JSON)
-            self.coinsLoaded["raiblocks"] = true
+        DataManager.getNanoPrice { (JSON) in
+            print(JSON)
+            self.coins["nano"] = PriceModel().parseCoinData(json: JSON)
+            self.coinsLoaded["nano"] = true
             self.compileCoinData()
         }
         DataManager.getMoneroPrice { (JSON) in
@@ -172,8 +173,8 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "bitcoin-cash-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
                     case "litecoin":
                         renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "litecoin-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
-                    case "raiblocks":
-                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "raiblocks-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                    case "raiblocks": //coinmarketcap has not updated ID to nano
+                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "nano-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
                     case "monero":
                         renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "monero-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
                     case "stellar":
@@ -212,15 +213,6 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    func formatCurrency(value: Double) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.maximumFractionDigits = 2
-        formatter.locale = Locale(identifier: Locale.current.identifier)
-        let result = formatter.string(from: value as NSNumber)
-        return result!
-    }
-    
     func formatMarketCap(value: Double) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -253,7 +245,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.coinName.text = renderableCoinsArray[indexPath.row].coinName
             
             //Coin price
-            cell.coinPrice.text = formatCurrency(value: Double(renderableCoinsArray[indexPath.row].coinPrice)!)
+            cell.coinPrice.text = Utils.formatCurrency(value: Double(renderableCoinsArray[indexPath.row].coinPrice)!)
             
             //Coin icon
             cell.coinIcon.contentMode = .scaleAspectFit
@@ -339,34 +331,4 @@ class PricesTableViewCell: UITableViewCell {
     @IBOutlet weak var tradeVolume: UILabel!
     @IBOutlet weak var marketCap: UILabel!
     @IBOutlet weak var cardView: UIView!
-}
-
-
-//MARK: - App Extensions
-extension String {
-    func setMinTailingDigits() -> String {
-        let formatter = NumberFormatter()
-        formatter.minimumFractionDigits = 2
-        return formatter.string(from: Double(self)! as NSNumber)!
-    }
-    func setMaxTailingDigitsToEight() -> String {
-        let formatter = NumberFormatter()
-        formatter.maximumFractionDigits = 8
-        return formatter.string(from: Double(self)! as NSNumber)!
-    }
-}
-
-protocol MyTextFieldDelegate {
-    func textFieldDidDelete()
-}
-
-class MyTextField: UITextField {
-    
-    var myDelegate: MyTextFieldDelegate?
-    
-    override func deleteBackward() {
-        super.deleteBackward()
-        myDelegate?.textFieldDidDelete()
-    }
-    
 }
