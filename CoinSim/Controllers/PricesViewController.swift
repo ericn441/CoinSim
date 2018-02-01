@@ -121,7 +121,6 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.compileCoinData()
         }
         DataManager.getNanoPrice { (JSON) in
-            print(JSON)
             self.coins["nano"] = PriceModel().parseCoinData(json: JSON)
             self.coinsLoaded["nano"] = true
             self.compileCoinData()

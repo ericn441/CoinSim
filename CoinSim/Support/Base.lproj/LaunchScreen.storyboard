@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,27 +16,51 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash Screen" translatesAutoresizingMaskIntoConstraints="NO" id="jqI-f7-CvD">
-                                <rect key="frame" x="0.0" y="-69" width="414" height="736"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch-background" translatesAutoresizingMaskIntoConstraints="NO" id="jqI-f7-CvD">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch-icon" translatesAutoresizingMaskIntoConstraints="NO" id="gkG-W4-92K">
+                                <rect key="frame" x="132.66666666666666" y="169" width="149.99999999999997" height="151"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="O7o-oi-vQM"/>
+                                    <constraint firstAttribute="height" constant="151" id="sU6-Gp-0ce"/>
+                                    <constraint firstAttribute="width" secondItem="gkG-W4-92K" secondAttribute="height" multiplier="150:151" id="udE-3F-aPQ"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch-label" translatesAutoresizingMaskIntoConstraints="NO" id="ZMC-VC-tfb">
+                                <rect key="frame" x="27.666666666666657" y="343" width="358" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ZMC-VC-tfb" secondAttribute="height" multiplier="358:33" id="49A-a6-5ND"/>
+                                    <constraint firstAttribute="height" constant="33" id="4Zv-oN-b8a"/>
+                                    <constraint firstAttribute="width" constant="358" id="52P-89-XJm"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jqI-f7-CvD" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="75f-Cp-4Ov"/>
-                            <constraint firstItem="jqI-f7-CvD" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="M8M-yd-mvp"/>
+                            <constraint firstItem="jqI-f7-CvD" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="6Sp-yi-8uG"/>
+                            <constraint firstItem="jqI-f7-CvD" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Pd3-c4-f87"/>
+                            <constraint firstItem="ZMC-VC-tfb" firstAttribute="centerX" secondItem="jqI-f7-CvD" secondAttribute="centerX" id="QKs-5q-pi3"/>
+                            <constraint firstItem="jqI-f7-CvD" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="TbP-Uo-7aF"/>
+                            <constraint firstItem="ZMC-VC-tfb" firstAttribute="top" secondItem="gkG-W4-92K" secondAttribute="bottom" constant="23" id="Txb-5Y-daT"/>
+                            <constraint firstAttribute="trailing" secondItem="jqI-f7-CvD" secondAttribute="trailing" id="Zf0-KM-iMz"/>
+                            <constraint firstItem="gkG-W4-92K" firstAttribute="centerX" secondItem="jqI-f7-CvD" secondAttribute="centerX" id="wWx-IE-VvO"/>
+                            <constraint firstItem="gkG-W4-92K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="149" id="wlr-eW-gR2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+            <point key="canvasLocation" x="50.399999999999999" y="373.76311844077964"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Splash Screen" width="414" height="736"/>
+        <image name="launch-background" width="414" height="736"/>
+        <image name="launch-icon" width="150" height="151"/>
+        <image name="launch-label" width="358" height="33"/>
     </resources>
 </document>
