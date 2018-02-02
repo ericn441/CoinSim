@@ -24,6 +24,9 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //KVO
+        
+        
         //Pull to refresh
         self.refreshCtrl = UIRefreshControl()
         self.refreshCtrl.addTarget(self, action: #selector(refreshWalletValues), for: .valueChanged)
@@ -180,13 +183,15 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
             let neoPriceData = Double(SharedCoinData.shared.dict["neo"]!.priceUSD)
             realm.create(Wallet.self, value: ["id": "neo", "amountUSD": neoPriceData! * neoWallet.amount], update: true)
             
+            print("refresh wallet total")
+            
             //UIRefresh delay
             let triggerTime = (Int64(NSEC_PER_SEC) * 1)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(triggerTime) / Double(NSEC_PER_SEC), execute: { () -> Void in
-                self.tableView.reloadData()
+                self.tableView?.reloadData()
                 self.refreshCtrl?.endRefreshing()
             })
-
+            
         }
     }
     

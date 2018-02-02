@@ -65,7 +65,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.parallaxHeader.minimumHeight = topLayoutGuide.length
         
         //Calculate total wallet value
-        
+        walletValue.text = Utils.formatCurrency(value: Utils.calculateTotalWalletValue())
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -189,6 +189,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             self.determinePriceChange() //Updates prices since API does not give that data
             SharedCoinData.shared.dict = coins //Shared Singleton Instance
+            walletValue.text = Utils.formatCurrency(value: Utils.calculateTotalWalletValue()) //Refresh wallet total
             
             //UIRefresh delay
             let triggerTime = (Int64(NSEC_PER_SEC) * 1)

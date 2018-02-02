@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import NVActivityIndicatorView
+import RealmSwift
 
 class Utils
 {
@@ -27,6 +28,23 @@ class Utils
         let alert = UIAlertController(title: errorMessage, message: "", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
         targetVC.present(alert, animated: true, completion: nil)
+    }
+    
+    class func calculateTotalWalletValue() -> Double {
+        
+        if !SharedCoinData.shared.dict.isEmpty {
+            WalletsViewController().refreshWalletValues()
+        }
+
+        let realm = try! Realm()
+        let wallet = realm.objects(Wallet.self)
+        var walletValue = 0.0
+
+        for results in wallet {
+            walletValue += results.amountUSD
+        }
+        
+        return walletValue
     }
 }
 
