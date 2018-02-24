@@ -23,7 +23,7 @@ struct DataManager {
         case getRipplePrice                 // returns xrp price
         case getBitcoinCashPrice            // returns bcc price
         case getLitecoinPrice               // returns ltc price
-        case getNanoPrice                   // retruns xrb price
+        case getNanoPrice                   // retruns nano price
         case getMoneroPrice                 // returns xmr price
         case getStellarPrice                // returns xlm price
         case getIOTAPrice                   // returns miota price
@@ -41,7 +41,7 @@ struct DataManager {
                 case .getRipplePrice:           return "/v1/ticker/ripple"
                 case .getBitcoinCashPrice:      return "/v1/ticker/bitcoin-cash"
                 case .getLitecoinPrice:         return "/v1/ticker/litecoin"
-                case .getNanoPrice:             return "/v1/ticker/raiblocks"
+                case .getNanoPrice:             return "/v1/ticker/nano"
                 case .getMoneroPrice:           return "/v1/ticker/monero"
                 case .getStellarPrice:          return "/v1/ticker/stellar"
                 case .getIOTAPrice:             return "/v1/ticker/iota"
@@ -147,10 +147,10 @@ struct DataManager {
     }
     static func getNanoPrice(_ completionHandler: @escaping (JSON) -> ()) {
         let parameters: Parameters = [:]
-        let xrbURL = baseURL + ResourcePath.getNanoPrice.description
+        let nanoURL = baseURL + ResourcePath.getNanoPrice.description
         
         //Nano
-        Alamofire.request(xrbURL, method: .get, parameters: parameters).responseJSON{ response in
+        Alamofire.request(nanoURL, method: .get, parameters: parameters).responseJSON{ response in
             guard response.result.error == nil else {
                 print("error calling GET Nano")
                 let data = JSON(response.result.error as Any)
@@ -239,7 +239,12 @@ struct DataManager {
     
     //MARK: - Get Historical Data
     static func getHistoricalPrice(_ ticker:String, completionHandler: @escaping (JSON) -> ()) {
-        let parameters: Parameters = ["fsym":ticker.uppercased(), "tsym":"USD", "limit":"30"]
+        var tickerSymbol = ticker
+        if tickerSymbol == "NANO" {
+            tickerSymbol = "XRB"
+        }
+        
+        let parameters: Parameters = ["fsym":tickerSymbol.uppercased(), "tsym":"USD", "limit":"30"]
         let historicalURL = historicalBaseURL + ResourcePath.get30DayPrice.description
         
         Alamofire.request(historicalURL, method: .get, parameters: parameters).responseJSON{ response in

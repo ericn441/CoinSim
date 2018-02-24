@@ -67,7 +67,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     @objc func refreshTransactions() {
         
         //Query transaction for selected coin
-        if wallet.name == "USD" {
+        if wallet.id == "usd" {
             let transactionRecordQuery = realm.objects(TransactionRecord.self).sorted(byKeyPath: "date", ascending: false)
             
             //Append results into array
@@ -109,7 +109,9 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
-        } else if section == 1 {
+        } else if wallet.id == "usd" && section == 1 {
+            return 0
+        } else if wallet.id != "usd" && section == 1 {
             return 1
         } else {
             return transactionHistory.count
@@ -130,6 +132,12 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             
             headerCell.priceLabel.text = String(wallet.amount) + " \(wallet.symbol)"
             headerCell.priceUSDLabel.text = Utils.formatCurrency(value: Double(wallet.amountUSD))
+            headerCell.priceUSDLabel.isHidden = false
+            
+            if wallet.id == "usd" {
+                headerCell.priceLabel.text = String(Utils.formatCurrency(value: Double(wallet.amountUSD)))
+                headerCell.priceUSDLabel.isHidden = true
+            }
             
             return headerCell
             
@@ -144,14 +152,12 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
                 historyCell.actionIcon.image = UIImage(named: "buy-icon")
                 historyCell.transactionType.text = "Bought " + transactionHistory[indexPath.row].coinName
                 historyCell.amountLabel.text = String(transactionHistory[indexPath.row].buyAmount).setMaxTailingDigitsToEight() + " \(transactionHistory[indexPath.row].coinSymbol)"
-                //historyCell.amountUSDLabel.text = "$"+String(transactionHistory[indexPath.row].buyAmountUSD)
                 historyCell.amountUSDLabel.text = Utils.formatCurrency(value: transactionHistory[indexPath.row].buyAmountUSD)
                 historyCell.date.text = transactionHistory[indexPath.row].date
             } else {
                 historyCell.actionIcon.image = UIImage(named: "sell-icon")
                 historyCell.transactionType.text = "Sold " + transactionHistory[indexPath.row].coinName
                 historyCell.amountLabel.text = String(transactionHistory[indexPath.row].sellAmount) + " \(transactionHistory[indexPath.row].coinSymbol)"
-                //historyCell.amountUSDLabel.text = "$"+String(transactionHistory[indexPath.row].sellAmountUSD)
                 historyCell.amountUSDLabel.text = Utils.formatCurrency(value: transactionHistory[indexPath.row].sellAmountUSD)
                 historyCell.date.text = transactionHistory[indexPath.row].date
             }

@@ -115,6 +115,7 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
                     try! self.realm.write {
                         self.realm.create(Wallet.self, value: ["id": self.usdWallet.id, "amountUSD": bankTotalUSD], update: true)
                         self.realm.create(Wallet.self, value: ["id": self.wallet.id, "amount": newBuyTotal, "amountUSD": newBuyUSDTotal], update: true)
+                        //AnalyticsManager.sendEvent(event: "Bought \(self.wallet.id)", properties: ["amount": String(newBuyTotal)])
                     }
                     
                     //update UI and segue
@@ -171,6 +172,7 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
                     try! self.realm.write {
                         self.realm.create(Wallet.self, value: ["id": self.usdWallet.id, "amountUSD": bankTotalUSD], update: true)
                         self.realm.create(Wallet.self, value: ["id": self.wallet.id, "amount": newSellTotal, "amountUSD": newSellUSDTotal], update: true)
+                        //AnalyticsManager.sendEvent(event: "Sold \(self.wallet.id)", properties: ["amount": String(newSellTotal)])
                     }
                     
                     //update UI and segue

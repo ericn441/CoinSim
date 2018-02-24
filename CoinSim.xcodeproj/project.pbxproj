@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6BF0414F6B9C94AEB1D938EE /* Pods_CoinSim.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25D5B21B214031D33C3679A /* Pods_CoinSim.framework */; };
+		BB07A0DE202D0BCB00A10AFC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB07A0DD202D0BCB00A10AFC /* SettingsViewController.swift */; };
 		BB1E4D7F201FD82800F878B9 /* Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E4D7E201FD82800F878B9 /* Utilites.swift */; };
 		BB24976A2006E38E00D17B94 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB24976B2006E38E00D17B94 /* SwiftyJSON.framework */; };
 		BB24976E2006FA6200D17B94 /* MXParallaxHeader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB24976F2006FA6200D17B94 /* MXParallaxHeader.framework */; };
@@ -17,6 +18,9 @@
 		BB7B9A612010780300C275E9 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B9A602010780300C275E9 /* ExchangeViewController.swift */; };
 		BB7B9A632010786400C275E9 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B9A622010786400C275E9 /* TransactionsViewController.swift */; };
 		BBA05B302007DE390021BDA3 /* TradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA05B2F2007DE390021BDA3 /* TradeViewController.swift */; };
+		BBAAA17C20415162004F7896 /* Splash1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA17B20415162004F7896 /* Splash1ViewController.swift */; };
+		BBAAA17E20415169004F7896 /* Splash2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA17D20415169004F7896 /* Splash2ViewController.swift */; };
+		BBAAA1802041516F004F7896 /* Splash3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAA17F2041516F004F7896 /* Splash3ViewController.swift */; };
 		BBB0BA5B20082146008E6607 /* ScrollableGraphView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBB0BA5C20082146008E6607 /* ScrollableGraphView.framework */; };
 		BBB789412006D35F00EA6F54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789402006D35F00EA6F54 /* AppDelegate.swift */; };
 		BBB789462006D35F00EA6F54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB789442006D35F00EA6F54 /* Main.storyboard */; };
@@ -27,6 +31,7 @@
 		BBB789742006DE4300EA6F54 /* PricesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789732006DE4300EA6F54 /* PricesViewController.swift */; };
 		BBDBC03E200C56130096B0A7 /* WalletsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBC03D200C56130096B0A7 /* WalletsViewController.swift */; };
 		BBDBC042200C5B3C0096B0A7 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBC041200C5B3C0096B0A7 /* DataStorage.swift */; };
+		BBFF78842036BCA400B68241 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFF78832036BCA400B68241 /* AnalyticsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +55,7 @@
 		1147115C75E208CF2C8C8CB8 /* Pods-CoinSim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinSim.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoinSim/Pods-CoinSim.debug.xcconfig"; sourceTree = "<group>"; };
 		A9B04D1119000A0CAB91D7B6 /* Pods-CoinSim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoinSim.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoinSim/Pods-CoinSim.release.xcconfig"; sourceTree = "<group>"; };
 		B25D5B21B214031D33C3679A /* Pods_CoinSim.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoinSim.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB07A0DD202D0BCB00A10AFC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BB1E4D7E201FD82800F878B9 /* Utilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilites.swift; sourceTree = "<group>"; };
 		BB24976B2006E38E00D17B94 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB24976D2006F55600D17B94 /* CSStickyHeaderFlowLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CSStickyHeaderFlowLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +66,9 @@
 		BB7B9A602010780300C275E9 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		BB7B9A622010786400C275E9 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		BBA05B2F2007DE390021BDA3 /* TradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeViewController.swift; sourceTree = "<group>"; };
+		BBAAA17B20415162004F7896 /* Splash1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash1ViewController.swift; sourceTree = "<group>"; };
+		BBAAA17D20415169004F7896 /* Splash2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash2ViewController.swift; sourceTree = "<group>"; };
+		BBAAA17F2041516F004F7896 /* Splash3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash3ViewController.swift; sourceTree = "<group>"; };
 		BBB0BA5C20082146008E6607 /* ScrollableGraphView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ScrollableGraphView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB7893D2006D35F00EA6F54 /* CoinSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB789402006D35F00EA6F54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +85,7 @@
 		BBB789732006DE4300EA6F54 /* PricesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesViewController.swift; sourceTree = "<group>"; };
 		BBDBC03D200C56130096B0A7 /* WalletsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsViewController.swift; sourceTree = "<group>"; };
 		BBDBC041200C5B3C0096B0A7 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
+		BBFF78832036BCA400B68241 /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +137,7 @@
 				BBB789442006D35F00EA6F54 /* Main.storyboard */,
 				BBDBC041200C5B3C0096B0A7 /* DataStorage.swift */,
 				BB513D472006E0CB00F7A1D6 /* DataManager.swift */,
+				BBFF78832036BCA400B68241 /* AnalyticsManager.swift */,
 				BB1E4D7E201FD82800F878B9 /* Utilites.swift */,
 			);
 			path = Shared;
@@ -138,6 +149,16 @@
 				BB24977020070CDD00D17B94 /* PriceModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BBAAA17A20415153004F7896 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BBAAA17B20415162004F7896 /* Splash1ViewController.swift */,
+				BBAAA17D20415169004F7896 /* Splash2ViewController.swift */,
+				BBAAA17F2041516F004F7896 /* Splash3ViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		BBB789342006D35F00EA6F54 = {
@@ -205,11 +226,13 @@
 		BBB789722006DE2800EA6F54 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BBAAA17A20415153004F7896 /* Login */,
 				BBB789732006DE4300EA6F54 /* PricesViewController.swift */,
 				BBA05B2F2007DE390021BDA3 /* TradeViewController.swift */,
 				BBDBC03D200C56130096B0A7 /* WalletsViewController.swift */,
 				BB7B9A622010786400C275E9 /* TransactionsViewController.swift */,
 				BB7B9A602010780300C275E9 /* ExchangeViewController.swift */,
+				BB07A0DD202D0BCB00A10AFC /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -398,6 +421,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-CoinSim/Pods-CoinSim-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework",
+				"${BUILT_PRODUCTS_DIR}/Mixpanel-swift/Mixpanel.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -408,6 +432,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXParallaxHeader.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mixpanel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -426,16 +451,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBFF78842036BCA400B68241 /* AnalyticsManager.swift in Sources */,
 				BB1E4D7F201FD82800F878B9 /* Utilites.swift in Sources */,
 				BBB789742006DE4300EA6F54 /* PricesViewController.swift in Sources */,
+				BB07A0DE202D0BCB00A10AFC /* SettingsViewController.swift in Sources */,
 				BB513D482006E0CB00F7A1D6 /* DataManager.swift in Sources */,
+				BBAAA1802041516F004F7896 /* Splash3ViewController.swift in Sources */,
 				BBDBC042200C5B3C0096B0A7 /* DataStorage.swift in Sources */,
+				BBAAA17E20415169004F7896 /* Splash2ViewController.swift in Sources */,
 				BB7B9A632010786400C275E9 /* TransactionsViewController.swift in Sources */,
 				BB7B9A612010780300C275E9 /* ExchangeViewController.swift in Sources */,
 				BBB789412006D35F00EA6F54 /* AppDelegate.swift in Sources */,
 				BBDBC03E200C56130096B0A7 /* WalletsViewController.swift in Sources */,
 				BBA05B302007DE390021BDA3 /* TradeViewController.swift in Sources */,
 				BB24977120070CDD00D17B94 /* PriceModel.swift in Sources */,
+				BBAAA17C20415162004F7896 /* Splash1ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,11 +633,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3NWL2F32K6;
+				DEVELOPMENT_TEAM = X8UFRT4Q67;
 				INFOPLIST_FILE = "$(SRCROOT)/CoinSim/Support/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.coinsim.CoinSim;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ericngo.coinsim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -620,11 +650,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3NWL2F32K6;
+				DEVELOPMENT_TEAM = X8UFRT4Q67;
 				INFOPLIST_FILE = "$(SRCROOT)/CoinSim/Support/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.coinsim.CoinSim;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ericngo.coinsim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

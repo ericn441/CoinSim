@@ -119,7 +119,7 @@ class Wallet: Object {
     
     //MARK: - Create Default Nano Wallet
     private static func createNanoWallet(in realm: Realm) -> Wallet {
-        let nanoWallet = Wallet(id: "nano", name: "Nano", symbol: "XRB", amount: 0.0, amountUSD: 0.0)
+        let nanoWallet = Wallet(id: "nano", name: "Nano", symbol: "NANO", amount: 0.0, amountUSD: 0.0)
         try! realm.write {
             realm.add(nanoWallet, update: true)
         }

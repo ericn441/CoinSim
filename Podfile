@@ -6,4 +6,5 @@ target 'CoinSim' do
     pod 'ScrollableGraphView'
     pod 'RealmSwift'
     pod 'NVActivityIndicatorView'
+    pod 'Mixpanel-swift'
 end

@@ -8,6 +8,7 @@
 
 import UIKit
 import MXParallaxHeader
+import RealmSwift
 
 class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MXParallaxHeaderDelegate {
     
@@ -17,6 +18,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     var refreshCtrl: UIRefreshControl!
     var didSelectRow: Bool = false
+    let realm = try! Realm()
     
     //MARK: - Coin Data
     var coins: [String:CoinObject] = [:]
@@ -42,6 +44,17 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK: - ViewController Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Check First Onboard Flow
+        if !UserDefaults.standard.bool(forKey: "didDoFirstAppOpen") {
+            try! realm.write {
+                realm.create(Wallet.self, value: ["id": "usd", "amountUSD":10000.0], update: true)
+                UserDefaults.standard.set(true, forKey: "didDoFirstAppOpen")
+                //Mixpanel.mainInstance().identify(distinctId: UUID().uuidString)
+            }
+        } else {
+            //AnalyticsManager.sendEvent(event: "Total Wallet Value", properties: ["Total USD Amount":Utils.formatCurrency(value: Utils.calculateTotalWalletValue())])
+        }
         
         //Pull to refresh
         self.refreshCtrl = UIRefreshControl()
@@ -172,7 +185,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "bitcoin-cash-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
                     case "litecoin":
                         renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "litecoin-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
-                    case "raiblocks": //coinmarketcap has not updated ID to nano
+                    case "nano":
                         renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "nano-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
                     case "monero":
                         renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "monero-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
@@ -189,7 +202,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             self.determinePriceChange() //Updates prices since API does not give that data
             SharedCoinData.shared.dict = coins //Shared Singleton Instance
-            walletValue.text = Utils.formatCurrency(value: Utils.calculateTotalWalletValue()) //Refresh wallet total
+            walletValue.text = Utils.formatCurrency(value: Utils.calculateTotalWalletValue()) //Refresh wallet total **on first run this crashes**
             
             //UIRefresh delay
             let triggerTime = (Int64(NSEC_PER_SEC) * 1)
@@ -294,8 +307,12 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 //Append selected coin history
                 self.selectedCoinPriceHistory = PriceModel().parseHistoricalData(json: JSON, ticker: self.renderableCoinsArray[indexPath.row].coinTicker.uppercased(), name: self.renderableCoinsArray[indexPath.row].coinName)
                 
+                //Analytics
+                //AnalyticsManager.sendEvent(event: "tapped coin price", properties: ["coinName": self.renderableCoinsArray[indexPath.row].coinName])
+                
                 //Perform segue
                 tableView.isUserInteractionEnabled = true //enable tableview after async call completes
+                
                 self.performSegue(withIdentifier: "priceToTrade", sender: nil)
             }
         }

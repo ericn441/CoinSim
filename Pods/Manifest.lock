@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.5.1)
+  - Mixpanel-swift (2.3.1):
+    - Mixpanel-swift/Complete (= 2.3.1)
+  - Mixpanel-swift/Complete (2.3.1)
   - MXParallaxHeader (0.6.1)
   - NVActivityIndicatorView (4.0.1):
     - NVActivityIndicatorView/Presenter (= 4.0.1)
@@ -14,6 +17,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Mixpanel-swift
   - MXParallaxHeader
   - NVActivityIndicatorView
   - RealmSwift
@@ -22,6 +26,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Mixpanel-swift: 836b594b6b536544943e79e61eb34224bf6c7956
   MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
   NVActivityIndicatorView: 77ed6d7b571643e24899e7858bf9ae2ee4c21f31
   Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
@@ -29,6 +34,6 @@ SPEC CHECKSUMS:
   ScrollableGraphView: 072ea302f4ca27779692656a49d51fe537b2b1e7
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 7080bec8cf1bb39dd6f817fe5a99814276511c88
+PODFILE CHECKSUM: 002e4add3e983c89c32afe14fef471389abd349d
 
-COCOAPODS: 1.4.0.beta.1
+COCOAPODS: 1.4.0

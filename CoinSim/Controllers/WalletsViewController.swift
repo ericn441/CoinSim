@@ -134,57 +134,55 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
         try! realm.write {
 
             //Update Bitcoin Wallet
-            let bitcoinWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "bitcoin")!
+            guard let bitcoinWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "bitcoin") else { return }
             let bitcoinPriceData = Double(SharedCoinData.shared.dict["bitcoin"]!.priceUSD)
             realm.create(Wallet.self, value: ["id": "bitcoin", "amountUSD": bitcoinPriceData! * bitcoinWallet.amount], update: true)
             
             //Update Ethereum Wallet
-            let ethereumWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "ethereum")!
+            guard let ethereumWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "ethereum") else { return }
             let ethereumPriceData = Double(SharedCoinData.shared.dict["ethereum"]!.priceUSD)
             realm.create(Wallet.self, value: ["id": "ethereum", "amountUSD": ethereumPriceData! * ethereumWallet.amount], update: true)
             
             //Update Ripple Wallet
-            let rippleWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "ripple")!
+            guard let rippleWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "ripple") else { return }
             let ripplePriceData = Double(SharedCoinData.shared.dict["ripple"]!.priceUSD)
             realm.create(Wallet.self, value: ["id": "ripple", "amountUSD": ripplePriceData! * rippleWallet.amount], update: true)
             
             //Update Bitcoin Cash Wallet
-            let bitcoinCashWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "bitcoin-cash")!
+            guard let bitcoinCashWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "bitcoin-cash") else { return }
             let bitcoinCashPriceData = Double(SharedCoinData.shared.dict["bitcoin-cash"]!.priceUSD)
             realm.create(Wallet.self, value: ["id": "bitcoin-cash", "amountUSD": bitcoinCashPriceData! * bitcoinCashWallet.amount], update: true)
             
             //Update Litecoin Wallet
-            let litecoinWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "litecoin")!
+            guard let litecoinWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "litecoin") else { return }
             let litecoinPriceData = Double(SharedCoinData.shared.dict["litecoin"]!.priceUSD)
             realm.create(Wallet.self, value: ["id": "litecoin", "amountUSD": litecoinPriceData! * litecoinWallet.amount], update: true)
             
             //Update Nano Wallet
-            let nanoWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "nano")!
+            guard let nanoWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "nano") else { return }
             let nanoPriceData = Double(SharedCoinData.shared.dict["nano"]!.priceUSD)
             realm.create(Wallet.self, value: ["id": "nano", "amountUSD": nanoPriceData! * nanoWallet.amount], update: true)
             
             //Update Monero Wallet
-            let moneroWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "monero")!
+            guard let moneroWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "monero") else { return }
             let moneroPriceData = Double(SharedCoinData.shared.dict["monero"]!.priceUSD)
             realm.create(Wallet.self, value: ["id": "monero", "amountUSD": moneroPriceData! * moneroWallet.amount], update: true)
             
             //Update Stellar Wallet
-            let stellarWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "stellar")!
+            guard let stellarWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "stellar") else { return }
             let stellarPriceData = Double(SharedCoinData.shared.dict["stellar"]!.priceUSD)
             realm.create(Wallet.self, value: ["id": "stellar", "amountUSD": stellarPriceData! * stellarWallet.amount], update: true)
             
             //Update IOTA Wallet
-            let iotaWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "iota")!
+            guard let iotaWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "iota") else { return }
             let iotaPriceData = Double(SharedCoinData.shared.dict["iota"]!.priceUSD)
             realm.create(Wallet.self, value: ["id": "iota", "amountUSD": iotaPriceData! * iotaWallet.amount], update: true)
             
             //Update NEO Wallet
-            let neoWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "neo")!
+            guard let neoWallet = realm.object(ofType: Wallet.self, forPrimaryKey: "neo") else { return }
             let neoPriceData = Double(SharedCoinData.shared.dict["neo"]!.priceUSD)
             realm.create(Wallet.self, value: ["id": "neo", "amountUSD": neoPriceData! * neoWallet.amount], update: true)
-            
-            print("refresh wallet total")
-            
+                        
             //UIRefresh delay
             let triggerTime = (Int64(NSEC_PER_SEC) * 1)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(triggerTime) / Double(NSEC_PER_SEC), execute: { () -> Void in
