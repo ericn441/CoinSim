@@ -61,6 +61,7 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
         //Set wallet icon
         coinIcon.contentMode = .scaleAspectFit
         coinIcon.image = UIImage(named:"\(coinData.id)-icon")
+        print(coinData.id)
         
         //Set wallet name
         walletText.setTitle(coinData.name + " Wallet", for: .normal)
@@ -129,7 +130,7 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
             prices.append(Double(results.closePrice))
         }
         
-        let graphView = ScrollableGraphView(frame: CGRect(x: 16, y: 110, width: 343, height: 332), dataSource: self)
+        let graphView = ScrollableGraphView(frame: CGRect(x: 16, y: 110, width: self.view.frame.size.width - 32, height: 332), dataSource: self)
         let linePlot = LinePlot(identifier: "line") // Identifier should be unique for each plot if needed.
         let referenceLines = ReferenceLines() //Line settings
         

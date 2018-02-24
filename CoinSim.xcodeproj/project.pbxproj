@@ -13,6 +13,7 @@
 		BB24976A2006E38E00D17B94 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB24976B2006E38E00D17B94 /* SwiftyJSON.framework */; };
 		BB24976E2006FA6200D17B94 /* MXParallaxHeader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB24976F2006FA6200D17B94 /* MXParallaxHeader.framework */; };
 		BB24977120070CDD00D17B94 /* PriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB24977020070CDD00D17B94 /* PriceModel.swift */; };
+		BB3DA42F20415DE5001C489D /* ReferInviteBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DA42E20415DE5001C489D /* ReferInviteBannerViewController.swift */; };
 		BB513D482006E0CB00F7A1D6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB513D472006E0CB00F7A1D6 /* DataManager.swift */; };
 		BB513D492006E12400F7A1D6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB513D4A2006E12400F7A1D6 /* Alamofire.framework */; };
 		BB7B9A612010780300C275E9 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B9A602010780300C275E9 /* ExchangeViewController.swift */; };
@@ -61,6 +62,7 @@
 		BB24976D2006F55600D17B94 /* CSStickyHeaderFlowLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CSStickyHeaderFlowLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB24976F2006FA6200D17B94 /* MXParallaxHeader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MXParallaxHeader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB24977020070CDD00D17B94 /* PriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceModel.swift; sourceTree = "<group>"; };
+		BB3DA42E20415DE5001C489D /* ReferInviteBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferInviteBannerViewController.swift; sourceTree = "<group>"; };
 		BB513D472006E0CB00F7A1D6 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BB513D4A2006E12400F7A1D6 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB7B9A602010780300C275E9 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				BBB789402006D35F00EA6F54 /* AppDelegate.swift */,
+				BB3DA42E20415DE5001C489D /* ReferInviteBannerViewController.swift */,
 				BBB789472006D35F00EA6F54 /* Assets.xcassets */,
 				BBB789492006D35F00EA6F54 /* LaunchScreen.storyboard */,
 				BBB7894C2006D35F00EA6F54 /* Info.plist */,
@@ -459,6 +462,7 @@
 				BBAAA1802041516F004F7896 /* Splash3ViewController.swift in Sources */,
 				BBDBC042200C5B3C0096B0A7 /* DataStorage.swift in Sources */,
 				BBAAA17E20415169004F7896 /* Splash2ViewController.swift in Sources */,
+				BB3DA42F20415DE5001C489D /* ReferInviteBannerViewController.swift in Sources */,
 				BB7B9A632010786400C275E9 /* TransactionsViewController.swift in Sources */,
 				BB7B9A612010780300C275E9 /* ExchangeViewController.swift in Sources */,
 				BBB789412006D35F00EA6F54 /* AppDelegate.swift in Sources */,

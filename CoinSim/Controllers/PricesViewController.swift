@@ -19,6 +19,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var refreshCtrl: UIRefreshControl!
     var didSelectRow: Bool = false
     let realm = try! Realm()
+    let banner = ReferInviteBanner()
     
     //MARK: - Coin Data
     var coins: [String:CoinObject] = [:]
@@ -30,6 +31,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //MARK: - TableView Coin Representation Data
     struct RenderableCoin {
+        var coinID: String!
         var coinName: String!
         var coinPrice: String!
         var coinTicker: String!
@@ -60,6 +62,14 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.refreshCtrl = UIRefreshControl()
         self.refreshCtrl.addTarget(self, action: #selector(fetchAllCoinPrices), for: .valueChanged)
         self.tableView.addSubview(refreshCtrl)
+        
+        //Show Refer Banner
+        //self.addChildViewController(self.banner)
+        //self.view.addSubview(self.banner.view)
+        //self.didMove(toParentViewController: self)
+        
+        //Add Edgeinsets
+        self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 150, right: 0)
         
         // Parallax Header
         tableView.parallaxHeader.view = headerView // You can set the parallax header view from the floating view
@@ -124,6 +134,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.compileCoinData()
         }
         DataManager.getBitcoinCashPrice { (JSON) in
+            print(JSON)
             self.coins["bitcoin-cash"] = PriceModel().parseCoinData(json: JSON)
             self.coinsLoaded["bitcoin-cash"] = true
             self.compileCoinData()
@@ -176,25 +187,25 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 
                 switch value.id {
                     case "bitcoin":
-                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "bitcoin-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                        renderableCoinsArray.append(RenderableCoin(coinID: value.id, coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "bitcoin-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
                     case "ethereum":
-                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "ethereum-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                        renderableCoinsArray.append(RenderableCoin(coinID: value.id, coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "ethereum-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
                     case "ripple":
-                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "ripple-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                        renderableCoinsArray.append(RenderableCoin(coinID: value.id, coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "ripple-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
                     case "bitcoin-cash":
-                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "bitcoin-cash-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                        renderableCoinsArray.append(RenderableCoin(coinID: value.id, coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "bitcoin-cash-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
                     case "litecoin":
-                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "litecoin-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                        renderableCoinsArray.append(RenderableCoin(coinID: value.id, coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "litecoin-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
                     case "nano":
-                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "nano-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                        renderableCoinsArray.append(RenderableCoin(coinID: value.id, coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "nano-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
                     case "monero":
-                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "monero-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                        renderableCoinsArray.append(RenderableCoin(coinID: value.id, coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "monero-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
                     case "stellar":
-                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "stellar-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                        renderableCoinsArray.append(RenderableCoin(coinID: value.id, coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "stellar-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
                     case "iota": //coinmarketcap api gives back wrong ticker
-                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: "IOT", coinIcon: UIImage(named: "iota-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                        renderableCoinsArray.append(RenderableCoin(coinID: value.id, coinName: value.name, coinPrice: value.priceUSD, coinTicker: "IOT", coinIcon: UIImage(named: "iota-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
                     case "neo":
-                        renderableCoinsArray.append(RenderableCoin(coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "neo-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
+                        renderableCoinsArray.append(RenderableCoin(coinID: value.id, coinName: value.name, coinPrice: value.priceUSD, coinTicker: value.symbol, coinIcon: UIImage(named: "neo-icon"), priceChange: value.priceChange, tradeVolume: value.volume, marketCap: value.marketCap))
                     default:
                         break
                 }
@@ -202,7 +213,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             self.determinePriceChange() //Updates prices since API does not give that data
             SharedCoinData.shared.dict = coins //Shared Singleton Instance
-            walletValue.text = Utils.formatCurrency(value: Utils.calculateTotalWalletValue()) //Refresh wallet total **on first run this crashes**
+            walletValue.text = Utils.formatCurrency(value: Utils.calculateTotalWalletValue())
             
             //UIRefresh delay
             let triggerTime = (Int64(NSEC_PER_SEC) * 1)
@@ -296,7 +307,8 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             DataManager.getHistoricalPrice(renderableCoinsArray[indexPath.row].coinTicker) { (JSON) in
                 
                 //Append selected coin data
-                self.selectedCoinData.id = self.renderableCoinsArray[indexPath.row].coinName.lowercased()
+                print(self.renderableCoinsArray[indexPath.row].coinName.lowercased())
+                self.selectedCoinData.id = self.renderableCoinsArray[indexPath.row].coinID
                 self.selectedCoinData.name = self.renderableCoinsArray[indexPath.row].coinName
                 self.selectedCoinData.symbol = self.renderableCoinsArray[indexPath.row].coinTicker
                 self.selectedCoinData.priceUSD = self.renderableCoinsArray[indexPath.row].coinPrice
