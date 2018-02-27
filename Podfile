@@ -7,4 +7,6 @@ target 'CoinSim' do
     pod 'RealmSwift'
     pod 'NVActivityIndicatorView'
     pod 'Mixpanel-swift'
+    pod 'Fabric'
+    pod 'Crashlytics'
 end

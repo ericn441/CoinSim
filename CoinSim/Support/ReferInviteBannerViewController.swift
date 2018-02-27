@@ -31,11 +31,11 @@ class ReferInviteBanner: UIViewController, MFMessageComposeViewControllerDelegat
         
         //invite text
         self.inviteText.textColor = .white
-        self.inviteText.font = UIFont(name: "HelveticaNeue-Medium", size: 18)
+        self.inviteText.font = UIFont(name: "HelveticaNeue-Medium", size: 15)
         self.inviteText.numberOfLines = 0
         self.inviteText.textAlignment = .center
         self.inviteText.frame = CGRect(x: 0, y: 8, width: self.view.frame.width, height: 60)
-        self.inviteText.text = "Share #coinsim on FB/IG/Twitter. \n Get a chance to win real Bitcoin. Tap here."
+        self.inviteText.text = "Share CoinSim with friends. \n Get a chance to win real Bitcoin. Tap here for link."
         view.addSubview(inviteText)
         
         
@@ -44,7 +44,9 @@ class ReferInviteBanner: UIViewController, MFMessageComposeViewControllerDelegat
         self.dismiss(animated: true, completion: nil)
     }
     @objc func tapInvite() {
-        let vc = UIActivityViewController(activityItems: ["Checkout CoinSim! Trade Cryptos. Risk Free."], applicationActivities: [])
+        let randomStrings = ["gd323fcs","ytx832kfi","jzl847ftk","lpc480djo","cyp320rtf","qzp591zlp"]
+        let diceRoll = Int(arc4random_uniform(UInt32(randomStrings.count)))
+        let vc = UIActivityViewController(activityItems: ["Checkout CoinSim! Trade Cryptos. Risk Free. #coinsim \n https://facebook.com/coinsimulator/\(randomStrings[diceRoll])"], applicationActivities: [])
         present(vc, animated: true)
     }
     

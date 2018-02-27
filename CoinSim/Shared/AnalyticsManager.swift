@@ -8,11 +8,15 @@
 
 import Foundation
 import Mixpanel
+import Crashlytics
+import Fabric
 
 struct AnalyticsManager
 {
     static func sendEvent(event: String, properties: [String:String]?) {
         Mixpanel.mainInstance().track(event: event, properties: properties)
+        
+        Answers.logCustomEvent(withName: event, customAttributes: properties)
     }
 }
 

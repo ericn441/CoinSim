@@ -65,13 +65,21 @@ class DonationViewController: UIViewController {
         shareButton.layer.borderColor = UIColor.white.cgColor
     }
     @IBAction func didTapCopy(_ sender: UIButton) {
+        UIPasteboard.general.string = depositAddress
     }
     @IBAction func didTapDonate(_ sender: UIButton) {
+        if #available(iOS 10.0, *) {
+            UIPasteboard.general.string = depositAddress
+            UIApplication.shared.open(URL(string : "https://itunes.apple.com/us/app/coinbase-buy-bitcoin-more/id886427730?mt=8")!, options: [:], completionHandler: { (status) in })
+        }
     }
     @IBAction func didTapClose(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func didTapShare(_ sender: UIButton) {
+        let shareText = "Checkout CoinSim! Learn to Trade Cryptos. #coinsim \n https://facebook.com/coinsimulator"
+        let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
     }
     
 }

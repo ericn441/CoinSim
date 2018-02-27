@@ -55,7 +55,8 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 //Mixpanel.mainInstance().identify(distinctId: UUID().uuidString)
             }
         } else {
-            //AnalyticsManager.sendEvent(event: "Total Wallet Value", properties: ["Total USD Amount":Utils.formatCurrency(value: Utils.calculateTotalWalletValue())])
+            AnalyticsManager.sendEvent(event: "Total Wallet Value", properties: ["Total USD Amount":Utils.formatCurrency(value: Utils.calculateTotalWalletValue())])
+
         }
         
         //Pull to refresh
@@ -64,9 +65,9 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.addSubview(refreshCtrl)
         
         //Show Refer Banner
-        //self.addChildViewController(self.banner)
-        //self.view.addSubview(self.banner.view)
-        //self.didMove(toParentViewController: self)
+        self.addChildViewController(self.banner)
+        self.view.addSubview(self.banner.view)
+        self.didMove(toParentViewController: self)
         
         //Add Edgeinsets
         self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 150, right: 0)
@@ -318,7 +319,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.selectedCoinPriceHistory = PriceModel().parseHistoricalData(json: JSON, ticker: self.renderableCoinsArray[indexPath.row].coinTicker.uppercased(), name: self.renderableCoinsArray[indexPath.row].coinName)
                 
                 //Analytics
-                //AnalyticsManager.sendEvent(event: "tapped coin price", properties: ["coinName": self.renderableCoinsArray[indexPath.row].coinName])
+                AnalyticsManager.sendEvent(event: "tapped coin price", properties: ["coinName": self.renderableCoinsArray[indexPath.row].coinName])
                 
                 //Perform segue
                 tableView.isUserInteractionEnabled = true //enable tableview after async call completes

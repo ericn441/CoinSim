@@ -8,6 +8,8 @@
 
 import UIKit
 import Mixpanel
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         
         //Initalize Mixpanel
-        //Mixpanel.initialize(token: "19a388bff5b9e9ca07c7cd4dc5517980")
+        Mixpanel.initialize(token: "19a388bff5b9e9ca07c7cd4dc5517980")
+        
+        //Initalize Fabric
+        Fabric.with([Crashlytics.self])
+        
+        //Answers Analytics
+        Fabric.with([Answers.self])
         
         //Determine Launch Flow
         if UserDefaults.standard.bool(forKey: "didDoFirstAppOpen") {

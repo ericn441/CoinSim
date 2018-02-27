@@ -265,6 +265,7 @@
 				BBB7893B2006D35F00EA6F54 /* Resources */,
 				B8DF0FE76ADC31D7D676B07A /* [CP] Embed Pods Frameworks */,
 				93B43A9B809FF54FE4CAB6B8 /* [CP] Copy Pods Resources */,
+				BBF012472045596D0054C30C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -449,6 +450,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoinSim/Pods-CoinSim-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		BBF012472045596D0054C30C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 0e9e7904e99580035cde2c576f5766d4128275a5 ff0ebf39314ecd729f7d7ba1b5eaa2ecfa7273bdac23f864354422be5363f0e1";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -648,7 +662,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ericngo.coinsim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -665,7 +679,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ericngo.coinsim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -17,6 +17,7 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
     @IBOutlet weak var coinPrice: UILabel!
     @IBOutlet weak var coinSymbol: UILabel!
     @IBOutlet weak var coinIcon: UIImageView!
+    @IBOutlet weak var usdIcon: UIImageView!
     @IBOutlet weak var usdTextField: MyTextField!
     @IBOutlet weak var coinTextField: MyTextField!
     @IBOutlet weak var actionButton: UIButton!
@@ -53,8 +54,17 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
         coinSymbol.text = wallet.symbol
         
         //Set coin icon
-        coinIcon.contentMode = .scaleAspectFit
-        coinIcon.image = UIImage(named: "\(wallet.id)-icon")
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            coinIcon.isHidden = true
+            usdIcon.isHidden = true
+        } else {
+            usdIcon.isHidden = false
+            coinIcon.isHidden = false
+            coinIcon.contentMode = .scaleAspectFit
+            coinIcon.image = UIImage(named: "\(wallet.id)-icon")
+            
+        }
+        
         
         //Set usd balance
         usdWallet = Wallet.defaultUSDWallet(in: realm)
@@ -115,7 +125,7 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
                     try! self.realm.write {
                         self.realm.create(Wallet.self, value: ["id": self.usdWallet.id, "amountUSD": bankTotalUSD], update: true)
                         self.realm.create(Wallet.self, value: ["id": self.wallet.id, "amount": newBuyTotal, "amountUSD": newBuyUSDTotal], update: true)
-                        //AnalyticsManager.sendEvent(event: "Bought \(self.wallet.id)", properties: ["amount": String(newBuyTotal)])
+                        AnalyticsManager.sendEvent(event: "Bought \(self.wallet.id)", properties: ["amount": String(newBuyTotal)])
                     }
                     
                     //update UI and segue
@@ -172,7 +182,7 @@ class ExchangeViewController: UIViewController, MyTextFieldDelegate {
                     try! self.realm.write {
                         self.realm.create(Wallet.self, value: ["id": self.usdWallet.id, "amountUSD": bankTotalUSD], update: true)
                         self.realm.create(Wallet.self, value: ["id": self.wallet.id, "amount": newSellTotal, "amountUSD": newSellUSDTotal], update: true)
-                        //AnalyticsManager.sendEvent(event: "Sold \(self.wallet.id)", properties: ["amount": String(newSellTotal)])
+                        AnalyticsManager.sendEvent(event: "Sold \(self.wallet.id)", properties: ["amount": String(newSellTotal)])
                     }
                     
                     //update UI and segue
