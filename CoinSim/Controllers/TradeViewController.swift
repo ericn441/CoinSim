@@ -61,7 +61,6 @@ class TradeViewController: UIViewController, ScrollableGraphViewDataSource {
         //Set wallet icon
         coinIcon.contentMode = .scaleAspectFit
         coinIcon.image = UIImage(named:"\(coinData.id)-icon")
-        print(coinData.id)
         
         //Set wallet name
         walletText.setTitle(coinData.name + " Wallet", for: .normal)

@@ -134,7 +134,6 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.compileCoinData()
         }
         DataManager.getBitcoinCashPrice { (JSON) in
-            print(JSON)
             self.coins["bitcoin-cash"] = PriceModel().parseCoinData(json: JSON)
             self.coinsLoaded["bitcoin-cash"] = true
             self.compileCoinData()
@@ -307,7 +306,6 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             DataManager.getHistoricalPrice(renderableCoinsArray[indexPath.row].coinTicker) { (JSON) in
                 
                 //Append selected coin data
-                print(self.renderableCoinsArray[indexPath.row].coinName.lowercased())
                 self.selectedCoinData.id = self.renderableCoinsArray[indexPath.row].coinID
                 self.selectedCoinData.name = self.renderableCoinsArray[indexPath.row].coinName
                 self.selectedCoinData.symbol = self.renderableCoinsArray[indexPath.row].coinTicker

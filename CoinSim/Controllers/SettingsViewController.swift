@@ -15,6 +15,10 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var ethereumButton: UIButton!
     @IBOutlet weak var openSourceButton: UIButton!
     
+    let btcAddress = "1993Dn6LQyjiiSRQCWNgsod8oBXwgjXzQV"
+    let ethAddress = "0xA6C8628B883184C83545D1219516F20781675d3f"
+    var donationType = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -69,19 +73,29 @@ class SettingsViewController: UIViewController {
         openSourceButton.layer.borderWidth = 1
         openSourceButton.layer.borderColor = UIColor.white.cgColor
         
-        
-        
-        
-        
     }
     @IBAction func showNanoDonation(_ sender: UIButton) {
+        //do work in future
     }
     @IBAction func showBitcoinDonation(_ sender: UIButton) {
+        donationType = "btc"
+        self.performSegue(withIdentifier: "donationScreen", sender: nil)
     }
     @IBAction func showEthereumDonation(_ sender: UIButton) {
+        donationType = "eth"
+        self.performSegue(withIdentifier: "donationScreen", sender: nil)
     }
     @IBAction func showOpenSource(_ sender: UIButton) {
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! DonationViewController
+        if donationType == "eth" {
+            destinationVC.depositAddress = ethAddress
+            destinationVC.donationType = "eth"
+        } else if donationType == "btc" {
+            destinationVC.depositAddress = btcAddress
+            destinationVC.donationType = "btc"
+        }
+    }
 }

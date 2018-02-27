@@ -30,6 +30,7 @@
 		BBB789562006D35F00EA6F54 /* CoinSimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789552006D35F00EA6F54 /* CoinSimTests.swift */; };
 		BBB789612006D35F00EA6F54 /* CoinSimUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789602006D35F00EA6F54 /* CoinSimUITests.swift */; };
 		BBB789742006DE4300EA6F54 /* PricesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB789732006DE4300EA6F54 /* PricesViewController.swift */; };
+		BBC2EA54204540EE00DAD95F /* DonationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2EA53204540EE00DAD95F /* DonationViewController.swift */; };
 		BBDBC03E200C56130096B0A7 /* WalletsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBC03D200C56130096B0A7 /* WalletsViewController.swift */; };
 		BBDBC042200C5B3C0096B0A7 /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBC041200C5B3C0096B0A7 /* DataStorage.swift */; };
 		BBFF78842036BCA400B68241 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFF78832036BCA400B68241 /* AnalyticsManager.swift */; };
@@ -85,6 +86,7 @@
 		BBB789602006D35F00EA6F54 /* CoinSimUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinSimUITests.swift; sourceTree = "<group>"; };
 		BBB789622006D35F00EA6F54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBB789732006DE4300EA6F54 /* PricesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesViewController.swift; sourceTree = "<group>"; };
+		BBC2EA53204540EE00DAD95F /* DonationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationViewController.swift; sourceTree = "<group>"; };
 		BBDBC03D200C56130096B0A7 /* WalletsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsViewController.swift; sourceTree = "<group>"; };
 		BBDBC041200C5B3C0096B0A7 /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		BBFF78832036BCA400B68241 /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				BB7B9A622010786400C275E9 /* TransactionsViewController.swift */,
 				BB7B9A602010780300C275E9 /* ExchangeViewController.swift */,
 				BB07A0DD202D0BCB00A10AFC /* SettingsViewController.swift */,
+				BBC2EA53204540EE00DAD95F /* DonationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				BBB789742006DE4300EA6F54 /* PricesViewController.swift in Sources */,
 				BB07A0DE202D0BCB00A10AFC /* SettingsViewController.swift in Sources */,
 				BB513D482006E0CB00F7A1D6 /* DataManager.swift in Sources */,
+				BBC2EA54204540EE00DAD95F /* DonationViewController.swift in Sources */,
 				BBAAA1802041516F004F7896 /* Splash3ViewController.swift in Sources */,
 				BBDBC042200C5B3C0096B0A7 /* DataStorage.swift in Sources */,
 				BBAAA17E20415169004F7896 /* Splash2ViewController.swift in Sources */,
