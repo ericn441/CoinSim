@@ -23,10 +23,7 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
     //MARK: - View Controller Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //KVO
-        
-        
+                
         //Pull to refresh
         self.refreshCtrl = UIRefreshControl()
         self.refreshCtrl.addTarget(self, action: #selector(refreshWalletValues), for: .valueChanged)
@@ -43,7 +40,8 @@ class WalletsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     //MARK: - Helper Functions
-    func loadWallets() {
+    @objc func loadWallets() {
+        print("loadedWallets")
         
         //USD
         Wallet.defaultUSDWallet(in: realm)

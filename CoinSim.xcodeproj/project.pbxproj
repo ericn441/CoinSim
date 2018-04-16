@@ -16,6 +16,7 @@
 		BB3DA42F20415DE5001C489D /* ReferInviteBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3DA42E20415DE5001C489D /* ReferInviteBannerViewController.swift */; };
 		BB513D482006E0CB00F7A1D6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB513D472006E0CB00F7A1D6 /* DataManager.swift */; };
 		BB513D492006E12400F7A1D6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB513D4A2006E12400F7A1D6 /* Alamofire.framework */; };
+		BB7498F120851749005E500D /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7498F020851749005E500D /* TabBarViewController.swift */; };
 		BB7B9A612010780300C275E9 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B9A602010780300C275E9 /* ExchangeViewController.swift */; };
 		BB7B9A632010786400C275E9 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B9A622010786400C275E9 /* TransactionsViewController.swift */; };
 		BBA05B302007DE390021BDA3 /* TradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA05B2F2007DE390021BDA3 /* TradeViewController.swift */; };
@@ -66,6 +67,7 @@
 		BB3DA42E20415DE5001C489D /* ReferInviteBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferInviteBannerViewController.swift; sourceTree = "<group>"; };
 		BB513D472006E0CB00F7A1D6 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		BB513D4A2006E12400F7A1D6 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB7498F020851749005E500D /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		BB7B9A602010780300C275E9 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		BB7B9A622010786400C275E9 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		BBA05B2F2007DE390021BDA3 /* TradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				BBAAA17A20415153004F7896 /* Login */,
+				BB7498F020851749005E500D /* TabBarViewController.swift */,
 				BBB789732006DE4300EA6F54 /* PricesViewController.swift */,
 				BBA05B2F2007DE390021BDA3 /* TradeViewController.swift */,
 				BBDBC03D200C56130096B0A7 /* WalletsViewController.swift */,
@@ -319,7 +322,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Eric Ngo - 1";
 				TargetAttributes = {
 					BBB7893C2006D35F00EA6F54 = {
@@ -475,6 +478,7 @@
 				BB1E4D7F201FD82800F878B9 /* Utilites.swift in Sources */,
 				BBB789742006DE4300EA6F54 /* PricesViewController.swift in Sources */,
 				BB07A0DE202D0BCB00A10AFC /* SettingsViewController.swift in Sources */,
+				BB7498F120851749005E500D /* TabBarViewController.swift in Sources */,
 				BB513D482006E0CB00F7A1D6 /* DataManager.swift in Sources */,
 				BBC2EA54204540EE00DAD95F /* DonationViewController.swift in Sources */,
 				BBAAA1802041516F004F7896 /* Splash3ViewController.swift in Sources */,
@@ -556,6 +560,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -563,6 +568,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -613,6 +619,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -620,6 +627,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

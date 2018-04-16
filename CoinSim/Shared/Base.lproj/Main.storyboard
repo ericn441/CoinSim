@@ -1,27 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jCn-UH-A26">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jCn-UH-A26">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue-Medium</string>
-        </array>
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Light</string>
-            <string>HelveticaNeue-Thin</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Wallets-->
         <scene sceneID="evg-hQ-yJ4">
@@ -641,14 +631,14 @@
         <scene sceneID="4Yv-uX-zHM">
             <objects>
                 <viewController id="EY6-PN-CZo" customClass="TradeViewController" customModule="CoinSim" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zg7-Ye-zmk">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="zg7-Ye-zmk">
                         <rect key="frame" x="0.0" y="0.0" width="368" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdM-HJ-YwU">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fdM-HJ-YwU">
                                 <rect key="frame" x="0.0" y="88" width="368" height="565"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$15,432.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dha-rv-9Ux">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="$15,432.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dha-rv-9Ux">
                                         <rect key="frame" x="16" y="18" width="343" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="5q5-b8-o9D"/>
@@ -657,7 +647,7 @@
                                         <color key="textColor" red="0.23137254900000001" green="0.3294117647" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-$1,873.34 (21.76%) this week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJw-nd-8wz">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="-$1,873.34 (21.76%) this week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJw-nd-8wz">
                                         <rect key="frame" x="16" y="71" width="343" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="uKF-Vk-KNI"/>
@@ -666,19 +656,19 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_____________________________________________________" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pv8-06-5vB">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="_____________________________________________________" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pv8-06-5vB">
                                         <rect key="frame" x="0.0" y="522" width="375" height="20.333333333333371"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="____________________________________________________" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmp-8P-Dgd">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="____________________________________________________" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmp-8P-Dgd">
                                         <rect key="frame" x="0.0" y="589.33333333333337" width="375" height="20.333333333333371"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoin-icon" translatesAutoresizingMaskIntoConstraints="NO" id="dku-MA-mQi">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="bitcoin-icon" translatesAutoresizingMaskIntoConstraints="NO" id="dku-MA-mQi">
                                         <rect key="frame" x="8" y="560.33333333333337" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="1Xi-Q6-qId"/>
@@ -686,7 +676,7 @@
                                             <constraint firstAttribute="width" secondItem="dku-MA-mQi" secondAttribute="height" multiplier="1:1" id="cPx-7f-J4L"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSG-A9-Diw">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSG-A9-Diw">
                                         <rect key="frame" x="41" y="539.33333333333337" width="250" height="68"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="BWo-i8-SsU"/>
@@ -701,7 +691,7 @@
                                             <action selector="tappedWalletText:" destination="EY6-PN-CZo" eventType="touchUpInside" id="4rY-ea-xBO"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9R-tP-Izr">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9R-tP-Izr">
                                         <rect key="frame" x="177" y="539.33333333333337" width="160" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Q9R-tP-Izr" secondAttribute="height" multiplier="23:15" constant="107.86666666666666" id="0HT-N0-KZf"/>
@@ -716,7 +706,7 @@
                                             <action selector="tappedWalletAmountUSD:" destination="EY6-PN-CZo" eventType="touchUpInside" id="NqM-eT-ge0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMZ-QI-K5j">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMZ-QI-K5j">
                                         <rect key="frame" x="337" y="540.33333333333337" width="38" height="68"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="68" id="W43-rH-Xut"/>
@@ -728,7 +718,7 @@
                                             <action selector="tappedArrow:" destination="EY6-PN-CZo" eventType="touchUpInside" id="Mey-Bd-EM0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kE-Rd-qrw">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kE-Rd-qrw">
                                         <rect key="frame" x="177" y="573.33333333333337" width="160" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="H7X-NQ-ktT"/>
@@ -743,17 +733,17 @@
                                             <action selector="tappedWalletAmount:" destination="EY6-PN-CZo" eventType="touchUpInside" id="DuI-Or-eTq"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4uW-ej-77c">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4uW-ej-77c">
                                         <rect key="frame" x="16" y="465" width="342" height="55"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxD-sj-edQ">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxD-sj-edQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="166" height="55"/>
                                                 <state key="normal" image="buy-button"/>
                                                 <connections>
                                                     <action selector="tappedBuy:" destination="EY6-PN-CZo" eventType="touchUpInside" id="rQ6-NB-hjK"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4I-d2-AO4">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4I-d2-AO4">
                                                 <rect key="frame" x="176" y="0.0" width="166" height="55"/>
                                                 <state key="normal" image="sell-button"/>
                                                 <connections>
@@ -836,7 +826,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YcL-OE-mww">
-                                <rect key="frame" x="16" y="297" width="343" height="50"/>
+                                <rect key="frame" x="16" y="346" width="343" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Gwc-yq-GOQ"/>
                                 </constraints>
@@ -849,7 +839,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xib-5g-Udz">
-                                <rect key="frame" x="16" y="355" width="343" height="50"/>
+                                <rect key="frame" x="16" y="404" width="343" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="BXP-kg-GzP"/>
                                 </constraints>
@@ -862,7 +852,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Yg-yg-Scb">
-                                <rect key="frame" x="16" y="413" width="343" height="50"/>
+                                <rect key="frame" x="16" y="462" width="343" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="v3h-kk-SaJ"/>
                                 </constraints>
@@ -875,7 +865,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCF-bA-vBg">
-                                <rect key="frame" x="16" y="471" width="343" height="50"/>
+                                <rect key="frame" x="16" y="520" width="343" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="shM-0P-mWi"/>
                                 </constraints>
@@ -888,7 +878,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5S-7a-RzQ">
-                                <rect key="frame" x="16" y="53" width="343" height="217"/>
+                                <rect key="frame" x="16" y="53" width="343" height="266"/>
                                 <string key="text">Enjoying CoinSim? 
 Buy me a beer! 🍺</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="35"/>
@@ -896,7 +886,7 @@ Buy me a beer! 🍺</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="happy-moon" translatesAutoresizingMaskIntoConstraints="NO" id="6N5-Gk-Crp">
-                                <rect key="frame" x="16" y="548" width="343" height="143"/>
+                                <rect key="frame" x="16" y="597" width="343" height="143"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="6N5-Gk-Crp" secondAttribute="height" multiplier="343:143" id="ub3-Ei-Vpe"/>
                                 </constraints>
@@ -1076,10 +1066,10 @@ Buy me a beer! 🍺</string>
             </objects>
             <point key="canvasLocation" x="1980" y="1846.3268365817094"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="YSf-aS-iKk">
             <objects>
-                <tabBarController storyboardIdentifier="tab" id="6i6-o5-RQD" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tab" id="6i6-o5-RQD" customClass="TabBarViewController" customModule="CoinSim" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="p08-fu-q4i">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1088,7 +1078,6 @@ Buy me a beer! 🍺</string>
                     <connections>
                         <segue destination="hNc-dH-6jV" kind="relationship" relationship="viewControllers" id="hSy-yX-3j2"/>
                         <segue destination="gtO-tx-7qJ" kind="relationship" relationship="viewControllers" id="6S5-HT-RXj"/>
-                        <segue destination="fx2-tF-bkA" kind="relationship" relationship="viewControllers" id="fe1-DN-Wb0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LgB-3Z-wpV" userLabel="First Responder" sceneMemberID="firstResponder"/>

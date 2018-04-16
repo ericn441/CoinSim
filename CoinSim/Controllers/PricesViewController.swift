@@ -19,7 +19,7 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var refreshCtrl: UIRefreshControl!
     var didSelectRow: Bool = false
     let realm = try! Realm()
-    let banner = ReferInviteBanner()
+    //let banner = ReferInviteBanner()
     
     //MARK: - Coin Data
     var coins: [String:CoinObject] = [:]
@@ -46,28 +46,16 @@ class PricesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK: - ViewController Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Check First Onboard Flow
-        if !UserDefaults.standard.bool(forKey: "didDoFirstAppOpen") {
-            try! realm.write {
-                realm.create(Wallet.self, value: ["id": "usd", "amountUSD":10000.0], update: true)
-                UserDefaults.standard.set(true, forKey: "didDoFirstAppOpen")
-                //Mixpanel.mainInstance().identify(distinctId: UUID().uuidString)
-            }
-        } else {
-            AnalyticsManager.sendEvent(event: "Total Wallet Value", properties: ["Total USD Amount":Utils.formatCurrency(value: Utils.calculateTotalWalletValue())])
-
-        }
-        
+                
         //Pull to refresh
         self.refreshCtrl = UIRefreshControl()
         self.refreshCtrl.addTarget(self, action: #selector(fetchAllCoinPrices), for: .valueChanged)
         self.tableView.addSubview(refreshCtrl)
         
         //Show Refer Banner
-        self.addChildViewController(self.banner)
-        self.view.addSubview(self.banner.view)
-        self.didMove(toParentViewController: self)
+        //self.addChildViewController(self.banner)
+        //self.view.addSubview(self.banner.view)
+        //self.didMove(toParentViewController: self)
         
         //Add Edgeinsets
         self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 150, right: 0)
